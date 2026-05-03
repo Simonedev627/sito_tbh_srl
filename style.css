@@ -1,0 +1,6626 @@
+/*Inizio index html*/
+
+/* Navbar principale */
+/* Navbar principale: rettangolo lungo tutto lo schermo */
+/* Navbar principale: altezza adattabile al logo */
+/* Contenitore centrato */
+/* Contenitore centrato */
+/* Contenitore */
+
+.navbar-container {
+    padding: 2vh 0;
+    position: relative;
+    width: 100%;
+}
+
+/* Navbar rettangolo a tutta larghezza */
+/* Contenitore principale della navbar */
+/* Navbar principale */
+/* Navbar principale */
+.navbar {
+  position: relative;
+  background-color: #33333393;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo a sinistra, link a destra */
+  flex-wrap: wrap;
+  padding: 2vh 5vw;
+  border-radius: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  height: 18vh;
+
+  border: 0.25rem solid #00f0ff;
+  box-shadow: 0 0 1rem #00f0ff, 0 0 2rem #00f0ff, 0 0 4rem #00f0ff;
+  animation: electricGlow 1s infinite alternate;
+}
+
+/* Logo fuori dal flusso su desktop */
+.logo-img {
+  position: absolute; /* esce dal flusso e non spinge i link */
+  top: 50%;
+  left: 5vw;
+  transform: translateY(-50%);
+  height: 28vh; /* più grande */
+  width: auto;
+  z-index: 2;
+}
+
+/* Contenitore link */
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* link a destra */
+  flex-wrap: wrap;
+  gap: 2vw;
+  width: 100%;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #FFA500;
+}
+
+/* --- Media query generali --- */
+@media (max-width: 64em) {
+  .navbar {
+    padding: 2vh 4vw;
+    height: 15vh;
+  }
+  .logo-img {
+    height: 19vh;
+    left: -2%;
+  }
+  .nav-links a {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 48em) {
+  .navbar {
+    padding: 2vh 3vw;
+    height: auto;
+  }
+  .logo-img {
+    height: 14vh;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Mobile / dispositivi verticali --- */
+@media (max-width: 30em), (orientation: portrait) {
+  .navbar {
+    flex-direction: column; /* logo sopra i link */
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 3vh 5vw;
+  }
+
+  .logo-img {
+    position: relative; /* logo torna nel flusso */
+    top: 0;
+    transform: none;
+    margin-bottom: 2vh;
+    height: 29vh;
+  }
+
+  .nav-links {
+    flex-direction: column; /* link in colonna */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-links a {
+    margin: 1vh 0;
+    font-size: 1rem;
+  }
+}
+
+/* Effetto bordo elettrico */
+@keyframes electricGlow {
+  0% {
+    box-shadow: 0 0 1rem #00f0ff, 0 0 2rem #00f0ff, 0 0 4rem #00f0ff;
+  }
+  100% {
+    box-shadow: 0 0 2rem #00f0ff, 0 0 4rem #00f0ff, 0 0 6rem #00f0ff;
+  }
+}
+
+
+/*fine nav bar*/
+/*inizio prima section*/
+.prima-sezione {
+  width: 100%;
+  min-height: clamp(60vh, 80vh, 100vh);
+  padding: clamp(1rem, 3vw, 4rem);
+  margin: 0 auto;
+  box-sizing: border-box;
+  
+}
+@media (max-width: 64em) {
+  .prima-sezione {
+    padding: clamp(1rem, 4vw, 3rem);
+    min-height: 80vh;
+  }
+}
+
+@media (max-width: 30em) {
+  .prima-sezione {
+    padding: clamp(0.8rem, 5vw, 2rem);
+    min-height: 90vh;
+  }
+}
+
+@media (orientation: portrait) {
+  .prima-sezione {
+    min-height: 100vh;
+    padding: clamp(1.2rem, 6vw, 3rem);
+  }
+}
+/*fine prima section*/
+/* Titolo */
+.mondo {
+    text-align: center;
+    color: blue;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.5rem, 4vw + 0.5rem, 3rem); /* scala da 1.5rem (min) a 3rem (max) */
+    opacity: 0;
+    transform: translateX(10vw); /* spostamento proporzionale allo schermo */
+    animation: fadeSlideRight 1s forwards ease-out;
+    margin: 0 auto;
+    line-height: 1.2;
+    max-width: 90vw; /* margini fluidi */
+    margin-top: 2vh;
+}
+@media (orientation: portrait) {
+  .mondo {
+    margin-top: 5vh;
+  }
+}
+
+/* Animazione di comparsa */
+@keyframes fadeSlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(10vw);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/*fine titolo*/
+/* Testo introduttivo */
+.introduzione  {
+    position: relative;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: clamp(0.9rem, 2vw + 0.3rem, 1.3rem); /* aumentato e fluido */
+    left: 20%;
+    opacity: 0;
+    transform: translateX(0);
+    animation: fadeSlideLeft 1s forwards ease-out;
+    animation-delay: 0.5s;
+    z-index: 1;
+    pointer-events: none;
+    max-width: 80vw;
+    line-height: 1.9; /* leggermente più spazioso per leggibilità */
+}
+
+
+/* Bold più leggero */
+.introduzione strong {
+    font-weight: 500;
+}
+
+/* Tablet */
+@media (max-width: 64em) { /* ≈1024px */
+    .introduzione p {
+        left: 42%;
+        font-size: clamp(0.7rem, 2vw + 0.2rem, 0.9rem);
+    }
+}
+
+/* Smartphone orizzontale */
+@media (max-width: 30em) { /* ≈480px */
+    .introduzione p {
+        left: 45%;
+        font-size: clamp(0.7rem, 3vw + 0.2rem, 0.85rem);
+    }
+}
+
+/* Dispositivi verticali (portrait) */
+/* Dispositivi verticali (portrait) */
+@media (orientation: portrait) {
+    .introduzione p {
+        left: 53%; /* spostato leggermente più a destra */
+        transform: translateX(-19%); /* mantiene il centraggio visivo */
+        text-align: center;
+        font-size: clamp(0.9rem, 3vw + 0.3rem, 1.3rem);
+        width: 90vw;
+        margin: 0 auto;
+    }
+}
+
+
+/* Animazioni */
+@keyframes fadeSlideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10vw);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeSlideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10vw);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animazione “scarica elettrica” bordo */
+@keyframes electricGlow {
+    0% {
+        box-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    }
+    50% {
+        box-shadow: 0 0 15px #00f0ff, 0 0 25px #00f0ff, 0 0 40px #00f0ff;
+    }
+    100% {
+        box-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    }
+}
+/*fine introduzione*/
+/*immagine globo*/
+.globo {
+    position: relative;
+    top: -2vh; /* posizione in alto regolata in unità relative */
+    border-radius: 2rem;
+    float: left;
+    right: -2vw; /* distanza relativa orizzontale */
+    width: clamp(15rem, 40vw, 37.5rem); /* ridimensionamento fluido */
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInGrow 1s forwards ease-out;
+}
+
+/* Tablet */
+@media (max-width: 64em) { /* ≈1024px */
+    .globo {
+        top: -8vh;
+        width: clamp(12rem, 45vw, 31rem);
+        right: -3vw;
+    }
+}
+
+/* Smartphone orizzontale */
+@media (max-width: 30em) { /* ≈480px */
+    .globo {
+        top: -6vh;
+        width: clamp(10rem, 70vw, 20rem);
+        right: 0;
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+/* Dispositivi verticali (portrait) */
+@media (orientation: portrait) {
+    .globo {
+        top: 2vh; /* spostata un po’ più in basso */
+        width: clamp(12rem, 65vw, 28rem);
+        right: 0;
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+/* Animazione fade in + ingrandimento */
+@keyframes fadeInGrow {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/*fine immagine globo*/
+/* Wrapper per animazioni di entrata */
+/* ===== CONTAINER ===== */
+/* ===== CONTAINER ===== */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  flex-wrap: wrap;
+  padding: clamp(1rem, 3vw, 2rem);
+  opacity: 0;
+  transform: translateY(5vh);
+  animation: fadeSlideIn 1s ease-out forwards;
+}
+
+/* 🔥 Animazione */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ===== BASE BUTTON STYLE ===== */
+.buttons-container a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  border-radius: 0.8rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1.2;
+
+  /* dimensione fluida bottone */
+  min-width: clamp(20vw, 30vw, 45vw);
+
+  max-width: 90vw;
+
+  padding: clamp(0.8rem, 1vw + 0.5rem, 1.2rem) clamp(1.5rem, 2vw + 0.8rem, 2.5rem);
+  /* font-size fluido: basato su viewport & rem per scalare bene */
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+/* ===== PULSANTE “CONTATTACI” (.btn-sipario) ===== */
+.btn-sipario {
+  background-color: #ff7b00; /* arancione iniziale */
+  color: #fff;
+}
+
+.btn-sipario::before,
+.btn-sipario::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #002b80; /* blu scuro */
+  z-index: 1;
+  transition: transform 0.5s ease-in-out;
+}
+
+.btn-sipario::before {
+  left: 0;
+  transform: translateX(-100%);
+  transform-origin: left;
+}
+
+.btn-sipario::after {
+  right: 0;
+  transform: translateX(100%);
+  transform-origin: right;
+}
+
+.btn-sipario:hover {
+  background-color: #002b80;
+}
+
+.btn-sipario:hover::before {
+  transform: translateX(0);
+}
+
+.btn-sipario:hover::after {
+  transform: translateX(0);
+}
+
+.btn-sipario span {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+.btn-sipario:hover span {
+  transform: scale(1.05);
+}
+
+/* ===== PULSANTE “WHATSAPP” (.btn-whatsapp) ===== */
+.btn-whatsapp {
+  background-color: #25D366; /* verde iniziale */
+  color: #fff;
+}
+
+.btn-whatsapp::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #000; /* nero */
+  z-index: 1;
+  transition: width 0.5s ease-in-out;
+  transform-origin: left;
+}
+
+.btn-whatsapp:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-whatsapp:hover::before {
+  width: 100%;
+}
+
+.btn-whatsapp span {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+.btn-whatsapp:hover span {
+  transform: scale(1.05);
+}
+
+/* ===== RIDUZIONE DIMENSIONE IN ORIENTAMENTO VERTICALE (PORTRAIT) ===== */
+@media (orientation: portrait) {
+  .buttons-container {
+    flex-direction: column;
+    gap: clamp(0.8rem, 2vw, 1.2rem);
+    margin-top: 4vh;
+  }
+
+  .buttons-container a {
+    width: 80%;
+    padding: clamp(0.6rem, 1vh + 0.4rem, 1rem) clamp(1.2rem, 3vw, 2rem);
+    font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+    min-width: auto;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeSlideLeft {
+    0% { opacity: 0; transform: translateX(-3rem); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeSlideRight {
+    0% { opacity: 0; transform: translateX(3rem); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+/*fine bottoni contatti e whatsapp (i primi)*/
+/*Fine della prima sezione*/
+/*Inizio seconda sezione (quella con le immagini dei servizi)*/
+/* --- SEZIONE RESPONSIVA --- */
+.seconda-sezione {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; /* per gestire le immagini su più righe se necessario */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* per evitare overflow orizzontale */
+}
+
+.seconda-sezione img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* mantiene il riempimento corretto */
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 1024px) {
+  .seconda-sezione {
+    flex-direction: column;
+  }
+
+  .seconda-sezione img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .seconda-sezione {
+    padding: 0;
+  }
+
+  .seconda-sezione img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .seconda-sezione img {
+    width: 100vw; /* sempre tutta la larghezza dello schermo */
+    height: auto;
+  }
+}
+
+/* Classe animata solo per la linea */
+.linea-fade-up {
+  opacity: 0;
+  animation: fadeInUpLine 0.8s ease-out forwards;
+}
+
+
+
+/* Delay opzionale */
+.fade-up.delay-1 { animation-delay: 0.2s; }
+/*Inizio titolo della seconda sezione*/
+/* --- CONTENITORE CENTRALE --- */
+.hero-titoli {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 3vh 0; /* solo vh: più coerente con altezza schermo */
+}
+
+/* --- Interlinea uniforme per tutti i titoli --- */
+.hero-titoli h1,
+.hero-titoli h2 {
+  line-height: 1.3;
+}
+
+/* --- Spaziatura uniforme tra tutti i titoli --- */
+.hero-titoli > * + * {
+  margin-top: 2.5vh; /* 🔥 stessa distanza per tutti */
+}
+
+/* --- TITOLO 1: più piccolo, arancione --- */
+.Titolo {
+  color: orange;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw + 0.8rem, 1.8rem);
+  text-align: center;
+
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+/* --- TITOLO 2: medio-grande, nero --- */
+.comunicare {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 2vw + 1rem, 2.8rem);
+  text-align: center;
+
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* --- TITOLO 3: più grande, nero --- */
+.frase-impatto {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.6rem, 2.5vw + 1rem, 3.5rem);
+  text-align: center;
+
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+
+/* --- 📱 Ottimizzazione per portrait --- */
+@media (orientation: portrait) {
+  .Titolo {
+    font-size: clamp(0.9rem, 2vw + 0.6rem, 1.4rem);
+  }
+
+  .comunicare {
+    font-size: clamp(1.1rem, 3vw + 0.8rem, 2rem);
+  }
+
+  .frase-impatto {
+    font-size: clamp(1.3rem, 4vw + 1rem, 2.5rem);
+    margin-top: clamp(0.5rem, 2vh, 1rem);
+  }
+}
+
+/* Animazione */
+
+
+/* Contenitore slider */
+/* Slider */
+/* Slider container */
+/* ---------- Wrapper e slider generali ---------- */
+/* ---------- Wrapper e slider generale ---------- */
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.8s ease;
+  opacity: 1; /* default landscape visibile */
+}
+.wrapper3 {
+  opacity: 1;
+}
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.flash-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.65); /* più intenso */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease-in-out; /* effetto più visibile */
+}
+
+.slide.flash .flash-effect {
+  opacity: 1; /* appare solo quando la slide ha classe flash */
+}
+
+
+.btn-gradient {
+  display: inline-block;
+  padding: clamp(1vh, 2vw, 2.5vh) clamp(3vh, 5vw, 5vh); /* altezza e larghezza fluide */
+  font-size: clamp(1.2vh, 2vw, 2vh); /* testo scalabile */
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: clamp(1.5vh, 2vw, 3vh); /* bordi arrotondati fluidi */
+  cursor: pointer;
+  background: linear-gradient(45deg, #000000, #4B0082);
+  transition: all 0.4s ease;
+  width: clamp(15vh, 50%, 100%); /* larghezza fluida ma max 100% */
+  max-width: 100%; /* mai oltre il contenitore */
+  box-sizing: border-box; /* include padding nei calcoli larghezza */
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(45deg, #002b80, #00CED1); /* blu → verde acqua */
+  transform: translateY(-0.2rem); /* leggero sollevamento al hover */
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.8s ease-in-out;
+}
+
+.slide.active {
+  left: 0;
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  filter: brightness(60%);
+}
+
+.content {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  color: white;
+  max-width: 600px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0 1rem;
+}
+
+.arrow.left { left: 1rem; }
+.arrow.right { right: 1rem; }
+
+.arrow:hover { color: #ffb400; }
+/*query per i wrapper */
+@media (orientation: portrait) {
+/* === WRAPPER 2 === */
+.wrapper2 {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease, transform 0.3s ease;
+}
+
+.wrapper2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wrapper2:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* === WRAPPER 3 === */
+.wrapper3 {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease, transform 0.3s ease;
+}
+
+.wrapper3.visible3 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wrapper3:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* === WRAPPER 4 === */
+.wrapper4 {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease, transform 0.3s ease;
+}
+
+.wrapper4.visible4 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wrapper4:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+}
+
+
+/* ---------- Portrait / mobile ---------- */
+/* ---------- Wrapper hover per card portrait ---------- */
+/* ---------- Portrait / mobile ---------- */
+@media (orientation: portrait), (max-width: 480px) {
+.wrapper {
+  left: -2%;
+  height: auto;
+  padding: clamp(0.5rem, 2vw, 1rem); /* padding adattabile */
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 0.8s ease, transform 0.3s ease;
+  width: clamp(85%, 98vw, 105%); /* ancora più lungo ma sempre responsive */
+  box-sizing: border-box; /* include padding nel calcolo della larghezza */
+  
+}
+
+
+
+
+ 
+.wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  .slider {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: auto;
+  }
+
+  .slide {
+    position: relative;
+    left: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .slide.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .slide .content {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    padding: 1rem;
+    color: #000;
+    max-width: 100%;
+  }
+
+  /* Hover sulle singole card */
+ 
+.wrapper:hover {
+  transform: translateY(-0.5vh); /* mantiene translateY iniziale + leggera crescita */
+ /* Ombra più alta e più sfumata */
+
+
+}
+  .arrow { display: none; }
+}
+
+
+
+.linea { 
+  position: relative;
+  top: -1px; 
+  left: 0; 
+  width: 100vw; 
+  height: 2px;
+  background-color: grey; 
+  z-index: 1; 
+}
+
+/* === MOBILE (colonne verticali) === */
+
+/* Sezione TBH Technology */
+.Seconda {
+  background-color: #ccc; /* grigio */
+  padding: 4rem 2rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #111;
+}
+.domande h4 {
+  color: red;
+}
+.domande h2 {
+  color: #002b80;
+}
+.Seconda .tecnologia {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  opacity: 0;               /* inizialmente invisibile */
+  transform: translateX(-5vw); /* parte leggermente a sinistra */
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+/* Classe attiva quando entra in viewport */
+.Seconda .tecnologia.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.Seconda .descrizione {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  max-width: 80vw;           /* sostituito 800px con unità relative */
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+  opacity: 0;                 /* inizialmente invisibile */
+  transform: translateX(5vw); /* parte leggermente a destra */
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+/* Classe attiva per animazione */
+.Seconda .descrizione.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stato iniziale intestazioni */
+.Seconda .domande h3,
+.Seconda .domande h4,
+.Seconda .domande h2 {
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* h3: slide da destra */
+.Seconda .domande h3 {
+  transform: translateX(3rem);
+}
+
+/* h4: solo fade in */
+.Seconda .domande h4 {
+  opacity: 0;
+  transform: translate(-1rem, -2rem); /* parte dall’alto a sinistra */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Classe attiva per fade in obliquo */
+.Seconda .domande h4.show-oblique-top {
+  opacity: 1;
+  transform: translate(0,0);
+}
+
+
+/* h2: slide obliquo dall'alto a destra */
+.Seconda .domande h2 {
+  transform: translate(3rem, -2rem);
+}
+
+/* Classe attiva */
+.Seconda .domande .show-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.Seconda .domande .show-fade {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.Seconda .domande .show-oblique {
+  opacity: 1;
+  transform: translate(0,0);
+}
+
+.Seconda .domande h3,
+.Seconda .domande h4,
+.Seconda .domande h2 {
+  font-weight: 600;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.Seconda .domande .icona,
+.Seconda .domande .seconda-icona {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin: 0.5rem 0 1rem 0;
+}
+
+.Seconda .domande .btn-contatti,
+.Seconda .domande .home {
+  display: inline-block;
+  margin: 0.5rem 1rem;
+  padding: clamp(0.6rem, 1.5vw, 1rem) clamp(1.2rem, 3vw, 2rem);
+  border: none;
+  border-radius: 0.8rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  cursor: pointer;
+  text-decoration: none;
+
+  /* Stato iniziale: semi-invisibile e più piccolo */
+  opacity: 0.2;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.Seconda .domande .btn-contatti {
+  background-color: #e67e22; /* arancione scuro */
+  color: #fff;
+}
+
+.Seconda .domande .home {
+  background-color: #3498db; /* blu iniziale */
+  color: #fff;
+}
+
+/* Classe attiva quando entra nello scroll */
+.Seconda .domande .btn-show {
+  opacity: 1;       /* completamente visibile */
+  transform: scale(1); /* dimensione normale */
+}
+
+/*icone*/
+/* Stato iniziale: semi invisibili e fuori posizione */
+.Seconda .domande .icona {
+  opacity: 0;
+  transform: translateY(-2rem); /* parte dall'alto */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.Seconda .domande .seconda-icona {
+  opacity: 0;
+  transform: translateY(2rem); /* parte dal basso */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Classe attiva: visibile e centrato */
+.Seconda .domande .icon-show-vertical {
+  opacity: 1;
+  transform: translateY(0);
+}
+/*fine icone*/
+
+.Seconda .domande img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-top: 2rem;
+  border-radius: 1rem;
+}
+
+/* Layout responsive */
+@media (max-width: 768px) {
+  .Seconda {
+    padding: 3rem 1rem;
+  }
+  .Seconda .domande h3,
+  .Seconda .domande h4,
+  .Seconda .domande h2 {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+  }
+  .Seconda .domande .btn-contatti,
+  .Seconda .domande .home {
+    margin: 0.5rem 0.5rem;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Pulsante contatti con effetto cerchio */
+.Seconda .domande .btn-contatti {
+  position: relative;
+  display: inline-block;
+  margin: 0.5rem 1rem;
+  padding: clamp(0.6rem, 1.5vw, 1rem) clamp(1.2rem, 3vw, 2rem);
+  background-color: #d35400; /* arancione scuro iniziale */
+  color: #fff;
+  border: none;
+  border-radius: 0.8rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  cursor: pointer;
+  overflow: hidden; /* necessario per il cerchio */
+  transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+/* Cerchio che appare all’hover */
+.Seconda .domande .btn-contatti::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: #27ae60; /* verde */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+  z-index: 0;
+}
+
+/* Testo sopra il cerchio */
+.Seconda .domande .btn-contatti span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+
+/* Hover: cerchio cresce e colore del testo cambia */
+.Seconda .domande .btn-contatti:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+.Seconda .domande .btn-contatti:hover span {
+  color: #fff; /* resta bianco sopra il verde */
+}
+
+/* Facoltativo: leggero zoom del bottone */
+.Seconda .domande .btn-contatti:hover {
+  transform: scale(1.05);
+}
+
+
+/* Pulsante bot */
+.Seconda .domande .home {
+  position: relative;
+  display: inline-block;
+  margin: 0.5rem 1rem;
+  padding: clamp(0.6rem, 1.5vw, 1rem) clamp(1.2rem, 3vw, 2rem);
+  background-color: blue; /* blu iniziale */
+  color: #fff;
+  border: none;
+  border-radius: 0.8rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  z-index: 9;
+}
+
+/* Overlay rosso che appare dal basso */
+.Seconda .domande .home::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -100%; /* parte fuori dal bottone */
+  width: 100%;
+  height: 100%;
+  background-color: black; /* rosso */
+  border-radius: 0.8rem;
+  z-index: 0;
+  transition: bottom 0.4s ease;
+}
+
+/* Testo sopra overlay */
+.Seconda .domande .home span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+
+/* Hover: overlay sale e colore del testo resta leggibile */
+.Seconda .domande .home:hover::before {
+  bottom: 0; /* l’overlay copre il bottone */
+}
+
+.Seconda .domande .home:hover span {
+  color: #fff; /* testo bianco sopra rosso */
+}
+
+/* Hover: leggero zoom del bottone */
+.Seconda .domande .home:hover {
+  transform: scale(1.05);
+}
+
+.immagini-animate {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* immagini più in alto */
+  flex-wrap: wrap;
+  gap: 2vw; /* gap relativo */
+  margin-top: -20vh; /* più naturale rispetto a top negativo */
+  padding: 0 5vw; /* padding laterale */
+}
+
+/* Immagini inizialmente nascoste e fuori posizione */
+.immagini-animate img {
+  width: 18vw;       /* leggermente più piccole */
+  max-width: 22vw;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Slide da sinistra */
+.immagini-animate img.img-left {
+  margin-left: -5vw;      /* spinta verso sinistra più armoniosa */
+  transform: translateX(-5vw); /* animazione slide da sinistra */
+}
+
+/* Slide da destra */
+.immagini-animate img.img-right {
+  margin-right: -5vw;     /* spinta verso destra più armoniosa */
+  transform: translateX(5vw);  /* animazione slide da destra */
+}
+
+/* Classe attiva per animazione */
+.immagini-animate img.show-left,
+.immagini-animate img.show-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Media query per dispositivi verticali (portrait) */
+/* Media query per dispositivi verticali (portrait) */
+/* Media query per dispositivi verticali (portrait) */
+@media (orientation: portrait) {
+  .immagini-animate {
+    margin-top: 5vh; /* sposta le immagini più in basso */
+    gap: 4vw;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .immagini-animate img {
+    width: 50vw;
+    max-width: 60vw;
+    height: auto;
+  }
+
+  /* Immagine sinistra - slide verticale dall'alto */
+  .immagini-animate img.img-left {
+    transform: translateY(-5vh); /* parte dall'alto */
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+  }
+
+  /* Classe attiva quando entra in viewport */
+  .immagini-animate img.show-left {
+    transform: translateY(0); /* posizione finale */
+    opacity: 1;
+  }
+
+  /* Immagine destra - slide verticale dal basso */
+  .immagini-animate img.img-right {
+    transform: translateY(5vh); /* parte dal basso */
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    margin-left: -5vw; /* spostata leggermente verso sinistra */
+  }
+
+  .immagini-animate img.show-right {
+    transform: translateY(0); /* posizione finale */
+    opacity: 1;
+  }
+}
+
+/* Tablet (larghezza tra 768px e 1024px) */
+@media (min-width: 48rem) and (max-width: 64rem) {
+  .Seconda .domande img {
+    max-width: 50vw;   /* leggermente più piccola */
+    margin-top: 2.5vh;
+    border-radius: 1.2rem;
+  }
+}
+
+/* Piccoli desktop (larghezza tra 1025px e 1440px) */
+@media (min-width: 64.0625rem) and (max-width: 90rem) {
+  .Seconda .domande img {
+    max-width: 45vw;
+    margin-top: 3vh;
+    border-radius: 1.5rem;
+  }
+}
+
+/*fine seconda sezione*/
+/*terza sezione*/
+/* Linea separatrice con colore che cambia */
+.linea-separatrice {
+  height: 0.3rem;          /* più sottile */
+  width: 60%;              /* più corta rispetto al 100% */
+  background: linear-gradient(90deg, #ff6a00, #f0f, #0ff, #6f0);
+  background-size: 300% 100%;
+  animation: cambiaColore 5s linear infinite;
+  margin: 5vh auto 4vh auto; /* più in basso, centrata orizzontalmente */
+  border-radius: 1rem;     /* bordi arrotondati */
+}
+
+
+@keyframes cambiaColore {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Contenitore principale della sezione */
+.contenuto-terza {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 5vw;
+  gap: 3vw;
+   font-family: 'Segoe UI', sans-serif;
+}
+
+/* Immagini a sinistra con sovrapposizione */
+.immagini-sovrapposte {
+  position: relative;
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.immagini-sovrapposte img {
+  width: 40vw; /* larghezza relativa */
+  max-width: 300px;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Sovrapposizione */
+.immagine-1 {
+  z-index: 2;
+  position: relative;
+}
+.immagine-2 {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-30%, -50%) scale(0.95);
+}
+
+/* Testi a destra */
+.testi-terza {
+  flex: 1 1 50%;
+}
+
+.titolo-terza-sezione {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  transform: translateX(20%);
+  transition: all 0.8s ease-out;
+}
+
+.motivo {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateX(20%);
+  transition: all 0.8s ease-out;
+  
+}
+
+/* Lista punti */
+.primo-punto, .secondo-punto, .terzo-punto {
+  margin-bottom: 1.5rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  
+  transform: translateX(-5%);
+  transition: all 0.8s ease-out;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Animazioni JS */
+.show {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  transition: all 0.8s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 900px) and (orientation: portrait) {
+  .contenuto-terza {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .immagini-sovrapposte {
+    flex: 1 1 100%;
+    margin-bottom: 2rem;
+  }
+
+  .immagini-sovrapposte img {
+    width: 60vw;
+    max-width: 250px;
+  }
+
+  .immagine-2 {
+    top: 45%;
+    left: 20%;
+    transform: translate(-20%, -45%) scale(0.95);
+  }
+
+  .testi-terza {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .titolo-terza-sezione, .motivo, .primo-punto, .secondo-punto, .terzo-punto {
+    transform: translateY(20%);
+  }
+}
+
+/* Lista punti */
+.terza-sezione ol li {
+  opacity: 0;
+  transform: translateX(0) translateY(0) rotate(0deg);
+  transition: all 0.8s ease-out;
+  margin-bottom: 2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
+}
+
+/* Animazioni diverse */
+.terza-sezione ol li.animate-left {
+  transform: translateX(-5vw);
+}
+
+.terza-sezione ol li.animate-oblique {
+  transform: translateX(5vw) translateY(-3vh) rotate(-5deg);
+}
+
+.terza-sezione ol li.animate-up {
+  transform: translateY(5vh);
+}
+
+/* Classe quando visibile */
+.terza-sezione ol li.show {
+  opacity: 1;
+  transform: translateX(0) translateY(0) rotate(0deg);
+}
+
+
+
+/* Media query per tablet */
+@media (max-width: 1024px) {
+  .immagine-container .immagine-1 {
+    width: 40vw;
+  }
+  .immagine-container .immagine-2 {
+    width: 35vw;
+    top: 4vh;
+    left: -4vw;
+  }
+}
+.separatore {
+  height: 0.3rem;          /* più sottile */
+  width: 60%;              /* più corta rispetto al 100% */
+  background: linear-gradient(90deg, #ff6a00, #f0f, #0ff, #6f0);
+  background-size: 300% 100%;
+  animation: cambiaColore 5s linear infinite;
+  margin: 12vh auto 4vh auto; /* più in basso, centrata orizzontalmente */
+  border-radius: 1rem;     /* bordi arrotondati */
+}
+
+/* Media query per dispositivi piccoli */
+@media (max-width: 768px) {
+  .immagine-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .immagine-container .immagine-1,
+  .immagine-container .immagine-2 {
+    width: 60vw;
+    left: 0;
+    top: 0;
+    margin-bottom: 2vh;
+  }
+}
+
+/* Media query portrait (verticale) */
+/* Media query portrait (verticale) */
+/* Media query portrait (verticale) */
+@media (orientation: portrait) {
+  .immagini-sovrapposte .immagine-1 {
+    width: 30vw;      /* più piccola */
+    left: -8vw;       /* più a sinistra */
+    top: 15vh;        /* più in alto */
+  }
+  .animate-left {
+    margin-top: -3vh;
+    left: -10%;
+  }
+
+  .immagini-sovrapposte .immagine-2 {
+    width: 45vw;      /* leggermente più piccola */
+    top: 9vh;        /* più in basso per separarle */
+    left: 14vw;        /* leggermente spostata a destra */
+  }
+}
+/*fine terza sezione*/
+/*inizio quarta sezione*/
+.quarta-sezione {
+  background: #f5f5f5;
+  padding: 6vh 5vw;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+.titolo-fibra {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 2vh;
+  opacity: 0;
+  transform: translateX(-5vw);
+  transition: all 0.8s ease-out;
+}
+
+.perche-la-fibra-e-veloce {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  max-width: 700px;
+  line-height: 1.6;
+  margin-bottom: 4vh;
+  opacity: 0;
+  transform: translateX(-5vw);
+  transition: all 0.8s ease-out;
+}
+
+/* Contenitore principale */
+.contenuto-quarta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 4vw;
+}
+
+/* Testi a sinistra */
+.testi-quarta {
+  flex: 1 1 45%;
+  opacity: 0;
+  transform: translateX(-5vw);
+  transition: all 0.8s ease-out;
+}
+
+.sottotitolo-fibra {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 600;
+  margin-bottom: 1vh;
+}
+
+.descrizione-fibra {
+  font-size: clamp(1rem, 2.3vw, 1.2rem);
+  line-height: 1.6;
+}
+
+/* Immagini a destra */
+.immagini-fibra {
+  position: relative;
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* immagine principale */
+.img-fibra {
+  width: 15vw; /* immagine base */
+  height: auto;
+  border-radius: 2vw;
+  box-shadow: 0 1vw 2vw rgba(0,0,0,0.25);
+  opacity: 0;
+  
+  transform: scale(0.95);
+  transition: all 0.8s ease-out;
+  position: relative;
+  z-index: 2;
+}
+
+/* immagine sovrapposta */
+.img-2 {
+  position: absolute;
+  top: -10vh;        /* 🔥 più in basso */
+  left: 13vw;       /* leggermente a destra */
+  width: 25vw;      /* 🔥 più grande */
+  border-radius: 2vw;
+  box-shadow: 0 1vw 2vw rgba(0,0,0,0.25);
+  transform: translate(-35%, -40%) scale(1);
+  opacity: 0;
+  transition: all 0.8s ease-out;
+  z-index: 1;
+}
+
+
+/* Sovrapposizione */
+.img-1 {
+  z-index: 2;
+  position: relative;
+  top: -27vh;
+  left: -30%;
+}
+
+
+
+.contenitore {
+  position: relative;
+}
+
+.pulsante-servizi {
+  position: absolute;
+  right: -40vw;
+}
+@media (orientation: portrait) {
+  .pulsante-servizi {
+    right: -1vh;
+    transform: scale(clamp(0.7, 2vw, 1)); /* 🔥 si ridimensiona dinamicamente */
+  }
+}
+
+
+/* Bottoni */
+.container-bottone {
+  margin-top: 5vh;
+  display: flex;
+  gap: 2vw;
+  flex-wrap: wrap;
+  text-align: right;
+}
+
+/* --- Pulsanti generali --- */
+.bottone-di-whatsapp,
+.pulsante-servizi {
+  display: inline-block;
+  padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+  border-radius: 0.8rem;
+  text-decoration: none;
+  color: #fff;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(100px); /* default slide da destra */
+}
+
+/* Slide da sinistra */
+.pulsante-servizi {
+  transform: translateX(-100px);
+  
+}
+
+/* Quando visibile */
+.bottone-di-whatsapp.visible,
+.pulsante-servizi.visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+
+/* Fade-in + slide */
+.bottone-di-whatsapp {
+  animation: fadeInRight 1s ease-out forwards;
+}
+
+.pulsante-servizi {
+  animation: fadeInLeft 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* --- Effetto sipario per .pulsante-servizi --- */
+.pulsante-servizi::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff4500, black);
+  transition: all 0.6s ease;
+  z-index: 0;
+}
+
+.pulsante-servizi:hover::before {
+  left: 0;
+}
+
+.pulsante-servizi {
+  background: linear-gradient(135deg, #3b0068, #0f0f50);
+  z-index: 1;
+  
+}
+
+.pulsante-servizi span {
+  position: relative;
+  z-index: 2;
+}
+
+.bottone-di-whatsapp:hover,
+.pulsante-servizi:hover {
+  transform: scale(1.05);
+}
+
+.bottone-di-whatsapp {
+  display: inline-block;
+  margin: 2vh 2vw;
+  min-width: 20vw;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(
+    to right,
+    #029ddf,
+    #68efaf,
+    #ff01d9,
+    #6702ff,
+    #029ddf
+  );
+  background-size: 400%;
+  border: none;
+  border-radius: 5vw;
+  padding: 1.2vh 2.4vw;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-family: "DINPro-Regular", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  
+}
+
+/* 🔥 Animazione gradiente */
+@keyframes kvAnimate {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+/* Hover: attiva animazione e glow */
+.bottone-di-whatsapp:hover {
+  animation: kvAnimate 8s linear infinite;
+  filter: drop-shadow(0 0 0.5vw #ffffff);
+  transform: scale(1.05);
+}
+
+
+
+.bottone-di-whatsapp.show {
+  animation: fadeInRight 1s ease forwards;
+}
+
+.pulsante-servizi {
+  background-color: #007bff;
+}
+
+
+.pulsante-servizi:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Animazione attiva */
+.show {
+  opacity: 1 !important;
+  transform: translateX(0) scale(1) !important;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .contenuto-quarta {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+}
+@media (orientation: portrait) and (orientation: landscape) {
+  .immagini-fibra {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh; /* le porta visivamente più in basso */
+  }
+
+  .img-1 {
+    
+    position: relative;
+    top: 20vh;          /* 🔥 spinge l’immagine in basso */
+    left: -5vw;         /* leggera spinta a sinistra */
+    border-radius: 3vw;
+  }
+
+  .img-2 {
+    width: 30vw;
+    position: absolute;
+    top: -5vh;          /* 🔥 ancora più in basso per la sovrapposizione */
+    left: 7%;
+    transform: translate(-10%, -20%) scale(1);
+    border-radius: 3vw;
+  }
+}
+/* Tablet orizzontale (≤1200px) */
+@media (max-width: 1200px) {
+  .img-1 {
+    width: 20vw;
+    border-radius: 2.5vw;
+  }
+
+  .img-2 {
+    width: 30vw;
+    top: -8vh;
+    left: 10vw;
+  }
+}
+
+/* Tablet verticale (≤900px) */
+@media (max-width: 900px) {
+  .immagini-fibra {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-1 {
+    width: 28vw;
+    margin-bottom: 4vh;
+    top: -2vh;
+  }
+
+  .img-2 {
+    width: 35vw;
+    top: 10vh;
+    left: 15%;
+    transform: translate(-20%, -40%) scale(1);
+  }
+}
+
+/* Smartphone (≤600px) */
+@media (max-width: 600px) {
+  .img-1 {
+    width: 45vw;
+    border-radius: 4vw;
+    box-shadow: 0 1.5vw 2vw rgba(0,0,0,0.25);
+  }
+
+  .img-2 {
+    width: 55vw;
+    top: 5vh;
+    left: 0;
+    transform: translate(-10%, -30%) scale(1);
+  }
+}
+/*partner*/
+.partner-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: clamp(8vh, 12%, 10vh) 0 clamp(2vh, 4%, 3vh) 0;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.partner-wrapper h2 {
+  text-align: center;
+  color: #002b80;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: clamp(2vh, 3%, 3vh);
+}
+
+/* --- Track che scorre --- */
+.partner-track {
+  display: flex;
+  gap: clamp(2vw, 4%, 3rem);
+  animation: scrollPartners 40s linear infinite;
+  will-change: transform;
+}
+
+/* ✅ Pausa quando ci passi sopra */
+.partner-wrapper:hover .partner-track {
+  animation-play-state: paused;
+}
+
+/* --- Animazione infinita --- */
+@keyframes scrollPartners {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* --- Card singola --- */
+.partner-card {
+  flex: 0 0 auto;
+  width: clamp(80px, 12vw, 150px);
+}
+
+.partner-card img {
+  width: 100%;
+  display: block;
+  border-radius: clamp(0.5rem, 2vw, 1rem);
+  transition: transform 0.3s ease;
+}
+
+/* --- Effetto hover sui loghi --- */
+.partner-card img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/*fine quarta sezione*/
+/*inizio lavora con noi (index.html)*/
+.lavora-con-noi {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.immagine-5g {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* --- Testo sovrapposto --- */
+.overlay-testo {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%) translateY(5vh);
+  text-align: center;
+  color: white;
+  width: 90%;
+  max-width: 800px;
+  font-family: 'Segoe UI', sans-serif;
+
+  opacity: 0;
+  transition: opacity 1.5s ease, transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.overlay-testo.show {
+  opacity: 1;
+  left: 30%;
+  transform: translateX(-50%) translateY(0); /* torna al centro esatto */
+}
+
+.overlay-testo h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: clamp(2rem, 5vh, 3rem);
+  text-shadow: 0 3px 10px rgba(0,0,0,0.5);
+}
+
+.overlay-testo p {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  margin-bottom: clamp(2.5rem, 6vh, 3.5rem);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* --- Bottone con gradient infinito fluido --- */
+.bottone-lavora {
+  display: inline-block;
+  padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1.8rem, 4vw, 2.5rem);
+  border-radius: 3vw;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #fff;
+  background: linear-gradient(
+    270deg,
+    #029ddf,
+    #68efaf,
+    #ff01d9,
+    #6702ff,
+    #ff7300,
+    #ff0101,
+    #029ddf
+  );
+  background-size: 800% 800%;
+  animation: gradientMove 8s linear infinite;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  box-shadow: 0 0.5vw 1vw rgba(0,0,0,0.3);
+}
+
+.bottone-lavora:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 1vw #fff);
+}
+
+
+
+/* 🔥 Gradiente infinito ultra fluido */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 500% 50%;
+  }
+}
+
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .overlay-testo {
+    bottom: 10%;
+  }
+  .overlay-testo h1 {
+    margin-bottom: 1.8rem;
+  }
+}
+@media (orientation: portrait) {
+  .overlay-testo {
+    bottom: 10%;
+  }
+
+  .overlay-testo h1 {
+    position: relative; /* 🔥 ora left funziona */
+    left: -20vw; /* sposta a sinistra in modo fluido */
+    margin-bottom: 3vh;
+    font-size: clamp(1.2rem, 6vw, 2.5rem);
+  }
+  .overlay-testo p {
+       position: relative; /* 🔥 ora left funziona */
+    left: -20vw; /* sposta a sinistra in modo fluido */
+    margin-bottom: 3vh;
+    font-size: clamp(1.2rem, 6vw, 2.5rem);
+  }
+  .bottone-lavora {
+    position: relative;
+    left: -20vw;
+}
+}
+/*fine sezione lavora con noi index*/
+/*inizio rettangolo*/
+.caratteristiche {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 3vw;
+  width: 90%;
+  max-width: 90rem;
+  margin: 8vh auto;
+  padding: 4vw;
+  background: linear-gradient(135deg, #0e0e0e, #1c1c3a);
+  border-radius: 2vw;
+  box-shadow: 0 0.8vw 2vw rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  /* ✨ effetto iniziale invisibile */
+  opacity: 0;
+  transform: translateY(5vh);
+  transition: all 1s ease-out;
+}
+
+/* Quando entra in vista */
+.caratteristiche.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blocco {
+  flex: 1 1 28%;
+  min-width: 22vw;
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  padding: 3vw 2vw;
+  border-radius: 1.5vw;
+  transition: all 0.4s ease;
+  box-shadow: 0 0.5vw 1.5vw rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+.blocco i {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #00c3ff;
+  margin-bottom: 1.5vh;
+  transition: color 0.3s ease;
+}
+
+.blocco h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  margin-bottom: 1vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.blocco p {
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  line-height: 1.5;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Hover effetto arancione */
+.blocco:hover {
+  background: linear-gradient(135deg, #ff8c00, #ff4800);
+  transform: scale(1.05);
+  box-shadow: 0 1vw 2.5vw rgba(255, 128, 0, 0.5);
+}
+
+.blocco:hover i {
+  color: #fff;
+}
+
+/* Query portrait */
+@media (orientation: portrait) {
+  .caratteristiche {
+    flex-direction: column;
+    align-items: center;
+    gap: 4vh;
+    width: 85%;
+    padding: 6vw 4vw;
+  }
+
+  .blocco {
+    width: 90%;
+    min-width: auto;
+    padding: 6vw;
+  }
+}
+
+/*fine rettangolo*/
+/*inizio info-box + footer*/
+/* --- Info Box --- */
+
+
+/* 🔁 Responsive per dispositivi verticali */
+.info-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  width: 90vw;
+  margin: -1vw auto;
+  padding: 3vw;
+  border-radius: 2vw;
+  background: linear-gradient(135deg, #00a86b, #ffb347);
+  box-shadow: 0 0.5vw 1.2vw rgba(0, 0, 0, 0.25);
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+/* Ogni sezione */
+.info-box > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.4rem, 1.5vw, 1rem);
+  flex: 1 1 250px; /* 🔥 più dinamico */
+  min-width: clamp(180px, 40%, 300px);
+  max-width: 100%;
+  flex-wrap: wrap; /* 🔥 permette di andare a capo anche dentro la sezione */
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Icone */
+.info-box i {
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* Testi */
+.info-box h4 {
+  font-size: clamp(0.7rem, 1vw, 1.1rem);
+  margin: 0;
+  line-height: 1.2;
+  word-break: break-word;
+  flex: 1 1 100%;
+}
+
+.info-box p {
+  margin: 0.2rem 0 0 0;
+  font-size: clamp(0.6rem, 0.9vw, 0.95rem);
+  line-height: 1.2;
+  word-break: break-word;
+  flex: 1 1 100%;
+}
+
+/* Logo */
+.logo-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+
+.logo-info img {
+  width: 100%;
+  max-width: 10vw; /* ✅ una sola unità relativa */
+  height: auto;
+  object-fit: contain;
+  border-radius: 1vw;
+  flex-shrink: 1;
+}
+
+/* Dispositivi verticali / schermi stretti */
+@media (orientation: portrait), (max-width: 700px) {
+  .info-box {
+    flex-direction: column;
+    width: 95%;
+    padding: clamp(1rem, 5vw, 2rem);
+  }
+.logo-info img {
+  width: 100%;
+  max-width: 120vw; /* ✅ una sola unità relativa */
+  height: auto;
+  object-fit: contain;
+  border-radius: 1vw;
+  flex-shrink: 1;
+}
+  .info-box > div {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .info-box i {
+    font-size: clamp(1rem, 6vw, 1.5rem);
+  }
+
+  .info-box h4,
+  .info-box p {
+    max-width: 90%;
+    margin: 0 auto;
+    font-size: clamp(0.65rem, 3vw, 1rem);
+  }
+}
+
+/* Transizione fluida */
+.info-box,
+.info-box * {
+  transition: all 0.25s ease-in-out;
+}
+
+/* --- Footer principale --- */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background: #2f2f2f;
+  color: #fff;
+  padding: 5vh 3vw;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-section {
+  flex: 1 1 25vw;
+  min-width: 25vw;
+  margin: 2vh 1vw;
+}
+
+.footer-section h2 {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  margin-bottom: 1vh;
+  color: #fff;
+}
+
+.footer-section p {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.5;
+}
+
+.footer-section a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin: 0.8vh 0;
+  transition: color 0.3s ease;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+}
+
+.footer-section a:hover {
+  color: #00aaff;
+}
+
+/* --- Settima sezione --- */
+.settima-sezione {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
+  padding: 2vh 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* --- Responsive verticale --- */
+@media (orientation: portrait) {
+  .info-box {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 90vw;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    flex: 1 1 100%;
+    min-width: 80vw;
+  }
+}
+/*fine index.html*/
+/*btn torna su (vale per tutte le pagine*/
+#scrollTopBtn {
+  position: fixed;
+  bottom: 4vh;
+  right: 4vw;
+  width: clamp(2.5rem, 6vw, 3.5rem);
+  height: clamp(2.5rem, 6vw, 3.5rem);
+  background: linear-gradient(135deg, red, blue);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 9999;
+}
+
+#scrollTopBtn.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#scrollTopBtn:hover {
+  background: linear-gradient(135deg, darkgreen, black);
+  transform: scale(1.1);
+}
+/*fine btn torna su*/
+/*inizio introduzione servizi.html*/
+/*first section*/
+
+/*fine first section*/
+/*box fibra ottica*/
+/* Container principale */
+.boxs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(18rem, 1fr)); /* sempre due colonne quando lo spazio lo permette */
+  gap: 3vh;                  /* Spaziatura tra i box */
+  padding: 3vh;
+  
+  justify-items: center;
+  align-items: start;
+}
+
+/* Stile generale per tutti i box */
+.boxs > div {
+  /* dimensione più ampia e quadrata: width fluida + aspect-ratio per altezza uguale */
+  width: clamp(20rem, 37vw, 34rem);
+  max-width: 100%;
+  
+  background: linear-gradient(135deg, #2b2b2b, #4b1f6f);
+  border-radius: 2vh;
+  box-shadow: 0 1vh 2vh rgba(0,0,0,0.3);
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2.4vh;
+  overflow: hidden;
+  /* controlla dimensione testo per scalare insieme al box */
+  font-size: clamp(1.05rem, 1.9vw, 1.25rem);
+}
+
+/* Immagini responsive */
+.boxs img {
+  width: 96%;
+  height: auto;
+  max-height: 65%;
+  object-fit: cover;
+  border-radius: 1.5vh;
+  margin-bottom: 1vh;
+  transition: transform 0.3s ease;
+}
+
+/* Assicura che testi comuni all'interno dei box si ridimensionino proporzionalmente */
+.boxs > div h1,
+.boxs > div h2,
+.boxs > div h3,
+.boxs > div p,
+.boxs > div span {
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+}
+
+/* Responsive: su schermi piccoli mostra 1 colonna */
+@media (max-width: 720px), (orientation: portrait) {
+  .boxs {
+    grid-template-columns: 1fr;
+    gap: 2.5vh;
+    padding: 2.5vh;
+  }
+
+  .boxs > div {
+    width: calc(100% - 4vh);
+    max-width: 100%;
+    aspect-ratio: auto; /* lasciare l'altezza fluida sui dispositivi stretti */
+    min-height: auto;
+    padding: 2vh;
+    box-sizing: border-box;
+    font-size: clamp(0.95rem, 4.2vw, 1.05rem);
+    overflow: visible;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .boxs img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: cover;
+    margin-bottom: 1vh;
+  }
+
+  .boxs > div h1,
+  .boxs > div h2,
+  .boxs > div h3,
+  .boxs > div p,
+  .boxs > div span {
+    font-size: clamp(0.95rem, 4.5vw, 1.1rem);
+    line-height: 1.3;
+  }
+}
+
+/* Schermi normali: rendi i box un po' più piccoli e tutti quadrati uguali */
+
+/* Titoli e testi */
+.boxs h1 {
+  font-size: clamp(2.4vh, 3.6vw, 3.4vh);
+  margin-bottom: 1vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.boxs p {
+  font-size: clamp(1.7vh, 2.9vw, 2.3vh);
+  line-height: 1.5;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+/* Hover su box */
+.boxs > div:hover {
+    transform: translateY(-1vh);
+    box-shadow: 0 2vh 4vh rgba(0,0,0,0.5);
+    background: linear-gradient(135deg, #3b3b3b, #6f33b8);
+}
+
+.boxs > div:hover img {
+    transform: scale(1.05);
+}
+.fibra-ottica-box {
+  min-width: 30vw;
+  aspect-ratio: unset;
+  min-height: clamp(40rem, 50vw, 42rem); /* altezza minima, NON fissa */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+
+
+.btn-introduzione {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, #4b6cb7, #8e44ad);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 0.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    max-width: 100%;
+    margin-top: auto; /* spinge il pulsante in basso */
+}
+
+
+.btn-introduzione:hover {
+    transform: scale(1.05); /* ingrandisce leggermente */
+    box-shadow: 0 6px 10px rgba(0,0,0,0.25);
+}
+
+/* Stati iniziali dei box per l'animazione */
+/* Stati iniziali dei box per l'animazione */
+/* Stati iniziali dei box per l'animazione */
+/* Stati iniziali dei box per l'animazione */
+.fibra-ottica-box,
+.ftt-cab-box,
+.impianti-elettrici-civili-box,
+.impianti-elettrici-industriali {
+    opacity: 0;
+    transform: translate(0, 0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Traslazioni iniziali diverse per ogni box */
+.fibra-ottica-box { transform: translateX(-10vh); }        /* sinistra -> destra */
+.ftt-cab-box { transform: translateY(-10vh); }             /* alto -> basso */
+.impianti-elettrici-civili-box { transform: translateX(10vh); } /* destra -> sinistra */
+.impianti-elettrici-industriali { transform: translateY(10vh); } /* basso -> alto */
+
+/* Classe attiva quando entra nella viewport */
+.show {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Override specifico per rendere `.fibra-ottica-box` più lungo senza usare aspect-ratio */
+
+
+/* Media query per schermi molto stretti */
+@media (max-width: 50vh) {
+    .boxs {
+        flex-direction: column;
+        gap: 2vh;
+        padding: 2vh;
+    }
+
+    .boxs > div {
+        width: 90%;
+        min-height: auto;
+    }
+}
+
+/*fine box fibra ottica*/
+/*fine introduzione servizi*/
+/*inizio servizi fibra ottica*/
+/*prima sezione*/
+.prima-classe-fibra-ottica {
+  width: 100vw;          /* si adatta alla larghezza della viewport */
+  min-height: auto;      /* altezza in base al contenuto */
+  padding: 5vh 5vw;      /* padding relativo (fluidità) */
+  margin: 0 auto;        /* centrata orizzontalmente */
+  box-sizing: border-box;/* padding incluso nel calcolo della larghezza */
+  position: relative;    /* utile per futuri posizionamenti */
+  overflow: visible;     /* mostra tutto il contenuto interno */
+  background: none;      /* nessun colore o grafica visibile */
+  border: none;          /* nessun bordo */
+}
+.pulsante-chat {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #25D366;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  padding: clamp(0.8rem, 1.5vw, 1rem) clamp(1.2rem, 3vw, 1.5rem);
+  border-radius: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 128, 0, 0.3);
+  text-align: center;
+  float: right;
+  margin: 1rem; /* spazio dai bordi */
+  z-index: 5;
+}
+
+.pulsante-chat:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 128, 0, 0.5);
+}
+
+
+.pulsante-chat span {
+  display: inline-block;
+}
+.del-pulsante {
+  opacity: 0;               /* invisibile inizialmente */
+  transform: translateY(20px); /* leggero spostamento verso il basso */
+  transition: all 0.8s ease;  /* transizione fluida */
+}
+
+.del-pulsante.visible {
+  opacity: 1;
+  transform: translateY(0);  /* torna alla posizione originale */
+}
+
+@media (orientation: portrait) {
+  .pulsante-chat {
+    position: relative;
+    top: 8vh;
+    left: -22%;
+  }
+}
+/*fine prima sezione*/
+.prima-img-fibra {
+  width: 50%;          
+  height: auto;        
+  max-width: 100%;     
+  display: block;      
+  object-fit: cover;   
+  border-radius: 18px;
+
+  /* Animazione */
+  opacity: 0;                  /* inizia invisibile */
+  transform: translateX(50px); /* parte spostata a destra */
+  animation: fadeSlideIn 1.2s ease forwards; /* chiama l'animazione */
+  animation-delay: 0.1s;       /* opzionale: leggero ritardo */
+}
+
+/* Definizione animazione */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+ 
+@media (orientation: portrait) {
+  .prima-img-fibra {
+    
+    width: 60%;
+    
+  }
+}
+.rectangle-contatti {
+    position: relative;
+    width: 80vw;
+    min-height: 50vh;
+    margin: 10vh auto;
+    padding: clamp(2vh, 4vw, 5vh);
+    border-radius: 2vh;
+    background: linear-gradient(135deg, #013220, #ff6600, #000, #5a0000);
+    background-size: 300% 300%;
+    animation: gradientShift 10s ease infinite;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: clamp(2vh, 3vw, 4vh);
+    box-sizing: border-box;
+    box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    z-index: 1;
+
+    /* Stati iniziali per animazione scroll */
+    opacity: 0;
+    transform: translateY(-40px); /* dall’alto verso il basso */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Classe visibile quando entra in viewport */
+.rectangle-contatti.visibile {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (orientation: portrait) {
+  .rectangle-contatti {
+    left: -15%;
+  }
+}
+/* animazione gradiente */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* contenitore interno */
+.variabile-contatti {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: clamp(2vh, 3vw, 4vh);
+    box-sizing: border-box;
+}
+
+/* ovali */
+.ovale-oggetto {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(1.5vh, 2vw, 3vh);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5vh;
+    padding: clamp(2vh, 3vw, 3vh) clamp(3vh, 5vw, 4vh);
+    color: #fff;
+    width: 90%;
+    max-width: 700px;
+    text-align: left;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.ovale-oggetto:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.ovale-oggetto i {
+    font-size: clamp(2.5vh, 5vw, 4vh);
+    flex-shrink: 0;
+}
+
+.ovale-oggetto p {
+    font-size: clamp(1.8vh, 3vw, 2.2vh);
+    line-height: 1.4em;
+    margin: 0;
+}
+
+.ovale-oggetto a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.ovale-oggetto a:hover {
+    text-decoration: underline;
+}
+
+/* modalità portrait */
+@media (orientation: portrait) {
+  .del-pulsante {
+    position: relative;
+    z-index: 555;
+    right: -9%;
+  }
+    .rectangle-contatti {
+        width: 90vw;
+        min-height: 55vh;
+        margin: 15vh auto;
+        padding: clamp(3vh, 6vw, 5vh);
+    }
+
+    .ovale-oggetto {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}
+/*rettangolo affianco all'immagine*/
+.rettangolo {
+  display: flex;
+  flex-direction: column;        
+  align-items: center;           
+  gap: 1rem;                     /* leggermente meno spazio tra gli ovali */
+  padding: 1.5rem;               /* padding ridotto */
+  background: linear-gradient(135deg, #1a1a72, #4b0073); 
+  border-radius: 0.8rem;         /* leggermente più piccolo */
+  box-sizing: border-box;
+  width: 80%;                     /* più stretto */
+  max-width: 20rem;               /* max-width ridotto */
+  position: absolute;
+  top: 1rem;                     
+  right: 2rem;                   
+}
+
+/* Stile ovali */
+.ovale {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(0.3rem, 1vw, 0.6rem) clamp(0.8rem, 2vw, 1.5rem); /* padding ridotto */
+  border-radius: 40px;           /* leggermente più piccolo */
+  background-color: #2c2c54;     
+  transition: transform 0.3s ease, background-color 0.3s ease; 
+  cursor: pointer;
+  width: 70%;                     /* più stretto */
+  text-align: center;
+  overflow: hidden;               /* evita overflow verticale */
+}
+
+
+/* Link dentro gli ovali */
+.ovale a {
+  text-decoration: none;
+  color: #ffffff;                 
+  font-weight: 600;
+  font-size: clamp(0.6rem, 2.3vw, 1.3rem); /* font fluido */
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+/* Hover: ingrandisce e cambia colore */
+.ovale:hover {
+  transform: scale(1.1);         
+  background-color: #ff0000;     
+}
+
+
+
+@media (orientation: portrait) {
+
+  .rettangolo {
+    position: relative;
+    top: 5vh;
+    padding: 1.5rem;
+    right: 5%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+/*inizo descrizione*/
+/* Stile base e ridimensionamento */
+/* Stile base e ridimensionamento globale */
+/* Contenitore principale */
+.descrizione {
+    width: 80vw; /* larghezza fluida */
+    padding: 2vh 2vw;
+    
+    
+    opacity: 0;
+    transform: translateY(5vh);
+    transition: all 1s ease;
+    font-family: 'Segoe UI', sans-serif;
+    
+}
+
+/* Testi fluidi solo con vh */
+.descrizione h1 {
+    font-size: clamp(2vh, 3vh, 4vh);
+    color: red;
+}
+
+.descrizione h3 {
+    font-size: clamp(1.5vh, 2.5vh, 3vh);
+}
+
+.descrizione p,
+.descrizione li {
+    font-size: clamp(1vh, 2.5vh, 3vh);
+    line-height: 1.5em;
+}
+
+/* Allineamento normale */
+
+/* Fade-in attivo */
+.descrizione.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.descrizione strong {
+  font-weight: normal;
+}
+/*seconda descrizione*/
+.seconda-descrizione {
+    width: 80vw; /* larghezza fluida */
+    padding: 2vh 2vw;
+    opacity: 0;
+    transform: translateX(5vh);
+    transition: all 1s ease;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Titoli fluidi */
+.seconda-descrizione h1 {
+    font-size: clamp(2vh, 3vh, 4vh);
+    color: red;
+}
+
+.seconda-descrizione h3 {
+    font-size: clamp(1.5vh, 2.5vh, 3vh);
+}
+
+/* Paragrafi e liste */
+.seconda-descrizione p,
+.seconda-descrizione li {
+    font-size: clamp(1vh, 2.5vh, 3vh);
+    line-height: 1.5em;
+}
+
+/* Grassetto normale */
+.seconda-descrizione strong {
+    font-weight: normal;
+}
+
+/* Fade-in attivo */
+.seconda-descrizione.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* Responsive verticale: testo centrato */
+@media (orientation: portrait) {
+  .contenitore-principale {
+    position: relative; /* per posizionamenti assoluti dei figli */
+    
+    width: 100%;            /* occupa tutta la larghezza disponibile */
+    max-width: 1200px;      /* opzionale: limita su schermi molto grandi */
+    margin: 0 auto;         /* centra il contenitore su desktop */
+    margin-top: 14vh;
+    padding: clamp(2vh, 3vw, 5vh) clamp(2vw, 5%, 8vw); /* padding fluido */
+    box-sizing: border-box; /* include padding nella larghezza totale */
+}
+
+}
+
+
+/* Stato iniziale invisibile */
+
+/* Rettangolo informazioni */
+.contenitore-principale {
+    position: relative; /* contenitore relativo per il rettangolo assoluto */
+}
+
+/* Rettangolo assoluto, non occupa layout */
+
+
+/*img sotto questo rettangolo*/
+.fibra-colorata {
+    width: 100vw;              
+    display: flex;
+    justify-content: center;    
+    align-items: center;        
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.fibra-colorata img {
+    width: clamp(20vw, 40vw, 50vw);   /* dimensione immagine */
+    height: auto;                     
+    display: block;
+    object-fit: contain;              
+    border-radius: 2vh;               /* bordi arrotondati */
+
+    opacity: 0;                       /* invisibile inizialmente */
+    transform: translateX(10vw);      /* spostata a destra inizialmente */
+    transition: all 1s ease;          /* animazione fluida */
+}
+
+/* Classe da aggiungere con JS quando entra nella viewport */
+.fibra-colorata.visible img {
+    opacity: 1;
+    transform: translateX(0);         /* posizione finale */
+}
+
+/* Mobile portrait */
+@media (orientation: portrait) {
+    .fibra-colorata img {
+        width: clamp(35vw, 60vw, 70vw);
+        border-radius: 2.5vh;
+    }
+}
+/*titolo del simulatore*/
+.titolo-del-simulatore {
+  font-size: clamp(1rem, 3vw, 2rem);
+  text-align: center;
+  color: red; /* puoi cambiare colore */
+  margin: 0;
+  padding: 1vh 2vw;
+  font-family: 'Montserrat', sans-serif;
+
+  /* stato iniziale per l'animazione */
+  opacity: 0;
+  transform: translateY(-30px); /* parte dall'alto */
+  transition: all 0.6s ease-out;
+}
+
+@media (orientation: portrait) {
+  .titolo-del-simulatore {
+    position: relative;
+    left: -5%;
+  }
+}
+
+.vantaggi-fibra {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: clamp(2vh, 3vw, 4vh);
+  flex-wrap: wrap;
+}
+
+.vantaggio9 {
+  flex: 1 1 30%;
+  background: rgba(255,255,255,0.03);
+  border-radius: 1rem;
+  padding: 2vh 2vw;
+  text-align: center;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: 
+    opacity 0.6s ease-out, 
+    transform 0.6s ease-out,
+    box-shadow 0.4s ease,
+    background 0.4s ease; /* include anche hover */
+}
+
+.vantaggio9.visibile {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.vantaggio9:hover {
+  transform: translateY(-45px);
+  box-shadow: 0 1vh 2vh rgba(0,212,255,0.2);
+  background: rgba(0,212,255,0.05);
+}
+
+
+
+.vantaggio9 i {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--accent);
+  margin-bottom: 1vh;
+}
+
+.vantaggio9 h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: black;
+  margin-bottom: 0.5vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.vantaggio9 p {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: #9aa4b2;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Hover effect */
+
+/*fine fibra ottica*/
+/*inizio ftt cab*/
+/*prima sezione ftt cab*/
+.prima-sezione-ftt-cab {
+    width: 90vw;              /* larghezza fluida rispetto alla viewport */
+    max-width: 95vw;           /* larghezza massima relativa */
+    min-width: 70vw;           /* larghezza minima relativa */
+    height: auto;              /* altezza fluida in base al contenuto */
+    min-height: 50vh;          /* altezza minima relativa alla viewport */
+    padding: 2vh 3vw;          /* padding fluido verticale e orizzontale */
+    margin: 0 auto;            /* centra il contenitore */
+    box-sizing: border-box;    /* include padding nella larghezza */
+}
+/*portale*/
+.portale {
+  display: flex;
+  flex-direction: column;        
+  align-items: flex-start;          /* cerchi allineati a sinistra */
+  gap: clamp(0.8rem, 2vw, 1rem);   /* spazio fluido tra i cerchi */
+  padding: clamp(1rem, 2vw, 1.5rem); 
+  background: linear-gradient(135deg, #1a1a72, #4b0073); 
+  border-radius: 0.8rem;         
+  box-sizing: border-box;
+  width: clamp(55%, 65%, 70%);      /* più stretto e fluido */
+  max-width: 20rem;                
+  margin: 2rem 0 2rem 1vw;          /* più a sinistra */
+  position: relative;               
+  overflow: hidden;                 /* i cerchi non escano dal contenitore */
+}
+
+/* Stile ovali */
+.cerchio-schiacciato {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(0.3rem, 1vw, 0.6rem) clamp(0.8rem, 2vw, 1.5rem); 
+  border-radius: 40px;           
+  background-color: #2c2c54;     
+  transition: transform 0.3s ease, background-color 0.3s ease; 
+  cursor: pointer;
+  width: 100%;                    /* occupa tutta la larghezza del contenitore */
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;               /* evita overflow */
+}
+
+/* Link dentro gli ovali */
+.cerchio-schiacciato a {
+  text-decoration: none;
+  color: #ffffff;                 
+  font-weight: 600;
+  font-size: clamp(0.6rem, 2.3vw, 1.3rem); 
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+/* Hover: ingrandisce e cambia colore */
+.cerchio-schiacciato:hover {
+  transform: scale(1.05);          /* scala leggermente per non uscire dal portale */
+  background-color: #00ff66;       /* ombra/hover verde più armoniosa */
+}
+
+@media (orientation: portrait) {
+  .portale {
+    top: 4vh;
+    
+  }
+}
+/*img ftt-cab*/
+.img-ftt-cab {
+  width: clamp(50%, 60%, 100%);  /* si ridimensiona in base allo schermo */
+  max-width: 35%;               /* mai più grande del contenitore */
+  height: auto;                  /* mantiene le proporzioni */
+  display: block;
+  float: right;                  /* allineata a destra */
+  opacity: 0;                     /* inizialmente invisibile */
+  animation: fadeIn 1s ease forwards;  /* animazione fade-in */
+  margin-left: 2vw;               /* spazio a sinistra per non toccare il testo */
+  border-radius: 18px;
+}
+
+/* Animazione fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(5vw);  /* leggero spostamento da destra verso sinistra */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/*fine portale*/
+/*frase impatti in lingua*/
+.che-cos-ftt {
+    width: 90vw;               /* larghezza fluida */
+    max-width: 95vw;           /* massima larghezza relativa */
+    min-width: 70vw;           /* larghezza minima relativa */
+    padding: 3vh 5vw;          /* padding fluido verticale e orizzontale */
+    margin: 0 auto;            /* centra il contenitore */
+    box-sizing: border-box;    /* include padding nella larghezza */
+    text-align: center;        /* centra i testi */
+                   /* inizialmente invisibile per animazione */
+    transform: translateY(5vh); /* spostamento iniziale verso il basso */
+    transition: all 1s ease;  /* transizione fluida */
+}
+
+/* Fade-in attivo */
+.che-cos-ftt.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Titolo principale */
+.che-cos-ftt h1 {
+  position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 2vw, 3rem); /* scala in base alla viewport */
+    margin-bottom: 4vh;
+    top: -4vh;
+    line-height: 1.2em;
+    color: #002b80;
+}
+
+/* Sottotitolo / descrizione */
+.che-cos-ftt h3 {
+  position: relative;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 2rem); /* scala in base alla viewport */
+    line-height: 1.5em;
+    right: -0%;
+    font-weight: normal;
+}
+
+.che-cos-ftt p {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);  /* testo scalabile su tutti gli schermi */
+  margin-bottom: 1.5vh;
+}
+/* Stato iniziale */
+/* --- H1: fade + slide-up --- */
+.che-cos-ftt h1 {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.che-cos-ftt h1.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- H3: fade + slide-left --- */
+.che-cos-ftt h3 {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.che-cos-ftt h3.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* --- P: fade + slide-right --- */
+.che-cos-ftt p {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.che-cos-ftt p.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.che-cos-ftt strong {
+  font-weight: normal;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.divisorio {
+  border: none;                 /* rimuove il bordo di default */
+  height: 1px;                  /* altezza della linea */
+  background-color: #ccc;       /* colore grigio */
+  width: 100%;                  /* occupa tutta la larghezza del contenitore */
+  margin-top: 5vh;              /* spazio sopra la linea */
+  margin-bottom: 5vh;           /* spazio sotto la linea */
+}
+/*come funziona ftt cab*/
+.come-funziona-ftt {
+  width: clamp(70%, 85%, 95vw);      /* contenitore fluido */
+  padding: clamp(1.5vh, 2vw, 3vh);   /* padding fluido */
+  margin: 2vh 0 2vh -5vw;             /* spostato a sinistra */
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+}
+
+
+/* Titolo */
+/* H3 slide da destra */
+.come-funziona-ftt h3 {
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  margin-bottom: 2vh;
+
+  opacity: 0;
+  transform: translateX(40px); /* parte leggermente a destra */
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.come-funziona-ftt h3.visible {
+  opacity: 1;
+  transform: translateX(0); /* posizione finale */
+}
+
+
+/* Lista ordinata */
+.come-funziona-ftt ol {
+  padding-left: clamp(2rem, 4vw, 3rem);   /* rientro fluido */
+  margin-bottom: 2vh;
+}
+
+/* Elementi della lista */
+.come-funziona-ftt li {
+  font-size: clamp(1rem, 2vw, 1.3rem);    /* testo scalabile */
+  margin-bottom: 1.5vh;
+}
+
+/* Grassetto */
+.come-funziona-ftt strong {
+  font-weight: 600;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+}
+
+
+/* Stato iniziale animazioni */
+.anim-punto {
+  opacity: 0;
+  transform: translate(0, 0);
+  transition: all 0.8s ease;
+}
+
+/* Direzioni */
+.destra {
+  transform: translateX(5vw);  /* slide da destra */
+}
+
+.diagonale {
+  transform: translate(5vw, 5vh);  /* slide diagonale */
+}
+
+.sinistra {
+  transform: translateX(-5vw); /* slide da sinistra */
+}
+
+.basso {
+  transform: translateY(5vh);  /* slide dal basso verso l'alto */
+}
+.alto {
+  transform: translateY(-5vh);
+}
+/* Quando entra nella viewport */
+.anim-punto.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+/*img ftt cab tbh*/
+/* Contenitore immagini */
+.immagini {
+  display: flex;
+  flex-direction: column; /* immagini una sotto l'altra */
+  align-items: flex-end; /* allinea tutto a sinistra */
+  gap: 2vh; /* spazio tra le immagini */
+  padding-left: 2vw; /* un po’ di spazio dal bordo sinistro */
+  box-sizing: border-box;
+}
+
+/* Immagini generali */
+.immagini img {
+  width: clamp(15%, 25%, 30vw); /* larghezza fluida */
+  height: auto;
+  border-radius: 18px;
+  display: block;
+}
+
+/* Animazione per la giuntatrice */
+.giuntatrice {
+  position: relative;
+  top: -20vh;
+  opacity: 0;
+  left: -19%;
+  transform: translateX(-5vw); /* parte leggermente a sinistra */
+  transition: opacity 1s ease, transform 1s ease, top 1s ease;
+}
+
+.giuntatrice.visible {
+  opacity: 1;
+  transform: translateX(0); /* posizione finale */
+}
+
+/* Animazione per la prima immagine (ftt-cab) se vuoi fade-in slide-up */
+.img-ftt {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.img-ftt.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive: riduci larghezza su mobile */
+@media (max-width: 768px) {
+  .immagini img {
+    width: 80%; /* immagini più grandi e scalabili */
+  }
+  .immagini {
+    padding-left: 5vw; /* un po’ più di margine su mobile */
+  }
+}
+
+/* Per schermi stretti */
+@media (max-width: 768px) {
+  .img-ftt {
+    width: clamp(40vw, 35vh, 60vw); /* più grande in verticale */
+    margin-left: auto;
+    margin-right: auto;             /* centra l’immagine */
+    display: block;
+  }
+}
+
+
+
+@media (orientation: portrait) {
+  .img-ftt {
+    top: 3vh;
+    left: 9%;
+  }
+}
+/*link contatti*/
+/* CSS */
+/* Stile base del pulsante */
+
+.colorful-button {
+  --initial-gradient: linear-gradient(135deg, #6a00f4 0%, #0070f3 100%);
+  --final-gradient: linear-gradient(135deg, #00c853 0%, #ff8f00 100%);
+  
+  position: relative;
+  top: -20vw; /* sposta il pulsante verso l’alto di 20px */
+  display: inline-block;
+  padding: 0.8em 1.5em;
+  border-radius: 50px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  background: var(--initial-gradient);
+  overflow: hidden;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  box-shadow: 0 0.5em 1.5em rgba(0,0,0,0.15);
+  text-align: center;
+  max-width: 90%;
+}
+
+/* Sipario */
+.colorful-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--final-gradient);
+  transform: translateX(-100%);
+  transition: transform 600ms ease;
+  z-index: 1;
+}
+
+.colorful-button span {
+  position: relative;
+  z-index: 2;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.colorful-button:hover::after,
+.colorful-button:focus-visible::after {
+  transform: translateX(0);
+}
+
+/* --- Animazione scroll --- */
+.scroll-animate {
+  opacity: 0;
+  transform: translateX(50px); /* parte spostato a destra */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateX(0); /* torna in posizione */
+}
+
+/* Media query per schermi molto piccoli */
+@media (orientation: portrait) {
+  .colorful-button {
+    padding: 0.7em 1.2em;
+    font-size: clamp(0.8rem, 4vw, 1rem);
+    border-radius: 40px;
+    top: 2vh;
+  }
+}
+
+
+.linea {
+  border: none;                 /* rimuove il bordo di default */
+  height: 1px;                  /* altezza della linea */
+  background-color: #ccc;       /* colore grigio */
+  width: 100%;                  /* occupa tutta la larghezza del contenitore */
+  margin-top: 31vh;              /* spazio sopra la linea */
+  margin-bottom: 5vh;           /* spazio sotto la linea */
+}
+/*cosa possiamo fare*/
+.cosa-possiamo-fare {
+    width: min(90%, 900px);
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.cosa-possiamo-fare h3 {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    text-align: center;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+    line-height: 1.2;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cosa-possiamo-fare p {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    line-height: 1.5;
+      text-align: justify;      /* giustifica tutto il testo */
+    text-align-last: center;  /* ultima riga centrata */
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+    font-family: 'Segoe UI', sans-serif;
+}
+/* --- H3: fade + slide-up --- */
+.cosa-possiamo-fare h3 {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.cosa-possiamo-fare h3.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- P: fade + slide-right --- */
+.cosa-possiamo-fare p {
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.cosa-possiamo-fare p.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cosa-possiamo-fare ol {
+    padding-left: clamp(1rem, 4vw, 2rem);
+    margin: 0;
+}
+
+.cosa-possiamo-fare li {
+    font-size: clamp(1rem, 2.6vw, 1.25rem);
+    line-height: 1.55;
+    margin-bottom: clamp(0.7rem, 2vw, 1.2rem);
+    font-family: 'Segoe UI', sans-serif;
+}
+/*img mondo connesso*/
+.img-italia {
+    display: block;
+    width: clamp(25vw, 30vh, 40vw); /* scala tra 25vw e 40vw, minima 30vh */
+    height: auto;                    /* mantiene proporzioni */
+    margin-left: auto;               /* spinge a destra */
+    margin-right: 2vw;               /* distanza dal bordo destro */
+    margin-top: 12vh;                /* distanza dal bordo superiore */
+    border-radius: 18px;
+    
+    opacity: 0;                     /* invisibile inizialmente */
+    transform: translateY(5vh);      /* leggero spostamento iniziale */
+    transition: opacity 1s ease, transform 1s ease; /* animazione fluida */
+}
+
+.img-italia.visible {
+    opacity: 1;
+    transform: translateY(0);        /* posizione finale */
+}
+
+/* Per schermi verticali o stretti */
+@media (max-width: 768px) {
+    .img-italia {
+        width: clamp(40vw, 35vh, 60vw); /* più grande in verticale */
+        margin-left: auto;
+        margin-right: auto;             /* centra l’immagine */
+        margin-top: 5vh;
+    }
+}
+
+
+/*rettangolo informazioni*/
+/* Contenitore verticale */
+/* Mobile: centrato */
+.rettangolo-informazioni {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: clamp(1rem, 3vw, 2rem);
+  width: clamp(15rem, 40vw, 25rem);
+  max-width: 90%;
+  background: linear-gradient(135deg, #0722b8, #c90909, #FF8C00);
+  border-radius: 1rem;
+  box-sizing: border-box;
+  margin: 5vh auto 2vh auto;
+}
+
+/* Cerchi al contrario */
+.cerchio-al-contrario {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  padding: clamp(0.8rem, 2vw, 1.5rem);
+  width: 100%;                  /* sempre dentro il contenitore */
+  border-radius: 50px;
+  background-color: white;
+  text-align: left;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 55;
+}
+
+.cerchio-al-contrario:hover {
+  background-color: #4da6ff;
+  transform: scale(1.05); /* leggermente meno aggressivo */
+}
+
+.cerchio-al-contrario i {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: black;
+  flex-shrink: 0; /* impedisce che l’icona si riduca troppo */
+}
+
+.cerchio-al-contrario p,
+.cerchio-al-contrario a {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+  color: #000;
+  margin: 0;
+  text-decoration: none; /* rimuove la sottolineatura */
+  word-break: break-word; /* evita overflow testi lunghi */
+}
+
+.cerchio-al-contrario a:hover {
+  text-decoration: underline;
+}
+
+/* Media query per schermi piccoli */
+@media (max-width: 768px) {
+  .rettangolo-informazioni {
+    width: 90%;
+    margin: 3vh auto;
+    padding: clamp(1rem, 4vw, 2rem);
+  }
+  
+  .cerchio-al-contrario {
+    padding: clamp(0.6rem, 3vw, 1rem);
+  }
+}
+
+@media (orientation: portrait) {
+  .rettangolo-informazioni{
+    position: relative;
+    top: 1vh;
+    right: -5%;
+  }
+  .img-italia {
+    top: -6vh;
+    left: -17%;
+  }
+}
+/*img giuntatrice*/
+.mangia-fibra {
+  position: relative;          /* contiene l'immagine */
+  width: 100%;                 /* occupa tutta la larghezza */
+  display: flex;
+  justify-content: flex-end;   /* posiziona l'immagine a destra */
+}
+
+
+
+/* Media query per dispositivi verticali */
+@media (max-width: 768px) {
+  .mangia-fibra {
+    margin-top: -5vh;            /* meno spostamento in alto su mobile */
+  }
+
+  .giuntatrice {
+    width: clamp(25%, 35%, 50vw); /* un po' più larga su mobile per visibilità */
+  }
+}
+
+/* Query per dispositivi verticali */
+@media (max-width: 768px) and (orientation: portrait) {
+  .mangia-fibra {
+    justify-content: center;      /* centra l'immagine in verticale */
+    margin-bottom: clamp(6rem, 9vw, 4rem); /* spazio sotto l'immagine */
+  }
+
+  .giuntatrice {
+    position: relative;
+    width: clamp(30%, 50%, 60vw); /* rendi l'immagine più grande su mobile */
+    transform: translateX(0);     /* niente spostamento orizzontale */
+    opacity: 1;                   /* rendi visibile subito o usa JS */
+    top: 1vh;
+    left: -11%;
+   
+  }
+}
+/*pulsante torna alla home*/
+.pulsante-home {
+  position: relative;
+  display: inline-block;
+  padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 4vw, 2rem);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 0.8rem;
+  background-color: #ff0000; /* colore iniziale rosso */
+                   /* invisibile inizialmente */
+  transform: translateX(20vw); /* parte leggermente fuori a destra */
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.pulsante-home span {
+  position: relative;
+  z-index: 2;
+}
+
+/* Sfondo “sipario” */
+.pulsante-home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%; /* parte fuori a destra */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #4caf50, #ff9800, #ffeb3b); /* sfumature verde-arancione-giallo */
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+/* Animazione sipario hover */
+.pulsante-home:hover::before {
+  left: 0;
+}
+
+.pulsante-home:hover {
+  color: #000;
+}
+
+/* Classe JS per rendere visibile */
+.pulsante-home.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+@media (orientation: portrait) {
+  .pulsante-home {
+    top: 1vh;
+  }
+}
+/*work process*/
+/* Stile base del container */
+.lavoro {
+    width: 90%;           /* Occupa il 90% dello schermo */
+    max-width: 1200px;    /* Limite massimo per desktop grandi */
+    margin: 2rem auto;    /* Centra il contenuto con margine verticale */
+    padding: 1.5rem;      /* Padding interno */
+    box-sizing: border-box;
+}
+
+/* Titolo Work Process */
+.lavoro h2 {
+    font-size: 2.5rem;    /* Grandezza relativa al root */
+    text-align: center;   /* Centra il titolo */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Paragrafo */
+.lavoro p {
+    font-size: 1.1rem;    /* Dimensione leggibile su tutti gli schermi */
+    line-height: 1.6;     /* Spazio tra le righe per leggibilità */
+    text-align: center;   /* Testo giustificato */
+    word-wrap: break-word;
+    font-family: 'Segoe UI', sans-serif;
+
+}
+/* --- h2: fade + slide-up --- */
+.lavoro h2 {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.lavoro h2.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- p: fade + slide-right --- */
+.lavoro p {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.lavoro p.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Media queries per dispositivi più piccoli */
+@media (max-width: 1024px) {
+    .lavoro h2 {
+        font-size: 2rem;
+    }
+    .lavoro p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .lavoro {
+        width: 95%;
+        padding: 1rem;
+    }
+    .lavoro h2 {
+        font-size: 1.8rem;
+    }
+    .lavoro p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .lavoro h2 {
+        font-size: 1.5rem;
+    }
+    .lavoro p {
+        font-size: 0.9rem;
+    }
+}
+@media (orientation: portrait) {
+  .lavoro h2 {
+    margin-top: 4vh;
+  }
+}
+
+/*fine ftt cab*/
+/*inizio impianti elettrici civili*/
+/*inizio prima sezione impianti civili*/
+.prima-sezione-impianti-elettrici-civili {
+    width: 100vw;        /* occuperà tutta la larghezza della finestra */
+    min-height: 100vh;   /* occuperà almeno tutta l'altezza della finestra */
+    padding: 2vh 5vw;    /* spaziatura interna relativa alla viewport */
+    box-sizing: border-box; /* include padding e border nelle dimensioni */
+    display: flex;       /* se vuoi allineare elementi interni in flex */
+    flex-direction: column; /* verticale */
+    justify-content: center; /* centra verticalmente */
+    align-items: center; /* centra orizzontalmente */
+}
+/*descrizione*/
+.come-posso-scegliere {
+    position: absolute; /* posizione fissa in alto a sinistra */
+    top: 22vh;
+    left: 1rem;
+    max-width: 35vw; /* più compatto */
+    padding: 0;
+    text-align: left;
+    
+    line-height: 1.4;
+}
+@media (orientation: portrait) {
+  .come-posso-scegliere {
+    position: relative;
+    top: 5vh;
+    text-align: justify;
+    left: -5%;
+  }
+}
+.come-posso-scegliere h1 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem); /* leggermente più grande */
+    margin-bottom: clamp(0.5rem, 1vh, 1rem);
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.8s ease-out;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.come-posso-scegliere p {
+    font-size: clamp(1.1rem, 2vw, 1.25rem); /* aumentato */
+    margin-bottom: clamp(0.5rem, 1vh, 1rem);
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s ease-out;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.come-posso-scegliere ol {
+    font-size: clamp(1rem, 1.8vw, 1.1rem); /* aumentato */
+    padding-left: clamp(0.5rem, 2vw, 1rem);
+   
+   
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Base li */
+.come-posso-scegliere li {
+    opacity: 0;
+    transition: all 0.8s ease-out;
+    margin-bottom: clamp(0.25rem, 1vh, 0.5rem);
+}
+
+/* Slide directions */
+.slide-down { transform: translateY(-30px); }
+.slide-up { transform: translateY(30px); }
+.slide-left { transform: translateX(-50px); }
+.slide-right { transform: translateX(50px); }
+.slide-diagonal { transform: translate(-50px, -30px); }
+
+/* Classe attiva per animazione */
+.animate {
+    opacity: 1 !important;
+    transform: translateX(0) translateY(0) !important;
+}
+/*immagine impianto elettrico*/
+/* Stato iniziale: invisibile e spostata a destra */
+.impianti-elettrico-civile {
+    display: block;
+    width: clamp(10rem, 50vw, 30rem);
+    height: auto;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: clamp(10rem, 12vh, 20rem);
+
+    border-radius: 18px;
+    opacity: 0;
+    transform: translateX(5vw);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Stato visibile */
+.impianti-elettrico-civile.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+/* In caso di layout verticale (mobile) */
+@media (max-width: 768px) {
+    .impianti-elettrico-civile {
+        width: clamp(8rem, 70vw, 20rem);
+        margin-left: auto;
+        margin-right: auto; /* centra l'immagine su mobile */
+        display: block;
+    }
+}
+
+
+
+.forma-geometrica-rettangolare {
+  display: flex;
+  flex-direction: column;        
+  align-items: center;           
+  gap: 1rem;                     /* leggermente meno spazio tra gli ovali */
+  padding: 1.5rem;               /* padding ridotto */
+  background: linear-gradient(135deg, #1a1a72, #4b0073); 
+  border-radius: 0.8rem;         /* leggermente più piccolo */
+  box-sizing: border-box;
+  width: 80%;                     /* più stretto */
+  max-width: 20rem;               /* max-width ridotto */
+  position: absolute;
+  top: 12rem;                     
+  right: 2rem;                   
+}
+
+/* Stile ovali */
+.cerchio-allungato {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(0.3rem, 1vw, 0.6rem) clamp(0.8rem, 2vw, 1.5rem); /* padding ridotto */
+  border-radius: 40px;           /* leggermente più piccolo */
+  background-color: #2c2c54;     
+  transition: transform 0.3s ease, background-color 0.3s ease; 
+  cursor: pointer;
+  width: 70%;                     /* più stretto */
+  text-align: center;
+  overflow: hidden;               /* evita overflow verticale */
+}
+
+
+/* Link dentro gli ovali */
+.cerchio-allungato a {
+  text-decoration: none;
+  color: #ffffff;                 
+  font-weight: 600;
+  font-size: clamp(0.6rem, 2.3vw, 1.3rem); /* font fluido */
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+/* Hover: ingrandisce e cambia colore */
+.cerchio-allungato:hover {
+  transform: scale(1.1);         
+  background-color: #ff0000;     
+}
+
+
+
+@media (orientation: portrait) {
+
+  .forma-geometrica-rettangolare {
+    position: relative;
+    top: 5vh;
+    padding: 1.5rem;
+    right: 5%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/*bottoni prenotazioni e team*/
+.varieta-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    width: 100%;
+    align-items: center;
+
+    /* Stato iniziale per animazione */
+    opacity: 0;
+    transform: translateX(12vw); /* parte da destra */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    
+}
+
+/* Quando entra in vista */
+.varieta-btn.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+.varieta-btn a {
+    position: relative;
+    display: inline-block;
+    width: clamp(12vw, 22vw, 35vw); /* larghezza adattabile */
+    padding: clamp(0.35rem, 1vh, 0.8rem);
+    font-size: clamp(0.5rem, 2.5vw, 1.2rem); /* FONT ridimensionabile più ampiamente */
+    text-align: center;
+    font-weight: 600;
+    border-radius: 0.7rem;
+    color: white;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Animazione slide */
+.varieta-btn a {
+    position: relative;
+    display: inline-block;
+    width: clamp(12vw, 22vw, 35vw); /* molto più stretti */
+    padding: clamp(0.35rem, 1vh, 0.8rem);
+    font-size: clamp(0.7rem, 1.5vw, 1rem);
+    text-align: center;
+    font-weight: 600;
+    border-radius: 0.7rem;
+    color: white;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.varieta-btn a span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    word-wrap: break-word; /* permette al testo lungo di andare a capo senza uscire */
+}
+/* ---------- PRIMO BOTTONE (blu → nero, sipario da SX → DX) ---------- */
+
+
+.btn-prenotazioni {
+    background: blue;
+    position: relative;
+    top: 2vh;   
+}
+/* Stato iniziale */
+/* Nuovi nomi classi animazione */
+
+@media (orientation: portrait) {
+  .btn-prenotazioni {
+    top: 8vh;
+  }
+  .btn-team {
+    top: 10vh;
+  }
+}
+.btn-prenotazioni::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: black;
+    transform: translateX(-100%); /* parte da sinistra */
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.btn-prenotazioni:hover::before {
+    transform: translateX(0);
+}
+
+/* ---------- SECONDO BOTTONE (arancione → verde scuro, sipario DAL BASSO) ---------- */
+
+
+/* ---------- CONTAINER ---------- */
+.btn-team-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ---------- STILE BOTONE ---------- */
+.btn-team {
+    position: relative;
+    display: inline-block;
+    width: clamp(12vw, 22vw, 35vw);
+    padding: clamp(0.35rem, 1vh, 0.8rem);
+    font-size: clamp(0.7rem, 1.5vw, 1rem);
+    text-align: center;
+    font-weight: 600;
+    border-radius: 0.7rem;
+    color: white;
+    background-color: orange;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease, transform 0.8s ease-out, opacity 0.8s ease-out;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    top: 14vh;
+
+    /* Animazione iniziale */
+    opacity: 0;
+    transform: translateX(-12vw);
+}
+
+/* Quando il bottone entra nello scroll */
+.btn-team.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* ---------- EFFETTO SIPARIO ---------- */
+.btn-team::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: darkgreen; /* colore hover */
+    transform: translateY(100%); /* parte dal basso */
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+/* ---------- HOVER ---------- */
+.btn-team:hover::before {
+    transform: translateY(0); /* sale sopra */
+}
+
+.btn-team:hover {
+    color: white; /* testo rimane leggibile */
+}
+
+/* ---------- OPTIONAL: animazione del testo leggero ---------- */
+.btn-team span {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.btn-team:hover span {
+    transform: translateY(-0.2em); /* leggero sollevamento del testo */
+}
+
+/* Stato iniziale */
+
+
+.spartitraffico {
+  height: 0.3rem;
+  width: 60%;
+  background: linear-gradient(90deg, #ff6a00, #f0f, #0ff, #6f0);
+  background-size: 300% 100%;
+  animation: cambiaColore 5s linear infinite;
+
+  /* più piccolo lo schermo = va comunque più in basso, ma meno di prima */
+  margin-top: calc(5vh + 10vw);
+
+  margin-left: auto;
+  margin-right: auto;
+
+  border-radius: 1rem;
+}
+
+
+@keyframes cambiaColore {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+/*sicurezza*/
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  position: relative;
+  margin-bottom: 3rem; /* aggiunge spazio sotto */
+  transform: translateY(50px); /* parte più in basso */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.container.show {
+  opacity: 1;
+  transform: translateY(0); /* torna in posizione */
+}
+/* Stato iniziale */
+.left-column, .right-column {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Left parte da destra */
+.left-column {
+  transform: translateX(100px);
+}
+
+/* Right parte da sinistra */
+.right-column {
+  transform: translateX(-100px);
+}
+
+/* Stato finale quando visibili */
+.left-column.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.right-column.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+  /* Linea verticale centrale */
+  .divider {
+    width: 0.2rem;
+    background-color: black;
+    position: absolute;
+    top: 2vh;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Colonna sinistra */
+  .left-column {
+    flex: 1 1 45%;
+    padding-right: 2rem;
+    text-align: left;
+    
+  }
+
+  .left-column h1 {
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .left-column p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  /* Colonna destra */
+  .right-column {
+    flex: 1 1 45%;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+  }
+
+  .tbh-technology h3 {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    margin-bottom: 0.5rem;
+    color: #00ffff;
+    font-family: 'Montserrat', sans-serif;
+
+  }
+
+  .tbh-technology p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: #ccc;
+    margin-bottom: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  /* Rettangoli priorità */
+  .priority-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .priority-box {
+    flex: 1 1 45%;
+    background-color: #0b0b3b;
+    padding: 1.5rem;
+    color: white;
+    border-radius: 0.5rem;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .priority-box:hover {
+    background-color: #ff0000;
+    transform: translateY(-0.5rem);
+  }
+
+  .priority-box i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #00ffff;
+  }
+
+  .priority-box span {
+    display: block;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+  }
+
+  /* Responsive su schermi piccoli */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .divider {
+      display: none;
+    }
+
+    .left-column, .right-column {
+      flex: 1 1 100%;
+      padding: 0;
+    }
+
+    .priority-box {
+      flex: 1 1 100%;
+    }
+  }
+
+
+/* Animazioni iniziali */
+/* Stato iniziale: invisibile */
+/* Stato iniziale: invisibile */
+/*come si installano gli imp ele civi*/
+.come-si-installa {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: clamp(2rem, 4vw, 5rem);
+  padding: clamp(1.5rem, 3vw, 3rem);
+  border-radius: clamp(0.6rem, 1vw, 1.2rem);
+
+  /* Animazione iniziale */
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.come-si-installa.in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.come-si-installa h3 {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+  line-height: 1.3;
+  font-weight: 700;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.come-si-installa p {
+  font-size: clamp(0.9rem, 1.7vw, 1.25rem);
+  line-height: 1.6;
+  margin-top: clamp(0.5rem, 1vw, 1rem);
+  font-weight: normal;
+  text-align: justify;
+  font-family: 'Segoe UI', sans-serif;
+}
+/*fine impianti elettrici civili*/
+/*inizio impianti elettrici industriali*/
+/*inizio prima section industriale*/
+.prima-sezione-impianti-elettrici-industriali {
+    width: 100%;
+    min-height: 50vh;     /* altezza minima responsive */
+    padding: -1rem;        /* spazio interno relativo al font */
+    margin: 0 auto;       /* centrata */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;            /* spazio tra elementi interno */
+    box-sizing: border-box;
+
+    /* Esempio di sfondo responsive */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*fine sezione*/
+/*inizio video*/
+.video-wrapper {
+  position: relative;
+  top: 4vh;
+    width: 100%;
+    max-width: 100%;
+    max-height: 89vh;   /* 👈 PIÙ BASSO (puoi cambiare valore) */
+    overflow: hidden;    /* nasconde la parte superiore/inferiore */
+    border-radius: 1rem; /* opzionale */
+}
+
+.video-responsive {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/*fine video*/
+/*inizio approccio*/
+/* Contenitore principale: due colonne */
+.container-principale {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: clamp(1rem, 2vw, 3rem);
+    width: 90%;
+    max-width: 1200px;
+    margin: 5vh auto;
+    padding: clamp(1rem, 3vw, 2rem);
+    box-sizing: border-box;
+}
+/* Media query per portrait / schermi piccoli */
+@media (orientation: portrait), (max-width: 768px) {
+  .container-principale {
+    flex-direction: column; /* tutto in verticale */
+    align-items: center;    /* centra gli elementi */
+  }
+
+  .box-link-industriale {
+    order: -1;       /* porta il box prima del testo */
+    right: 0;        /* azzera lo spostamento a destra */
+    flex: 0 0 90%;   /* occupa più larghezza in verticale */
+    max-width: 400px; /* opzionale: limita la larghezza massima */
+    margin-bottom: 2rem; /* spazio sotto il box */
+  }
+
+  .testo-approccio {
+    flex: 1;
+    width: 90%;      /* si adatta alla larghezza del box */
+    text-align: center; /* opzionale: centra il testo */
+  }
+}
+
+/* Colonna testo */
+.testo-approccio {
+    flex: 1;
+    text-align: left;
+}
+
+.testo-approccio h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+        opacity: 0;
+    transform: translateY(-30px); /* parte dall’alto */
+    transition: all 0.8s ease-out;
+}
+
+.testo-approccio p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    line-height: 1.6;
+    font-weight: normal;
+    font-family: 'Segoe UI', sans-serif;
+        opacity: 0;
+    transform: translateX(50px); /* parte da destra */
+    transition: all 0.8s ease-out;
+}
+.testo-approccio.visible h1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.testo-approccio.visible p {
+    opacity: 1;
+    transform: translateX(0);
+}
+/* Colonna box link */
+.box-link-industriale {
+  position: relative;
+  right: 0; /* rimuovo offset fisso per evitare overflow */
+  
+  width: clamp(90%, 35vw, 25rem); /* sempre dentro il viewport */
+  max-width: 25rem;               /* opzionale per schermi grandi */
+  margin: 0 auto;                  /* centra il box orizzontalmente */
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: clamp(1rem, 3vw, 2rem);
+  
+  background: linear-gradient(135deg, #1a1a72, #4b0073);
+  border-radius: clamp(0.5rem, 1rem, 1rem);
+  
+  box-sizing: border-box; /* importante per contenuti e padding */
+  overflow: hidden;       /* niente può uscire dai bordi */
+}
+
+/* Link singolo */
+.link-item {
+  width: 100%; /* prende tutta la larghezza del box */
+  padding: clamp(0.8rem, 2vw, 1.5rem);
+  background-color: white;
+  border-radius: 50px;
+  text-align: left;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-sizing: border-box; /* evita overflow interni */
+}
+
+.link-item a {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+  color: #000;
+  text-decoration: none;
+}
+
+.link-item:hover {
+  background-color: #4da6ff;
+  transform: scale(1.05);
+}
+
+.link-item a:hover {
+  text-decoration: underline;
+}
+
+
+/* Media query: schermi piccoli */
+/*fattore*/
+.container-fattore-gallery {
+  display: flex;
+  flex-wrap: wrap; /* permette di andare a capo su schermi piccoli */
+  align-items: flex-start;
+  gap: clamp(1rem, 2vw, 2rem);
+  justify-content: flex-start; /* tutto verso sinistra */
+  margin: clamp(1rem, 2vw, 2rem) 0;
+}
+
+/* Galleria immagini sulla sinistra */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  justify-content: flex-start;
+  max-width: clamp(28rem, 50vw, 40rem); /* aumenta max-width della gallery */
+}
+
+.gallery img {
+  width: clamp(12rem, 25vw, 16rem); /* immagini più grandi */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  transition: 0.9s ease;
+  opacity: 0;
+}
+/* ENTRA DA DESTRA */
+.anim-right {
+  transform: translateX(80px);
+}
+
+/* ENTRA DA SINISTRA */
+.anim-left {
+  transform: translateX(-80px);
+}
+
+/* OBLIQUO DA DESTRA */
+.anim-ob-right {
+  transform: translate(80px, -40px);
+}
+
+/* OBLIQUO DA SINISTRA */
+.anim-ob-left {
+  transform: translate(-80px, -40px);
+}
+
+/* DAL BASSO */
+.anim-bottom {
+  transform: translateY(80px);
+}
+
+/* Classe che attiva l’animazione */
+.show {
+  opacity: 1;
+  transform: translate(0,0);
+}
+.gallery img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Testo sulla destra */
+.fattore {
+  max-width: clamp(20rem, 40vw, 40rem);
+  margin-left: auto;  /* allinea a destra del container */
+  padding: clamp(1rem, 2vw, 2rem);
+  box-sizing: border-box;
+  text-align: right;
+  line-height: clamp(1.4rem, 2.2vw, 2rem);
+}
+
+.fattore h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 5vh;
+
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: 0.8s ease;
+}
+
+.fattore p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-family: 'Segoe UI', sans-serif;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+
+.fattore strong {
+  font-weight: normal;
+}
+
+/* Media query per schermi piccoli: galleria sopra il testo */
+@media (max-width: 768px) {
+  .container-fattore-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fattore {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+/*bottoni*/
+/* Contenitore generale */
+.wrapper-impianto {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5vw;
+}
+
+/* Sezione testo a destra */
+.fattore {
+  width: 60%;
+  text-align: left;
+}
+
+/* Sezione garanzie a sinistra */
+.garanzie-verticale {
+  position: relative;
+
+  /* larghezza completamente fluida */
+  width: clamp(40%, 50vw, 60%);
+  max-width: 800px; /* opzionale per grandi schermi */
+  margin: 0 auto;
+
+  background: #0f0f0f;
+
+  /* padding totalmente relativo e dinamico */
+  padding: clamp(2vh, 3vw, 5vh) clamp(2vw, 4vw, 6vw);
+
+  display: flex;
+  flex-direction: column;
+
+  /* spazio fluido tra i blocchi */
+  gap: clamp(2vh, 3vw, 4vh);
+
+  /* bordo totalmente responsive */
+  border-radius: clamp(0.5rem, 1.5vw, 1.5rem);
+
+  /* stato iniziale per animazione */
+  opacity: 0;
+  transform: translateX(50px); /* parte da destra */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+  box-sizing: border-box;
+}
+
+/* stato finale visibile */
+.garanzie-verticale.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.garanzie-verticale .parte {
+  display: flex;
+  flex-direction: column;
+
+  /* gap relativo */
+  gap: clamp(0.5rem, 1vw, 1.2rem);
+
+  /* padding interno fluido */
+  padding: clamp(1vh, 2vw, 2vh);
+}
+
+
+@media (orientation: portrait) {
+ .wrapper-impianto {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  /* Garanzie verticali responsive */
+  .garanzie-verticale {
+    width: 100%;
+    order: 1;
+    gap: clamp(1.5rem, 3vw, 3rem);
+  }
+
+  .garanzie-verticale .parte {
+    padding: clamp(0.5rem, 2vw, 1.2rem);
+  }
+
+
+  .garanzie-verticale,
+  .fattore {
+    width: 100%;
+  }
+
+  /* Ordine: prima garanzie, poi testo */
+  .garanzie-verticale {
+    order: 1;
+  }
+
+  .fattore {
+    position: relative;
+    order: 2;
+    right: -5%;
+    text-align: center;
+  }
+  .garanzie-verticale {
+  position: relative;
+
+  /* larghezza fluida ma sempre dentro il viewport */
+  width: clamp(90%, 50vw, 100%); /* min 90%, max 100% della viewport */
+  max-width: 600px;              /* opzionale: limita su desktop grandi */
+  margin: 0 auto;                /* centra e mostra sempre bordi destro/sinistro */
+
+  background: #0f0f0f;
+
+  /* padding completamente relativo e dinamico */
+  padding: clamp(2vh, 3vw, 5vh) clamp(2vw, 4vw, 6vw);
+
+  display: flex;
+  flex-direction: column;
+
+  /* spazio fluido tra i blocchi */
+  gap: clamp(2vh, 3vw, 4vh);
+
+  /* bordo totalmente responsive */
+  border-radius: clamp(0.5rem, 1.5vw, 1.5rem);
+
+  box-sizing: border-box; /* importante per padding e width */
+}
+
+}
+
+/* BLOCCO */
+.parte {
+  background: #1a1a1a;
+  padding: clamp(1rem, 2vw, 2rem); /* padding ridimensionabile */
+  border-radius: clamp(0.5rem, 1vw, 1rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(0.5rem, 1vh, 1rem); /* spazio ridimensionabile */
+  transition: 0.5s ease;
+  position: relative;
+  overflow: hidden; /* nulla esce dal contenitore */
+  max-width: 100%; /* mai oltre il contenitore padre */
+  box-sizing: border-box;
+}
+
+/* ICONA */
+.parte i {
+  font-size: clamp(1.2rem, 4vw, 2rem); /* ridimensionamento fluido */
+  color: #00ffbb;
+  flex-shrink: 0; /* non si rimpicciolisce troppo */
+}
+
+/* TITOLO */
+.parte h3 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: #fff;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  word-wrap: break-word; /* evita overflow */
+}
+
+/* PARAGRAFO */
+.parte p {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: #d4d4d4;
+  line-height: clamp(1.2, 2vw, 1.4);
+  font-family: 'Segoe UI', sans-serif;
+  word-wrap: break-word; /* evita overflow */
+}
+
+/* HOVER CON GRADIENT SHADOW */
+.parte:hover {
+  transform: translateY(-0.5vh);
+  box-shadow: 0 0 clamp(1.5rem, 2vw, 2rem) rgba(0, 255, 187, 0.25);
+}
+
+/* EFFETTO RADIALE */
+.parte::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0,255,187,0.25), transparent 70%);
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.parte:hover::before {
+  opacity: 1;
+}
+
+
+
+
+/*btn whatsapp*/
+
+
+
+/* CONTENITORE PRINCIPALE */
+/* CONTENITORE PRINCIPALE */
+.renewable-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  background: rgb(5, 10, 30);
+  padding: clamp(2rem, 5vw, 4rem);
+  border-radius: 1.5rem;
+  color: #fff;
+  box-sizing: border-box;
+  margin-bottom: 4vh;
+  /* stato iniziale per l'animazione */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.renewable-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.renewable-container h2 {
+  font-size: clamp(1.4rem, 3vw, 2.3rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* GRIGLIA RESPONSIVE & SICURA */
+.renewable-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(180px, 40vw, 260px), 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* BLOCCHI */
+.reason {
+  background: #1a1a1a;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border-radius: 1.2rem;
+  transition: transform .3s ease, box-shadow .3s ease;
+  text-align: left;
+  box-sizing: border-box;
+  
+}
+
+/* ICONA */
+.reason i {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-bottom: .8rem;
+  color: #6bff7e;
+}
+
+/* TITOLO */
+.reason h3 {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  margin-bottom: .5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* TESTO */
+.reason p {
+  font-size: clamp(0.9rem, 1.7vw, 1.1rem);
+  line-height: 1.5;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* HOVER CON GRADIENT OMBRA */
+.reason:hover {
+  transform: translateY(-0.4rem);
+  box-shadow: 0 0 1.8rem rgba(0, 255, 128, 0.4),
+              0 0 3rem rgba(0, 180, 90, 0.2);
+}
+
+/* MOBILE SAFE */
+@media (max-width: 500px) {
+  .renewable-grid {
+    grid-template-columns: 1fr; /* 1 blocco per riga */
+  }
+}
+
+.rinnovabili {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* centra verticalmente */
+  align-items: center;      /* centra orizzontalmente */
+  text-align: center;       /* centra il testo */
+  padding: clamp(2rem, 5vw, 4rem);
+  max-width: 70vw;          /* occupa al massimo il 70% della larghezza viewport */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.rinnovabili h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+.rinnovabili p {
+  font-size: clamp(0.5rem, 2vw, 1.2rem);
+  line-height: clamp(1.5, 2.5vw, 2);
+  max-width: 50ch;  /* mantiene leggibilità del paragrafo */
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: normal;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+/* Stato iniziale nascosto */
+/* Stato iniziale nascosto */
+.rinnovabili h2,
+.rinnovabili p {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+/* Titolo: slide da destra */
+.rinnovabili h2 {
+  transform: translateX(50px) translateY(20px);
+}
+
+/* Paragrafo: slide obliqua da sinistra in alto */
+.rinnovabili p {
+  transform: translateX(-50px) translateY(-20px);
+}
+
+/* Classe attiva per animazione */
+.rinnovabili.visible h2 {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+.rinnovabili.visible p {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+
+/*fine impianti elettrici indu*/
+/*inizio modulo contatti*/
+/*inizio prima sezione(contatti)*/
+.prima-sezione-contatti {
+  width: 100vw;       /* occupa tutta la larghezza della viewport */
+  min-height: 20vh;   /* altezza minima relativa alla viewport */
+  height: auto;       /* si adatta al contenuto se presente */
+  box-sizing: border-box; 
+  display: block;     /* se vuoi che si comporti come section normale */
+}
+.conttattarci {
+    width: 90%;               /* Occupa la maggior parte della larghezza della viewport */
+    max-width: 1200px;        /* Limite massimo per grandi schermi */
+    margin: 0 auto;           /* Centra orizzontalmente */
+    padding: 2rem;            /* Spazio interno */
+    text-align: center;       /* Centra il testo */
+}
+
+.conttattarci h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);  /* Min 1.5rem, massimo 3rem, scala con larghezza viewport */
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.conttattarci h2 {
+    font-size: clamp(1rem, 3vw, 2rem);    /* Min 1rem, massimo 2rem, scala con larghezza viewport */
+    line-height: 1.3;
+    font-weight: 400;
+    font-family: 'Segoe UI', sans-serif;
+}
+@media (orientation: portrait) {
+  .conttattarci {
+    position: relative;
+    left: -7%;
+  }
+}
+.blocco-contatti {
+  width: clamp(40vw, 70vw, 90vw);
+  margin: clamp(4vh, 6vh, 8vh) auto;
+  padding: clamp(2vh, 3vw, 4vh);
+  background-color: #fff;
+  border-radius: clamp(1rem, 2vw, 1.5rem);
+  box-shadow: 0 0.8vh 2.5vh rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+/* Testo generale */
+.blocco-contatti p {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  margin-bottom: clamp(2vh, 3vw, 3.5vh);
+}
+
+/* Etichette del form */
+.blocco-contatti form label {
+  display: block;
+  margin: clamp(1.5vh, 2vw, 2.5vh) 0 clamp(0.5vh, 1vw, 1vh);
+  font-weight: 500;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+}
+
+/* Campi input e textarea */
+.blocco-contatti form input,
+.blocco-contatti form textarea {
+  width: 100%;
+  padding: clamp(1vh, 2vw, 1.8vh) clamp(2vw, 3vw, 3vw);
+  border-radius: 5vh;
+  border: 0.15rem solid #ccc;
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  box-sizing: border-box;
+  margin-bottom: clamp(1.5vh, 3vw, 2.5vh);
+  transition: all 0.3s ease;
+}
+
+/* Area testo */
+.blocco-contatti form textarea {
+  border-radius: 2vh;
+  resize: vertical;
+  min-height: clamp(15vh, 20vh, 25vh);
+}
+
+/* Pulsante */
+.blocco-contatti form button {
+  margin-top: clamp(2vh, 3vw, 3vh);
+  padding: clamp(1vh, 2vw, 1.5vh) clamp(2vw, 4vw, 3vw);
+  background-color: orange;
+  color: #fff;
+  border: none;
+  border-radius: 1.5vh;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Effetto animato del pulsante */
+.blocco-contatti form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 100%;
+  background-color: #1a237e;
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+.blocco-contatti form button:hover::before {
+  left: 0;
+  width: 100%;
+}
+
+.blocco-contatti form button span {
+  position: relative;
+  z-index: 1;
+}
+
+
+@media (orientation: portrait) {
+  .blocco-contatti {
+    width: 90vw;
+    text-align: center;
+    margin: auto;
+  }
+
+  .blocco-contatti form label {
+    text-align: left;
+  }
+
+  .mappa-interattiva {
+    width: 90vw;
+  }
+}
+/*fine contatti*/
+/*inizio chi siamo*/
+/*inizio prima sezione contatti*/
+.prima-sezione-chi-siamo {
+  width: 100%;          /* occupa tutta la larghezza disponibile */
+  max-width: 100%;      /* non eccede mai la larghezza del viewport */
+  box-sizing: border-box; /* include padding e border nella larghezza */
+  margin: 0 auto;       /* centra il contenitore se mai fosse più piccolo di 100% */
+  padding: 0;           /* opzionale, puoi aggiungere padding se vuoi */
+}
+/* Contenitore principale */
+.jack-in-the-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
+  width: 100%;
+  padding: clamp(1rem, 4vw, 4rem);
+}
+
+.lavori-in-corso {
+  width: 100%;
+  max-width: 80%;
+}
+
+.lavori-in-corso img {
+  width: 100%;
+  height: auto;
+  max-height: clamp(30rem, 35vh, 40rem);
+  border-radius: clamp(0.5rem, 2vw, 2rem);
+  object-fit: cover;
+}
+
+
+.piccola-introduzione {
+  text-align: center;
+  width: min(90%, 60rem);
+}
+
+.piccola-introduzione h1 {
+  font-size: clamp(1.8rem, 4vw, 4rem);
+  font-weight: 700;
+   font-family: 'Montserrat', sans-serif;
+   color: orange;
+}
+
+.piccola-introduzione p {
+  font-size: clamp(1rem, 2.2vw, 2rem);
+  line-height: 1.6;
+  opacity: 0.85;
+   font-family: 'Segoe UI', sans-serif;
+   font-weight: 700;
+}
+
+.piccola-introduzione h1,
+.piccola-introduzione p {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+  position: relative;
+}
+
+.piccola-introduzione h1.animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.piccola-introduzione p.animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Stato iniziale fuori dallo schermo */
+.piccola-introduzione h1 {
+  transform: translateY(-50px);
+}
+
+.piccola-introduzione p {
+  transform: translateY(50px);
+}
+
+
+/*idea*/
+.idea {
+  width: min(90%, 70rem);
+  margin: 0 auto;
+  padding: clamp(0.8rem, 3vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 1.8vw, 1.6rem);
+  line-height: 1.4;
+  text-align: left;
+}
+
+.idea h2 {
+  font-size: clamp(1.3rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+
+  opacity: 0;
+  transform: translateX(50px); /* fuori dallo schermo a destra */
+  transition: all 0.8s ease-out;
+}
+
+.idea h2.animate {
+  transform: translateX(0); /* posizione finale */
+  opacity: 1;
+}
+
+
+.idea p {
+  font-size: clamp(0.75rem, 1.4vw, 1.05rem);
+  opacity: 0.9;
+  font-family: 'Segoe UI', sans-serif;
+
+  opacity: 1;
+  transform: translateX(-50px); /* parte fuori a sinistra */
+  transition: all 0.8s ease-out;
+}
+
+.idea p.animate {
+  transform: translateX(0); /* posizione finale */
+  opacity: 1;
+}
+
+
+.idea ol {
+  padding-left: clamp(0.8rem, 2.5vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.3rem, 0.8vw, 0.6rem);
+  font-size: clamp(0.75rem, 1.4vw, 1.05rem);
+  
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.idea li {
+  line-height: 0.05;
+  
+  
+}
+
+.idea .finale {
+  font-weight: 600;
+  font-size: clamp(0.8rem, 1.6vw, 1.1rem);
+  text-align: left;
+
+  opacity: 0;
+  transform: translateX(50px); /* parte a destra */
+  transition: all 0.8s ease-out;
+}
+
+.idea .finale.animate {
+  transform: translateX(0); /* posizione finale */
+  opacity: 1;
+}
+/* Base per tutti gli ol animati */
+.fade-right, .skew-left, .fade-left, .skew-right, .rise-up {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+  transform: translate(0,0); /* verrà sovrascritto dalle specifiche classi */
+}
+
+/* slide da destra */
+.fade-right { transform: translateX(50px); }
+.fade-right.animate { transform: translateX(0); opacity: 1; }
+
+/* obliquo da sinistra */
+.skew-left { transform: translateX(-30px) translateY(-20px); }
+.skew-left.animate { transform: translateX(0) translateY(0); opacity: 1; }
+
+/* slide da sinistra */
+.fade-left { transform: translateX(-50px); }
+.fade-left.animate { transform: translateX(0); opacity: 1; }
+
+/* obliquo da destra */
+.skew-right { transform: translateX(30px) translateY(-20px); }
+.skew-right.animate { transform: translateX(0) translateY(0); opacity: 1; }
+
+/* dal basso verso l’alto */
+.rise-up { transform: translateY(50px); }
+.rise-up.animate { transform: translateY(0); opacity: 1; }
+
+
+.descrizione-di-noi {
+  width: min(90%, 70rem);
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+  line-height: 1.7;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.descrizione-di-noi h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+
+  opacity: 0;
+  transform: translateY(-50px); /* parte dall’alto */
+  transition: all 0.8s ease-out;
+}
+
+.descrizione-di-noi h1.animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.descrizione-di-noi p {
+  font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+  font-weight: normal;
+  opacity: 0.95;
+  font-family: 'Montserrat', sans-serif;
+
+  opacity: 0;
+  transform: translateX(-50px); /* parte da sinistra */
+  transition: all 0.8s ease-out;
+}
+
+.descrizione-di-noi p.animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/*rettangolo chi siamo*/
+.chi-siamo-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: clamp(1rem, 4vw, 4rem);
+  background-color: #111; /* colore scuro del rettangolo */
+  border-radius: clamp(0.5rem, 1vw, 1rem);
+  margin-bottom: 4vh;
+
+  opacity: 0;
+  transform: translateY(50px); /* parte dal basso */
+  transition: all 0.8s ease-out;
+}
+
+.chi-siamo-box.animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+.feature {
+  /* esistente */
+  flex: 1 1 clamp(12rem, 20%, 18rem);
+  background-color: #222;
+  padding: clamp(1rem, 2vw, 2rem);
+  border-radius: clamp(0.5rem, 1vw, 1rem);
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 1rem);
+  
+  /* nuovo per hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3), 0 0 20px 5px #00bcd4, 0 0 40px 10px #ff4081;
+}
+
+.feature i {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #00bcd4; /* colore accento icone */
+}
+
+.feature h3 {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.feature p {
+  font-size: clamp(0.8rem, 1.6vw, 1.1rem);
+  line-height: 1.4;
+  opacity: 0.9;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.penultimo {
+  opacity: 0;
+  transform: translateY(-50px); /* parte dall'alto */
+  transition: all 0.8s ease-out;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  line-height: 1.5;
+}
+
+.penultimo.animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+/*fine chi siamo*/
+/*inizio team*/
+/*inizio prima section (team)*/
+
+
+
+
+/* Contenitore principale */
+.split-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 60vh;
+  gap: 2vw; /* spazio tra immagine, linea e box */
+  padding: 2vh 2vw;
+  box-sizing: border-box;
+  flex-wrap: wrap; /* responsivo su schermi piccoli */
+}
+
+/* Immagine a sinistra */
+.split-image {
+  flex: 1 1 clamp(200px, 40vw, 50vw);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.split-image img {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1rem;
+
+  opacity: 0;
+  transform: translateX(-50px); /* parte da sinistra */
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* stato finale: visibile e al posto giusto */
+.split-image img.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Linea verticale al centro */
+.split-line {
+  width: 0.3rem; /* spessore linea */
+  background-color: black;
+  flex-grow: 0;
+  height: 50vh; /* altezza relativa */
+  align-self: center;
+}
+
+/* Box dei link a destra */
+/* BOX LINK (versione desktop) */
+.split-links {
+  flex: 1 1 35vw;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+
+  align-items: flex-start;
+
+  padding: 2vw 2.5vw;
+  border-radius: 2vw;
+
+  /* GRADIENT COLORATO LUNGO */
+  background: linear-gradient(
+      270deg,
+      #001f3f,
+      #4b0082,
+      #ff7f50,
+      #ff0000,
+      #001f3f,
+      #4b0082,
+      #ff7f50,
+      #ff0000,
+      #001f3f
+  );
+  background-size: 1800% 1800%; /* gradient lungo per loop fluido */
+
+  /* ANIMAZIONE */
+  animation: gradientSeamless 30s linear infinite;
+}
+
+@media (orientation: portrait) {
+  .split-links {
+    position: relative;
+    left: -5%;
+  }
+  .split-image img {
+    position: relative;
+    right: -15%;
+  }
+  .split-line {
+    opacity: 0;
+  }
+
+}
+
+/* KEYFRAMES PER LOOP FLUIDO */
+@keyframes gradientSeamless {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+
+/* LINK OVALI */
+/* BASE */
+.split-links a {
+  position: relative;
+  display: inline-block;
+  padding: 1vw 2vw;
+  border-radius: 50vw;
+
+  background: rgba(255,255,255,0.15);
+  font-size: 1.2vw;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.25s ease;
+}
+
+/* EFFETTO LUCIDO ANIMATO */
+.split-links a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.25) 40%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0.25) 60%,
+    transparent 100%
+  );
+
+  transform: skewX(-25deg);
+  transition: 0.5s ease;
+}
+
+/* HOVER → la luce scorre */
+.split-links a:hover::before {
+  left: 100%;
+}
+
+/* FACOLTATIVO → leggero ingrandimento */
+.split-links a:hover {
+  transform: scale(1.03);
+}
+
+
+/* 🌟 RESPONSIVE SOLO PER IL BOX */
+@media (max-width: 900px) {
+
+  .split-links {
+    flex: none;              /* evita comportamenti strani */
+    width: 85%;              /* scala bene */
+    padding: 5vw 6vw;        /* più spazio interno */
+    border-radius: 5vw;
+    
+    gap: 4vw;                /* link più distanti */
+    align-items: center;     /* centrati in verticale */
+  }
+
+  .split-links a {
+    width: 100%;             /* il bottone si allarga */
+    text-align: center;
+    
+    padding: 3.5vw 4vw;      /* più comodo per il touch */
+    font-size: 4vw;          /* testo più grande */
+  }
+}
+
+@keyframes gradientLoop {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* LINK OVALI */
+
+
+/* 🔥 RESPONSIVE: layout verticale quando lo schermo si restringe */
+
+
+
+
+
+/*seconda sezione team*/
+.seconda-sezione-team {
+    width: 100%;               /* occupa tutta la larghezza disponibile */
+    max-width: 1200px;         /* opzionale, limita la larghezza massima */
+    margin: 0 auto;            /* centra il contenitore orizzontalmente */
+    padding: 20px;             /* spaziatura interna fluida */
+    box-sizing: border-box;    /* include padding e bordi nella larghezza */
+}
+
+.img-su-muro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.img-su-muro img {
+    width: 30%;               /* larghezza iniziale */
+    max-width: 100%;
+    min-width: 200px;         /* non diventa troppo piccola */
+    height: auto;
+    display: block;
+    border-radius: 4vh;
+}
+
+/* MEDIA QUERY: quando il contenitore è stretto */
+@media (max-width: 1200px) {
+    .img-su-muro img {
+        width: 40%;           /* aumenta percentuale per adattarsi */
+    }
+}
+
+@media (max-width: 900px) {
+    .img-su-muro img {
+        width: 60%;           /* più grande in percentuale per compensare larghezza ridotta */
+    }
+}
+
+@media (max-width: 600px) {
+    .img-su-muro img {
+        width: 80%;           /* quasi tutta la larghezza disponibile */
+    }
+}
+
+
+
+
+
+
+.team-section {
+  max-width: 80vw;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(0.9rem, 2vw, 1.4rem);
+  line-height: 1.6;
+}
+
+/* Evidenziatore arancione */
+.highlight {
+  background-color: #FF8C00;
+
+  padding: 0 0.3em;
+  border-radius: 0.2em;
+  
+}
+
+/* Titoli responsive */
+.team-section h1 {
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  margin: 3vh 0 2vh 0;
+  font-family: 'Segoe UI', sans-serif;
+
+  opacity: 0;                /* parte invisibile */
+  transform: translateY(-40px); /* parte sopra */
+  transition: all 1s ease;   /* transizione fluida */
+}
+
+/* Classe quando visibile */
+.team-section h1.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Stile esistente */
+.team-section h3 {
+  font-size: clamp(1.2rem, 3vw, 2.2rem);
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  
+  opacity: 0;                 /* parte invisibile */
+  transform: translateY(40px); /* parte sotto */
+  transition: all 1s ease;    /* transizione fluida */
+}
+
+/* Quando diventa visibile */
+.team-section h3.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.team-section h4 {
+  font-size: clamp(1.1rem, 2.5vw, 2rem);
+  margin-top: 5vh;
+  font-family: 'Oswald', sans-serif;
+
+  opacity: 0;                 /* parte invisibile */
+  transform: translateY(-30px); /* parte sopra */
+  transition: all 1s ease;    /* transizione fluida */
+}
+
+.team-section h4.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.intro {
+  font-family: 'Segoe UI', sans-serif;
+
+  opacity: 0;                 /* parte invisibile */
+  transform: translateY(30px); /* parte sotto */
+  transition: all 1s ease;    /* transizione fluida */
+}
+
+.intro.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Drop cap solo sulla I di "Il" */
+.intro::first-letter {
+  font-size: clamp(2.5vw, 5vw, 6vw);   /* si adatta allo schermo */
+  font-weight: 700;
+  float: left;
+  line-height: 0.8;
+  padding-right: 0.5vw;                /* spazio a destra fluido */
+  color: #000;
+  font-family: "Georgia", serif;        /* stile romanzo */
+}
+
+
+/* Liste responsive */
+.team-section ol {
+  text-align: left;
+  margin: 4vh auto;
+  width: 90%;
+  
+  transition: all 1s ease;;
+  font-size: clamp(0.9rem, 2vw, 1.4rem);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.team-section li {
+  margin-bottom: 3vh;
+}
+
+  /* Animazioni “esotiche” */
+.cosmic-slide-right { transform: translateX(120px) rotate(2deg); opacity: 0; }
+.stellar-slide-left { transform: translateX(-120px) rotate(-3deg); opacity: 0;}
+.lunar-slide-up { transform: translateY(120px); opacity: 0;}
+.nebula-slide-left { transform: translateX(-120px); opacity: 0;}
+.quantum-slide-left { transform: translateX(-150px) rotate(-5deg); opacity: 0;}
+
+.visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(0);
+}
+/*immagini team*/
+.immagini-team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonne */
+  gap: 10px; /* piccolo spazio tra le immagini */
+  max-width: 900px; /* larghezza massima del contenitore */
+  margin: 0 auto 40px auto; /* top 0, right auto, bottom 40px, left auto */
+  /* oppure margin-bottom separato funziona: */
+  /* margin-bottom: 40px; */
+}
+
+.immagini-team img {
+  
+  width: 100%;
+  aspect-ratio: 1 / 1; /* rende le immagini quadrate */
+  object-fit: cover; /* ritaglia l'immagine mantenendo proporzioni */
+  border-radius: 15px; /* bordi arrotondati */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+
+.immagini-team img:hover {
+  transform: scale(1.05); /* ingrandimento al passaggio del mouse */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* leggero ombreggiamento */
+}
+
+/* Responsive per schermi piccoli */
+@media (max-width: 768px) {
+  .immagini-team {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonne su tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .immagini-team {
+    grid-template-columns: 1fr; /* 1 colonna su mobile */
+  }
+}
+
+/* TITOLO */
+/* TITOLO */
+.titolo-team {
+  text-align: center;
+  position: relative;
+  top: -4vh;
+  font-size: clamp(1.5rem, 3vw, 3.5rem); /* min 1.5rem, ideale 3vw, max 3.5rem */
+  margin-bottom: 2vh;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0; /* nascosto inizialmente */
+  transform: translateY(-2vh);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.titolo-team.visibile {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (orientation: portrait) {
+  .titolo-team {
+    top: 1vh;
+  }
+}
+
+
+.piu_vicini {
+  display: flex;
+  justify-content: center; /* centro orizzontale */
+  align-items: center;     /* centro verticale se ha altezza */
+  text-align: center;      /* centro testo */
+  padding: 4rem 2rem;      /* spaziatura interna */
+  background-color: #2c2c2c; /* sfondo grigio scuro */
+  color: #fff;
+  min-height: 20vh;        /* altezza minima della sezione */
+}
+
+.piu_vicini h2 {
+  font-size: clamp(1.5rem, 5vw, 3rem); /* scala tra 1.5rem e 3rem in base alla viewport */
+  line-height: 1.2;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/*fine team*/
+/*inizio bot*/
+/*inizio prima sezione(bot)*/
+.prima-sezione-bot {
+  width: 100%;          /* occupa tutta la larghezza disponibile */
+  max-width: 100%;      /* non eccede mai la larghezza del viewport */
+  box-sizing: border-box; /* include padding e border nella larghezza */
+  margin: 0 auto;       /* centra il contenitore se mai fosse più piccolo di 100% */
+  padding: 0;           /* opzionale, puoi aggiungere padding se vuoi */
+}
+/* CONTENITORE PRINCIPALE */
+/* Contenitore opzionale, ma possiamo mantenerlo */
+.bot-container {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+/* IMMAGINE */
+.bot-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* OVERLAY (opzionale, migliora leggibilità) */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* TITOLO */
+.bot-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0; /* invisibile all'inizio */
+  
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+
+  /* font responsive usando clamp con unità relative */
+  font-size: clamp(2rem, 6vw, 5rem);
+
+  text-shadow: 0.2em 0.2em 0.6em rgba(0, 0, 0, 0.8);
+  z-index: 2;
+
+  /* animazione */
+  animation: fadeDown 1s ease-out forwards;
+  animation-delay: 0.1s; /* opzionale: ritardo prima che parta */
+}
+
+/* Keyframes dell'animazione */
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%); /* leggermente più in alto */
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* posizione finale */
+  }
+}
+
+@media (max-width: 480px){
+  .bot-title{
+    top: 3vh;
+  }
+}
+
+/* keyframes */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/*questo sara tutto cio che riguarda lo stile del bot*/
+/*titolo di benvenuto*/
+.bot-description {
+    width: 90vw;               /* larghezza relativa allo schermo */
+    max-width: 95vw;            /* non oltre la larghezza viewport */
+    min-height: 20vh;           /* altezza minima relativa */
+    padding: 2vmin;             /* padding proporzionato */
+    
+    background-color: rgba(31, 29, 29, 0.6); /* grigio semi-trasparente */
+    border-radius: 1vmin;
+    
+    display: flex;
+    justify-content: center;     /* centro orizzontalmente */
+    align-items: center;         /* centro verticalmente */
+    text-align: center;
+    
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 2rem); /* testo scalabile */
+    
+    margin: 5vmin auto;          /* centro verticale e margini responsive */
+    box-sizing: border-box;
+    
+    height: auto;                 /* si allunga in base al contenuto */
+}
+
+/* Opzionale: rendere il paragrafo flessibile e con interlinea leggibile */
+.bot-description p {
+    margin: 0;
+    line-height: 1.5;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: white;
+     font-family: 'Segoe UI', sans-serif;
+    /* Stato iniziale: invisibile e spostato verso il basso */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Classe da aggiungere quando è in viewport */
+.bot-description p.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/*fine titolo di benvenuto*/
+/* Wrapper principale */
+/* Wrapper principale */
+.bot-wrapper {
+  opacity: 0 ;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    margin-bottom: 4vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: clamp(20px, 4vw, 60px);
+    padding: clamp(10px, 4vw, 40px);
+    background: #c4c6cabd;
+    box-sizing: border-box;
+}
+
+/* Schermi verticali / portrait */
+@media (max-width: 768px), (orientation: portrait) {
+    .bot-wrapper {
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        left: -5%;
+        gap: clamp(15px, 3vw, 40px);
+        padding: clamp(15px, 4vw, 30px);
+    }
+
+    .chat-container {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    #chat-box {
+        max-height: 60vh;
+    }
+}
+
+/* Chat-container */
+.chat-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+
+    /* Bordi neri */
+    
+    border-radius: 10px;         /* bordi arrotondati opzionali */
+    
+}
+
+
+/* Chat-box */
+#chat-box {
+    background: #ffffff;
+    border-radius: 1.5rem;           /* invece di 15px */
+    padding: clamp(0.625rem, 2vw, 1.25rem); /* 10px → 0.625rem, 20px → 1.25rem */
+    flex: 1;
+    max-height: 45vh;                /* invece di 400px */
+    min-height: 5vh;                 /* invece di 50px → sottile all'inizio */
+    overflow-y: auto;
+    display: flex;
+   
+    flex-direction: column;
+    gap: clamp(0.5rem, 2vw, 0.9375rem); /* 8px → 0.5rem, 15px → 0.9375rem */
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1); /* 5px → 0.5rem, 15px → 1.5rem */
+    transition: max-height 0.3s ease, min-height 0.3s ease;
+}
+
+
+
+/* Messaggi */
+.message {
+    padding: clamp(8px, 2vw, 15px);
+    border-radius: 20px;
+    max-width: 70%;
+    position: relative;
+    word-wrap: break-word;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.user {
+    background: #4e9af1;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+}
+
+.bot {
+    background: #e5e5ea;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+}
+
+/* Typing indicator */
+.typing {
+    width: 50px;
+    height: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.typing div {
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+.typing div:nth-child(2) { animation-delay: 0.2s; }
+.typing div:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+    0%, 80%, 100% { opacity: 0; }
+    40% { opacity: 1; }
+}
+
+/* Input container */
+.input-container {
+    display: flex;
+    margin-top: 10px;
+    gap: clamp(5px, 2vw, 15px);
+}
+
+/* Input e bottone */
+#user-input {
+    flex: 1;
+    padding: clamp(8px, 2vw, 15px);
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: clamp(14px, 2vw, 16px);
+}
+
+#send-btn {
+    padding: clamp(8px, 2vw, 15px) clamp(12px, 3vw, 20px);
+    border-radius: 25px;
+    border: none;
+    background: #4e9af1;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#send-btn:hover {
+    background: #3577d6;
+    transform: scale(1.05);
+}
+
+#send-btn:active {
+    transform: scale(0.95);
+}
+
+/* Dubbio */
+.dubbio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    gap: clamp(10px, 2vw, 20px);
+    opacity: 0;
+    transform: translateY(50px) rotateX(180deg);
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.dubbio.show {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+}
+
+.dubbio h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: #333;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dubbio p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: #555;
+    max-width: 400px;
+}
+
+/* Pulsante sipario */
+.btn-contacts {
+    position: relative;
+    display: inline-block;
+    padding: clamp(8px, 2vw, 12px) clamp(20px, 5vw, 30px);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: white;
+    text-decoration: none;
+    background: #4e9af1;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: color 0.3s ease;
+}
+
+.btn-contacts::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: red;
+    transition: transform 0.4s ease;
+    transform: translateX(0);
+    z-index: 0;
+}
+
+.btn-contacts:hover::before {
+    transform: translateX(100%);
+}
+
+.btn-contacts span {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-contacts:hover {
+    color: white;
+}
+
+/* --- RESPONSIVE AGGIUNTIVO --- */
+
+/* Portrait / schermi piccoli → bottone sotto input */
+@media (orientation: portrait), (max-width: 768px)   {
+    .input-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #send-btn {
+        width: 100%;
+    }
+}
+
+/* Bot-wrapper animazione */
+.bot-wrapper {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.bot-wrapper.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Dubbio già definito con trasformazione 180gradi */
+.dubbio {
+    opacity: 0;
+    transform: rotateX(180deg) translateY(50px);
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.dubbio.show {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0);
+}
+/*fine bot*/
+/*inizio lavora con noi*/
+/*inizio sezione lavora con noi*/
+
+
+.corpo {
+    background-color: #0b1220;
+    margin: 0;
+    min-height: 100vh;
+}
+/* Box principale */
+.lavora-wrapper {
+  max-width: 90vw;
+  width: 70%;
+  margin: 5vh auto;
+  padding: 3rem 4vw;
+  background: linear-gradient(145deg, #2b2c8f, #5b1b82);
+  border-radius: 2rem;
+  box-shadow: 0 2vh 5vh rgba(0, 0, 0, 0.4);
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  text-align: center;
+  min-height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.lavora-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 60%);
+  animation: rotate 15s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Titolo e descrizione */
+.lavora-wrapper h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.lavora-wrapper p {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Form */
+#lavora-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* Label */
+#lavora-form label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Input e textarea */
+#lavora-form input,
+#lavora-form textarea {
+  padding: 1rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 1rem;
+  background: linear-gradient(145deg, rgba(0,255,140,0.15), rgba(0,120,60,0.3)), #cfaaff;
+  color: #0e3d2a;
+  outline: none;
+  transition: all 0.4s ease;
+  box-shadow: inset 0 0.5rem 1rem rgba(0,0,0,0.2);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#lavora-form input::placeholder,
+#lavora-form textarea::placeholder {
+  color: rgba(15,15,15,0.6);
+}
+
+/* Hover e focus */
+#lavora-form input:hover,
+#lavora-form textarea:hover,
+#lavora-form input:focus,
+#lavora-form textarea:focus {
+  box-shadow: 0 0 2vh rgba(0,255,140,0.6);
+  transform: translateY(-0.2rem);
+}
+
+/* Pulsante invio */
+.btn-candidatura {
+  padding: 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #2d4bff, #7b2cff);
+  transition: all 0.4s ease;
+  width: 100%;
+  margin-top: 1.5rem;
+  box-shadow: 0 1vh 2.5vh rgba(0,0,0,0.3);
+}
+
+.btn-candidatura:hover {
+  background: linear-gradient(135deg, #7b2cff, #2d4bff);
+  transform: translateY(-0.3rem) scale(1.02);
+  box-shadow: 0 1.5vh 3.5vh rgba(0,0,0,0.4);
+}
+
+/* Dropzone */
+.dropzone {
+  position: relative;
+  width: 100%;
+  padding: 5vh 2vw;
+  border-radius: 1rem;
+  background: linear-gradient(145deg, rgba(0,255,140,0.15), rgba(0,120,60,0.3)), #cfaaff;
+  border: 0.2rem dashed rgba(255,255,255,0.5);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.dropzone:hover {
+  box-shadow: 0 0 2vh rgba(0,255,140,0.6);
+}
+
+.dropzone input[type="file"] {
+  display: none;
+}
+
+.dropzone-content .plus {
+  display: block;
+  font-size: 3rem;
+  color: #00ff7f;
+  margin-bottom: 1rem;
+}
+
+.dropzone-content p {
+  font-size: 1rem;
+  color: rgba(0,0,0,0.7);
+}
+
+#fileName {
+  display: block;
+  margin-top: 1vh;
+  font-weight: 600;
+  color: #004d1a;
+}
+
+#removeFile {
+  display: none;
+  margin-top: 1vh;
+  background: transparent;
+  border: 0.1rem solid #ff5f5f;
+  color: #ff5f5f;
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+#removeFile:hover {
+  background: rgba(255,95,95,0.15);
+}
+
+/* Media queries per schermi piccoli */
+@media (max-width: 1024px) {
+  .lavora-wrapper {
+    width: 85%;
+    padding: 2.5rem 3vw;
+  }
+  .lavora-wrapper h1 {
+    font-size: 2.5rem;
+  }
+  .lavora-wrapper p {
+    font-size: 1.2rem;
+  }
+  #lavora-form input,
+  #lavora-form textarea {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+  .btn-candidatura {
+    font-size: 1.15rem;
+    padding: 0.9rem 0;
+  }
+  .dropzone-content .plus {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .lavora-wrapper {
+    width: 95%;
+    padding: 2rem 2vw;
+  }
+  .lavora-wrapper h1 {
+    font-size: 2rem;
+  }
+  .lavora-wrapper p {
+    font-size: 1rem;
+  }
+  #lavora-form input,
+  #lavora-form textarea {
+    font-size: 0.9rem;
+  }
+  .btn-candidatura {
+    font-size: 1rem;
+    padding: 0.8rem 0;
+  }
+  .dropzone-content .plus {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .lavora-wrapper {
+    padding: 1.5rem 2vw;
+    min-height: auto;
+  }
+  .lavora-wrapper h1 {
+    font-size: 1.7rem;
+  }
+  .lavora-wrapper p {
+    font-size: 0.95rem;
+  }
+  #lavora-form input,
+  #lavora-form textarea {
+    font-size: 0.85rem;
+    padding: 0.7rem 0.8rem;
+  }
+  .btn-candidatura {
+    font-size: 0.95rem;
+    padding: 0.7rem 0;
+  }
+  .dropzone-content .plus {
+    font-size: 1.8rem;
+  }
+}
+
+/*3033*/

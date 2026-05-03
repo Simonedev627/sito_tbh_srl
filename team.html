@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team - TBH Srl</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icone -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+
+</head>
+<body>
+  <main>
+
+    <!-- Navbar -->
+    <header class="navbar">
+      <img src="logo.png" alt="Logo TBH" class="logo-img">
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="introduzione-servizi.html">Servizi</a>
+        <a href="contatti.html">Contatti</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="prenotazioni.html">Prenotazioni</a>
+        <a href="team.html">Team</a>
+      </nav>
+    </header>
+    <section class="prima-sezione-team">
+<div class="split-container">
+    <div class="split-image">
+        <img src="operario-tbh.jpg" alt="operario">
+    </div>
+
+    <div class="split-line"></div>
+
+    <div class="split-links">
+        <a href="introduzione-servizi.html"><span>I nostri servizi</span></a>
+        <a href="contatti.html"><span>Contatti</span></a>
+        <a href="prenotazioni.html"><span>Prenotazioni</span></a>
+    </div>
+</div>
+
+
+    </section>
+    
+    <section class="seconda-sezione-team">
+      <div class="img-su-muro">
+        <img src="immagine-logo-tbh.jpg" alt="operario">
+      </div>
+       <div class="linea-separatrice"></div>
+<div class="team-section">
+  <h3><span class="highlight">Always</span> Connected</h3>
+
+  <h1>Il nostro team</h1>
+
+  <p class="intro">
+    Il team di TBH Srl è il cuore pulsante dell’azienda: un gruppo di professionisti che combina competenze
+    diverse, mentalità innovativa e una forte passione per i risultati. Ogni membro contribuisce con il proprio
+    bagaglio di esperienza, ma soprattutto con un approccio orientato alla collaborazione e alla crescita continua.
+  </p>
+
+  <h4>Come siamo organizzati</h4>
+
+<ol class="cosmic-slide-right">
+  <li><p><b>Struttura multidisciplinare:</b> TBH Srl riunisce figure specializzate in aree complementari — dalla gestione
+      operativa alla progettazione, dal marketing alla consulenza strategica — creando un ecosistema di
+      competenze che si integrano in modo naturale.</p></li>
+</ol>
+
+<ol class="stellar-slide-left">
+  <li value="2"><p><b>Ruoli chiari, obiettivi condivisi:</b> Ogni professionista ha un ruolo definito, ma il lavoro quotidiano
+      è basato su confronto costante e obiettivi comuni. Le decisioni vengono prese in modo trasparente e ogni
+      voce ha spazio per contribuire.</p></li>
+</ol>
+
+<ol class="lunar-slide-up">
+  <li value="3"><p><b>Mentalità orientata all’innovazione:</b> Il team è formato da persone curiose, sempre aggiornate sulle
+      nuove tecnologie e metodologie. Credono nel cambiamento come opportunità e non come ostacolo.</p></li>
+</ol>
+
+<ol class="nebula-slide-left">
+  <li value="4"><p><b>Collaborazione e comunicazione:</b> Il punto di forza del gruppo TBH è la capacità di comunicare in modo
+      efficace, condividere idee e costruire soluzioni insieme. L’ambiente è aperto, dinamico e fortemente
+      orientato al supporto reciproco.</p></li>
+</ol>
+
+<ol class="quantum-slide-left">
+  <li value="5"><p><b>Forte senso di responsabilità:</b> Ogni membro del team si assume piena responsabilità del proprio lavoro,
+      garantendo qualità, affidabilità e rispetto delle tempistiche, con attenzione ai dettagli e agli obiettivi del
+      cliente.</p></li>
+</ol>
+</div>
+    </section>
+<section>
+ <div class="linea-separatrice"></div>
+ <div class="piu_vicini">
+  <h2>Più vicini, più uniti, più connessi!</h2>
+  </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+    :root{
+      --bg:#0f172a;         /* slate-900 */
+      --panel:#111827;      /* gray-900 */
+      --card:#1f2937;       /* gray-800 */
+      --text:#e5e7eb;       /* gray-200 */
+      --muted:#9ca3af;      /* gray-400 */
+      --accent:#22d3ee;     /* cyan-400 */
+      --accent-2:#a78bfa;   /* violet-400 */
+      --ring: rgba(34, 211, 238, .35);
+    }
+
+    *{box-sizing:border-box}
+ 
+
+    .tappezzo{
+      padding:clamp(16px, 3vw, 32px);
+      display:flex; justify-content:center; align-items:center;
+      min-height:100vh;
+    }
+.tappezzo {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Stato visibile: entra in posizione */
+.tappezzo.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+    .process{
+      width:min(1100px, 100%);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0)) padding-box,
+        linear-gradient(120deg, var(--accent), var(--accent-2)) border-box;
+      border:1px solid transparent;
+      border-radius:20px;
+      box-shadow:0 30px 60px -20px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06);
+      padding:clamp(18px, 3vw, 28px);
+    }
+
+    .header{
+      display:flex; align-items:center; gap:12px; margin-bottom:18px;
+    }
+    .header .logo{
+      width:44px; height:44px; border-radius:10px;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      color:#0b1224;
+      box-shadow:0 10px 25px -5px var(--ring);
+    }
+.header h1 {
+  font-size: clamp(1.125rem, 5vw, 2rem); /* 1.125rem ≈ 18px minimo, 2rem ≈ 32px massimo */
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.01em; /* relativo alla dimensione del font */
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(0.75rem, 2.4vw, 0.875rem); /* 0.75rem ≈ 12px, 0.875rem ≈ 14px */
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center; /* mantiene centrato su mobile */
+  line-height: 1.4;  /* leggibilità migliore */
+}
+
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(6, 1fr);
+      gap:clamp(10px, 2.5vw, 16px);
+    }
+    @media (max-width:1080px){ .grid{ grid-template-columns:repeat(3, 1fr);} }
+    @media (max-width:720px){ .grid{ grid-template-columns:repeat(2, 1fr);} }
+    @media (max-width:460px){ .grid{ grid-template-columns:1fr; } }
+    @media (orientation: portrait) {
+      .tappezzo {
+        position: relative;
+        top: 2vh;
+      }
+    }
+
+    .step{
+      position:relative;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      padding:16px 14px;
+      min-height:140px;
+      display:flex; flex-direction:column; gap:10px; justify-content:flex-start;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      overflow:hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .step::after{
+      content:"";
+      position:absolute; inset:0;
+      background:radial-gradient(400px 120px at 0% 0%, rgba(34,211,238,.12), transparent 45%);
+      opacity:.7; pointer-events:none;
+      transition:opacity .25s ease;
+    }
+    .step:hover{
+      transform:translateY(-4px);
+      border-color:rgba(34,211,238,.35);
+      box-shadow:0 18px 40px -18px rgba(0,0,0,.6), 0 0 0 6px var(--ring);
+    }
+    .step:hover::after{ opacity:1; }
+
+    .icon{
+      width:40px; height:40px; border-radius:10px;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg, rgba(1, 18, 20, 0.171), rgba(167,139,250,.15));
+      color:var(--accent);
+      border:1px solid rgba(34,211,238,.35);
+    }
+    .title{
+      font-weight:600; font-size:15px;
+    }
+    .desc{
+      color: black; font-size:13px; line-height:1.35;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .badge{
+      position:absolute; top:10px; right:10px;
+      font-size:12px; color:#0b1224; background:rgba(255,255,255,.9);
+      padding:4px 8px; border-radius:999px; font-weight:700;
+    }
+
+    /* subtle progression line on large screens */
+    @media (min-width:721px){
+      .process{ position:relative; }
+      .progress{
+        position:absolute; left:calc(14px + clamp(18px, 3vw, 28px));
+        right:calc(14px + clamp(18px, 3vw, 28px));
+        top:78px; height:2px;
+        background:linear-gradient(90deg, rgba(34,211,238,.35), rgba(167,139,250,.35));
+        filter:blur(.2px);
+      }
+    }
+    /* Stato iniziale: tappazzo nascosto e leggermente spostato verso l'alto */
+  
+
+
+  </style>
+  <div class="tappezzo">
+    <div class="process" aria-label="Processo operativo TBH Srl">
+      <div class="header">
+        <div class="logo" aria-hidden="true"><i class="fa-solid fa-signal"></i></div>
+        <div>
+          <h1>TBH Srl — Work process</h1>
+          <p>Panoramica delle fasi operative dell’azienda di telecomunicazioni</p>
+        </div>
+      </div>
+
+      <div class="progress" aria-hidden="true"></div>
+
+      <div class="grid">
+        <article class="step" tabindex="0" aria-label="Analisi e strategia">
+          <span class="badge">1</span>
+          <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="title">Analisi e strategia</div>
+          <div class="desc">Studio del mercato e dei bisogni dei clienti per definire obiettivi e piani di crescita.</div>
+        </article>
+
+        <article class="step" tabindex="0" aria-label="Progettazione infrastrutture">
+          <span class="badge">2</span>
+          <div class="icon"><i class="fa-solid fa-network-wired"></i></div>
+          <div class="title">Progettazione infrastrutture</div>
+          <div class="desc">Pianificazione rete e implementazione apparati garantendo qualità e sicurezza.</div>
+        </article>
+
+        <article class="step" tabindex="0" aria-label="Offerta commerciale">
+          <span class="badge">3</span>
+          <div class="icon"><i class="fa-solid fa-tags"></i></div>
+          <div class="title">Offerta commerciale</div>
+          <div class="desc">Creazione pacchetti (internet, voce, TV, servizi digitali) e definizione pricing.</div>
+        </article>
+
+        <article class="step" tabindex="0" aria-label="Vendita e onboarding">
+          <span class="badge">4</span>
+          <div class="icon"><i class="fa-solid fa-handshake"></i></div>
+          <div class="title">Vendita e onboarding</div>
+          <div class="desc">Attivazione servizi su canali fisici e digitali, configurazione e supporto iniziale.</div>
+        </article>
+
+        <article class="step" tabindex="0" aria-label="Gestione operativa della rete">
+          <span class="badge">5</span>
+          <div class="icon"><i class="fa-solid fa-server"></i></div>
+          <div class="title">Gestione rete</div>
+          <div class="desc">Monitoraggio continuo, manutenzione preventiva e upgrade tecnologici.</div>
+        </article>
+
+        <article class="step" tabindex="0" aria-label="Customer care e assistenza">
+          <span class="badge">6</span>
+          <div class="icon"><i class="fa-solid fa-headset"></i></div>
+          <div class="title">Customer care</div>
+          <div class="desc">Assistenza tecnica e amministrativa multicanale, raccolta feedback e miglioramento.</div>
+        </article>
+
+        <article class="step" tabindex="0" aria-label="Innovazione e R&S">
+          <span class="badge">7</span>
+          <div class="icon"><i class="fa-solid fa-flask"></i></div>
+          <div class="title">Innovazione</div>
+          <div class="desc">Investimenti in IoT, AI ed edge computing per mantenere il vantaggio competitivo.</div>
+        </article>
+      </div>
+    </div></div>
+
+<h2 class="titolo-team">Un po del nostro team</h2>
+<div class="immagini-team"> 
+  <img src="aggiustatore.jpg" alt="immagine-team">
+  <img src="bucatore.jpg" alt="immagine-team">
+  <img src="lavori-stradali.jpg" alt="immagine-team">
+  <img src="trapanotore-con-tuta.jpg" alt="immagine-team">
+  <img src="bobina-tbh.jpg" alt="immagine-team">
+  <img src="uomo-su-scala.jpg" alt="immagine-team">
+  <img src="fibra-tbh.jpg" alt="immagine-team">
+  <img src="uomo-su-scala-verde.jpg" alt="immagine-team">
+  <img src="colui-che-giunta.jpg" alt="immagine-team">
+</div>
+
+
+
+    </section>
+
+    <script>
+// JS per animazione fade-in dall'alto verso il basso
+document.addEventListener('DOMContentLoaded', () => {
+  const images = document.querySelectorAll('.split-image img');
+
+  if (images.length === 0) return; // protezione
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // trigger una sola volta
+      }
+    });
+  }, { threshold: 0.2 });
+
+  images.forEach(img => observer.observe(img));
+});
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const titolo = document.querySelector('.titolo-team');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        titolo.classList.add('visibile');
+        observer.unobserve(titolo); // rimuove l'osservatore dopo la prima animazione
+      }
+    });
+  }, { threshold: 0.3 }); // trigger quando almeno il 10% del titolo è visibile
+
+  observer.observe(titolo);
+});
+
+
+      document.addEventListener('DOMContentLoaded', () => {
+  // Selettori degli elementi
+  const h4Elements = document.querySelectorAll('.team-section h4');
+  const introElement = document.querySelector('.intro');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible'); // aggiunge classe per animazione
+        observer.unobserve(entry.target);       // smette di osservare dopo l'animazione
+      }
+    });
+  }, { threshold: 0.2 });
+
+  // Osserva tutti gli h4
+  h4Elements.forEach(el => observer.observe(el));
+
+  // Osserva il paragrafo intro
+  if(introElement) observer.observe(introElement);
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const h1Element = document.querySelector('.team-section h1');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible'); // aggiunge la classe per animazione
+        observer.unobserve(entry.target);       // smette di osservare dopo l'animazione
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(h1Element);
+});
+
+
+
+     document.addEventListener('DOMContentLoaded', () => {
+  // Seleziona tutti gli h3 nella sezione team
+  const teamTitles = document.querySelectorAll('.team-section h3');
+
+  // Opzioni dell'observer
+  const options = {
+    threshold: 0.2 // parte visibile al 20%
+  };
+
+  // Callback per l'intersection observer
+  const titleObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible'); // aggiunge classe per animazione
+        observer.unobserve(entry.target);       // smette di osservare dopo animazione
+      }
+    });
+  }, options);
+
+  // Osserva tutti i titoli
+  teamTitles.forEach(title => titleObserver.observe(title));
+}); 
+  // Animazione fade-in on scroll
+  const ols = document.querySelectorAll('ol');
+  const options = { threshold: 0.2 };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, options);
+
+  ols.forEach(ol => observer.observe(ol));
+  
+document.addEventListener('DOMContentLoaded', () => {
+  const tappezzo = document.querySelector('.tappezzo');
+  if (!tappezzo) return;
+
+  function animateTappezzo() {
+    const rect = tappezzo.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    if(rect.top <= windowHeight && rect.bottom >= 0 && !tappezzo.classList.contains('visible')) {
+      tappezzo.classList.add('visible');
+    }
+  }
+
+  animateTappezzo();
+  window.addEventListener('scroll', animateTappezzo);
+});
+
+
+
+</script>
+<div class="info-box">
+  <div class="logo-info">
+    <img src="logo.png" alt="logo" />
+  </div>
+
+  <div class="assistenza">
+    <i class="fa-solid fa-phone-volume"></i>
+    <div>
+      <h4>Numero assistenza clienti</h4>
+      <p>*********</p>
+    </div>
+  </div>
+
+  <div class="email">
+    <i class="fa-solid fa-envelope"></i>
+    <div>
+      <h4>Email aziendale</h4>
+      <p>tbh@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="sede-legale">
+    <i class="fa-solid fa-location-dot"></i>
+    <div>
+      <h4>Sede legale</h4>
+      <p>Tolfa (RM) Piazza Bettino Craxi 3 CAP 00059</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer principale -->
+<footer class="footer">
+  <div class="footer-section chi-siamo">
+    <h2>Chi siamo</h2>
+    <p>
+      TBH Srl è una realtà dinamica e innovativa, specializzata nello sviluppo
+      di soluzioni tecnologiche su misura per aziende e professionisti. Uniamo
+      competenze tecniche, visione strategica e creatività per offrire servizi
+      ad alto valore aggiunto nei settori del digital, dell’ingegneria e della
+      consulenza.
+    </p>
+  </div>
+
+  <div class="footer-section link-utili">
+    <h2>Link utili</h2>
+    <a href="chi-siamo.html">➜ Chi siamo</a>
+    <a href="servizi-introduzione.html">➜ I nostri servizi</a>
+    <a href="contatti.html">➜ Contatti</a>
+  </div>
+
+  <div class="footer-section link-rapidi">
+    <h2>Link rapidi</h2>
+    <a href="index.html">➜ Home</a>
+    <a href="team.html">➜ Team</a>
+    <a href="prenotazioni.html">➜ Prenotazioni</a>
+  </div>
+</footer>
+
+<!-- Settima sezione -->
+<section class="settima-sezione">
+  <p>
+    | &copy; TBH Srl 2024 | P.IVA 17496751003 | Tutti i diritti riservati |
+    Sviluppato da CodeFactory |
+  </p>
+</section>
+<button id="scrollTopBtn" title="Torna su">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+ <script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > window.innerHeight * 0.3) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+  </main>
+</body>
+</html>

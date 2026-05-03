@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavora con noi - TBH srl</title>
+      <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icone -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+
+</head>
+<body class="corpo">
+    <main>
+ <!-- Navbar -->
+    <header class="navbar">
+      <img src="logo.png" alt="Logo TBH" class="logo-img">
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="introduzione-servizi.html">Servizi</a>
+        <a href="contatti.html">Contatti</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="prenotazioni.html">Prenotazioni</a>
+        <a href="team.html">Team</a>
+      </nav>
+    </header>
+<section class="lavora-wrapper">
+
+  <h1>Lavora con noi</h1>
+  <p>Unisciti al nostro team e costruisci il tuo futuro professionale con noi.</p>
+
+  <form id="lavora-form">
+
+    <label for="nome">Nome e Cognome</label>
+    <textarea 
+      type="text" 
+      id="nome" 
+      name="nome" 
+      placeholder="Inserisci il tuo nome completo"
+      required
+    ></textarea>
+
+    <label for="email">Email</label>
+    <textarea 
+      type="email" 
+      id="email" 
+      name="email" 
+      placeholder="Inserisci la tua email"
+      required
+    ></textarea>
+     
+    <label for="telefono">Telefono: </label>
+    <input type="tel"
+    id = "telefono"
+    name="telefono"
+    placeholder="Inserisci il tuo numero di telefono">
+
+    <label for="esperienze">Esperienze lavorative precendenti: </label>
+    <textarea type="text"
+    id="esperienze"
+    name="esperienze"
+    placeholder="Descrivi brevemente le tue esperienze lavorative precedenti"
+    rows="6"></textarea>
+
+    <label for="scegliere">Perché dovremmo scegliere te?</label>
+    <textarea
+      id="scegliere"
+      name="scegliere"
+      placeholder="Raccontaci cosa ti rende unico e perché saresti un'ottima aggiunta al nostro team"
+      rows="6"
+    ></textarea>
+      
+      
+
+    <label for="posizione">Posizione desiderata</label>
+    <input
+      type="text" 
+      id="posizione" 
+      name="posizione" 
+      placeholder="Es. Sviluppatore Web, Commercialista, Tecnico IT"
+    >
+
+    <label for="linkedin">Profilo LinkedIn (opzionale)</label>
+    <input 
+      type="url" 
+      id="linkedin" 
+      name="linkedin" 
+      placeholder="Inserisci il link al tuo profilo LinkedIn"
+      >
+    
+    <label for="competenze">Competenze principali: </label>
+    <input type="text"
+    id="competenze"
+    name="competenze"
+    placeholder="Es. Lingua, manodopera, excel, teamwork">
+
+    <label for="disponibilità">Disponibilità (full-time / part-time / freelance):</label>
+    <input type="text"
+    id="disponibilità"
+    name="disponibilità"
+    placeholder="Indica la tua disponibilità lavorativa"
+    >
+
+
+<label for="cv">Allega il tuo curriculum (PDF, DOC, DOCX)</label>
+
+<div class="dropzone" id="dropzone">
+  <div class="dropzone-content">
+    <span class="plus">+</span>
+    <p>Trascina il file qui o clicca per selezionarlo</p>
+    <span id="fileName"></span>
+  </div>
+  <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" style="display:none;">
+  <button type="button" id="removeFile">Rimuovi file</button>
+</div>
+
+    <button type="submit" class="btn-candidatura">
+      Invia candidatura
+    </button>
+
+  </form>
+
+</section>
+
+
+
+
+
+
+<script>
+const dropzone = document.getElementById('dropzone');
+const cvInput = document.getElementById('cv');
+const fileName = document.getElementById('fileName');
+const removeFile = document.getElementById('removeFile');
+let hoverInterval;
+
+dropzone.addEventListener('mouseenter', () => {
+  hoverInterval = setInterval(() => {
+    if (cvInput.files.length > 0) {
+      fileName.textContent = cvInput.files[0].name;
+    } else {
+      fileName.textContent = 'Nessun file selezionato';
+    }
+  }, 500); // ogni mezzo secondo controlla lo stato
+});
+
+dropzone.addEventListener('mouseleave', () => {
+  clearInterval(hoverInterval);
+});
+// Click sulla dropzone apre l'input solo se non c'è già un file
+dropzone.addEventListener('click', e => {
+  if (e.target === removeFile) return; // non aprire se clicco sul pulsante
+  cvInput.click();
+});
+
+// Drag & drop
+dropzone.addEventListener('dragover', e => {
+  e.preventDefault();
+  dropzone.style.boxShadow = '0 0 25px rgba(0,255,140,0.6)';
+});
+
+dropzone.addEventListener('dragleave', () => {
+  dropzone.style.boxShadow = 'none';
+});
+
+dropzone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropzone.style.boxShadow = 'none';
+  if (e.dataTransfer.files.length > 0) {
+    cvInput.files = e.dataTransfer.files;
+    showFile(true);
+  }
+});
+
+// Quando cambia l'input
+cvInput.addEventListener('change', () => {
+  if (cvInput.files.length > 0) {
+    showFile(true);
+  }
+});
+
+function showFile(showAlert = false) {
+  if (cvInput.files.length > 0) {
+    fileName.textContent = cvInput.files[0].name;
+    removeFile.style.display = 'inline-block';
+    if (showAlert) {
+      alert('✅ File inserito con successo!');
+    }
+  } else {
+    fileName.textContent = '';
+    removeFile.style.display = 'none';
+  }
+}
+
+// Rimuovere file
+removeFile.addEventListener('click', e => {
+  e.stopPropagation(); // evita che apra input
+  cvInput.value = '';
+  showFile();
+});
+
+
+// Seleziona tutte le textarea del form
+const textareas = document.querySelectorAll('#lavora-form textarea');
+
+textareas.forEach(textarea => {
+  // Altezza iniziale
+  textarea.style.height = textarea.scrollHeight + "px";
+
+  textarea.addEventListener('input', () => {
+    // Memorizza scroll della pagina
+    const scrollY = window.scrollY;
+
+    // Espansione automatica
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + "px";
+
+    // Ripristina scroll
+    window.scrollTo(window.scrollX, scrollY);
+  });
+});
+
+</script>
+<div class="info-box">
+  <div class="logo-info">
+    <img src="logo.png" alt="logo" />
+  </div>
+
+  <div class="assistenza">
+    <i class="fa-solid fa-phone-volume"></i>
+    <div>
+      <h4>Numero assistenza clienti</h4>
+      <p>*********</p>
+    </div>
+  </div>
+
+  <div class="email">
+    <i class="fa-solid fa-envelope"></i>
+    <div>
+      <h4>Email aziendale</h4>
+      <p>tbh@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="sede-legale">
+    <i class="fa-solid fa-location-dot"></i>
+    <div>
+      <h4>Sede legale</h4>
+      <p>Tolfa (RM) Piazza Bettino Craxi 3 CAP 00059</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer principale -->
+<footer class="footer">
+  <div class="footer-section chi-siamo">
+    <h2>Chi siamo</h2>
+    <p>
+      TBH Srl è una realtà dinamica e innovativa, specializzata nello sviluppo
+      di soluzioni tecnologiche su misura per aziende e professionisti. Uniamo
+      competenze tecniche, visione strategica e creatività per offrire servizi
+      ad alto valore aggiunto nei settori del digital, dell’ingegneria e della
+      consulenza.
+    </p>
+  </div>
+
+  <div class="footer-section link-utili">
+    <h2>Link utili</h2>
+    <a href="chi-siamo.html">➜ Chi siamo</a>
+    <a href="servizi-introduzione.html">➜ I nostri servizi</a>
+    <a href="contatti.html">➜ Contatti</a>
+  </div>
+
+  <div class="footer-section link-rapidi">
+    <h2>Link rapidi</h2>
+    <a href="index.html">➜ Home</a>
+    <a href="team.html">➜ Team</a>
+    <a href="prenotazioni.html">➜ Prenotazioni</a>
+  </div>
+</footer>
+
+<!-- Settima sezione -->
+<section class="settima-sezione">
+  <p>
+    | &copy; TBH Srl 2024 | P.IVA 17496751003 | Tutti i diritti riservati |
+    Sviluppato da CodeFactory |
+  </p>
+</section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impianti elettrici civili - TBH Srl</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icone -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+
+</head>
+<body>
+  <main>
+
+    <!-- Navbar -->
+    <header class="navbar">
+      <img src="logo.png" alt="Logo TBH" class="logo-img">
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="introduzione-servizi.html">Servizi</a>
+        <a href="contatti.html">Contatti</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="prenotazioni.html">Prenotazioni</a>
+        <a href="team.html">Team</a>
+      </nav>
+    </header>
+    
+<section class="prima-sezione-impianti-elettrici-civili">
+<!-- HTML -->
+ 
+         <div class="forma-geometrica-rettangolare">
+            
+            <div class="cerchio-allungato">
+                <a href="fibra-ottica.html">Fibra ottica</a>
+            </div>
+            <div class="cerchio-allungato">
+                <a href="ftt-cab.html">Ftt Cab</a>
+            </div>
+            <div class="cerchio-allungato">
+                <a href="impianti-elettrici-civili.html">Impianti elettrici civili</a>
+            </div>
+            <div class="cerchio-allungato">
+                <a href="impianti-elettrici-industriali-tbh.html">Impianti elettrici industriali</a>
+            </div>
+            
+        </div>
+
+ <img src="impianto-elettrico.jpeg" alt="impianto-elettrico" class="impianti-elettrico-civile">
+
+<div class="come-posso-scegliere">
+    
+    <h1 class="slide-right">Come posso scegliere l’impianto elettrico più sicuro ed efficiente per la mia casa?</h1>
+    <p class="slide-left">
+        TBH S.r.l. propone impianti elettrici civili progettati per garantire sicurezza, efficienza energetica e affidabilità. Ogni soluzione viene realizzata nel rispetto delle normative vigenti, come la <b>CEI 64-8</b>, e corredata dalla dichiarazione di conformità, assicurando il massimo livello di sicurezza per l’abitazione.
+    </p>
+    <ol>
+    <li class="slide-down"><b>Progettazione personalizzata:</b> gli impianti sono studiati in base alle esigenze specifiche di ogni abitazione, considerando punti luce, prese, interruttori e dispositivi elettrici, per evitare sovraccarichi e ottimizzare i consumi.</li>
+    <li class="slide-diagonal"><b>Sistemi di protezione:</b> TBH S.r.l. integra interruttori differenziali, magnetotermici e dispositivi contro le sovratensioni, prevenendo cortocircuiti, scosse elettriche e danni agli apparecchi.</li>
+    <li class="slide-left"><b>Efficienza energetica:</b> l’azienda utilizza materiali di alta qualità e soluzioni innovative, come illuminazione LED, sistemi domotici e contatori intelligenti, per ridurre i consumi e i costi di gestione.</li>
+    <li class="slide-right"><b>Flessibilità e futuro:</b> gli impianti sono progettati per adattarsi a eventuali ampliamenti, integrazione di pannelli solari o sistemi domotici, garantendo longevità e aggiornabilità nel tempo.</li>
+    <li class="slide-up"><b>Manutenzione periodica:</b> TBH S.r.l. offre controlli regolari e interventi di manutenzione per assicurare il corretto funzionamento dell’impianto e prevenire problematiche future.</li>
+    </ol>
+    
+</div>
+<div class="varieta-btn">
+    <a href="prenotazioni.html" class="btn-prenotazioni anim-enter-right">
+        <span>Prenota ora un appuntamento</span>
+    </a>
+</div>
+
+<div class="btn-team-wrapper">
+    <a href="team.html" class="btn-team anim-enter-left">
+        <span>Scopri il nostro team</span>
+    </a>
+</div>
+
+
+<script>
+const varietaBtn = document.querySelector('.varieta-btn');
+
+function animateVarieta() {
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const rect = varietaBtn.getBoundingClientRect();
+
+    if (rect.top <= windowHeight * 0.8) {
+        varietaBtn.classList.add('in-view');
+    }
+}
+
+// Controllo immediato e allo scroll
+animateVarieta();
+window.addEventListener('scroll', animateVarieta);
+
+    const btnTeam = document.querySelector('.btn-team');
+
+function animateButton() {
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const rect = btnTeam.getBoundingClientRect();
+
+    if (rect.top <= windowHeight * 0.8) {
+        btnTeam.classList.add('in-view');
+    }
+}
+
+// Controllo immediato e allo scroll
+animateButton();
+window.addEventListener('scroll', animateButton);
+// Funzione per animazione scroll
+document.addEventListener("DOMContentLoaded", function() {
+  const h1 = document.querySelector(".priorità h1");
+  const p = document.querySelector(".priorità p");
+
+  function animateOnScroll() {
+    const windowHeight = window.innerHeight;
+
+    // Titolo
+    const h1Top = h1.getBoundingClientRect().top;
+    if (h1Top < windowHeight - 100) {
+      h1.classList.add("visible");
+    }
+
+    // Paragrafo
+    const pTop = p.getBoundingClientRect().top;
+    if (pTop < windowHeight - 100) {
+      p.classList.add("visible");
+    }
+  }
+
+  window.addEventListener("scroll", animateOnScroll);
+  animateOnScroll(); // per far partire anche se già visibile
+});
+function scrollAnimations() {
+    const elements = document.querySelectorAll('.come-posso-scegliere h1, .come-posso-scegliere p');
+    const windowBottom = window.innerHeight * 0.9;
+
+    elements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowBottom) {
+            el.classList.add('animate');
+        }
+    });
+}
+
+window.addEventListener('scroll', scrollAnimations);
+window.addEventListener('load', scrollAnimations);
+
+
+function animateListItemsOnScroll() {
+    const listItems = document.querySelectorAll('.come-posso-scegliere li');
+    const windowBottom = window.innerHeight * 0.9;
+
+    listItems.forEach(li => {
+        const elementTop = li.getBoundingClientRect().top;
+        if (elementTop < windowBottom) {
+            li.classList.add('animate');
+        }
+    });
+}
+
+window.addEventListener('scroll', animateListItemsOnScroll);
+window.addEventListener('load', animateListItemsOnScroll);
+
+
+const img = document.querySelector('.impianti-elettrico-civile');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.2 });
+
+observer.observe(img);
+
+
+const prenota = document.querySelector('.btn-prenotazioni');
+const team = document.querySelector('.btn-team');
+
+function revealOnScroll() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    [prenota, team].forEach((el) => {
+        const boxTop = el.getBoundingClientRect().top;
+
+        if (boxTop < triggerBottom) {
+            if (el.classList.contains('btn-prenotazioni')) {
+                el.classList.add('show-from-top'); // dall’alto verso il basso
+            } else {
+                el.classList.add('show-from-bottom'); // dal basso verso l’alto
+                el.style.transform = "translateY(-50px)";
+            }
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+
+  // Seleziona gli elementi
+    document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate");
+        observer.unobserve(entry.target); // evita di ri-triggerare
+      }
+    });
+  }, { threshold: 0.2 }); // parte quando almeno il 20% è visibile
+
+  // Seleziona le colonne
+  const leftColumn = document.querySelector(".left-column");
+  const rightColumn = document.querySelector(".right-column");
+
+  if (leftColumn) observer.observe(leftColumn);
+  if (rightColumn) observer.observe(rightColumn);
+});  
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const containers = document.querySelectorAll(".container");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        // Se vuoi che rimanga attivo solo la prima volta:
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 }); // 20% visibile
+
+  containers.forEach(container => {
+    observer.observe(container);
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll('.anim-enter-left, .anim-enter-right');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('anim-visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const target = document.querySelector('.come-si-installa');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(target);
+});
+
+
+</script>
+
+
+</section>
+<div class="spartitraffico "></div>
+<section>
+<div class="container">
+  <div class="divider"></div>
+
+  <div class="left-column">
+    <h1>La sicurezza è il cuore del nostro lavoro</h1>
+    <p>Ogni impianto che realizziamo viene progettato e installato seguendo rigorosamente le normative vigenti, perché sappiamo quanto sia fondamentale garantire ambienti elettrici affidabili, stabili e privi di rischi. Per noi la protezione delle persone, delle abitazioni e delle attività commerciali non è un semplice obbligo tecnico, ma una responsabilità che prendiamo con la massima serietà. Utilizziamo materiali certificati, tecnologie moderne e procedure di intervento precise, assicurando impianti sicuri e duraturi nel tempo. Affidarsi a noi significa scegliere professionalità, competenza e un impegno costante verso la sicurezza elettrica.</p>
+  </div>
+
+  <div class="right-column">
+    <div class="tbh-technology">
+      <h3>TBH Technology</h3>
+      <p>Le nostre priorità quando costruiamo un impianto elettrico</p>
+    </div>
+
+    <div class="priority-boxes">
+      <div class="priority-box">
+        <i class="fas fa-shield-alt"></i>
+        <span>Protezione persone</span>
+      </div>
+      <div class="priority-box">
+        <i class="fas fa-bolt"></i>
+        <span>Affidabilità impianti</span>
+      </div>
+      <div class="priority-box">
+        <i class="fas fa-tools"></i>
+        <span>Materiali certificati</span>
+      </div>
+      <div class="priority-box">
+        <i class="fas fa-cogs"></i>
+        <span>Procedure precise</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="come-si-installa">
+  <h3>Come vengono effettuate le installazioni di questo tipo di impianti?</h3>
+  <strong><p>L’installazione di un impianto elettrico civile viene eseguita seguendo procedure precise e conformi alla
+     normativa CEI 64-8. Si parte dalla progettazione, definendo posizione di prese, punti luce, interruttori,
+      percorsi delle linee e potenza necessaria. Successivamente si tracciano sulle pareti i percorsi dell’impianto e
+       si realizzano le tracce dove saranno inserite scatole, cassette di derivazione e tubi corrugati.
+Chiuse le tracce, si procede al passaggio dei cavi per le varie linee (luci, prese, cucina, condizionatori, messa a
+ terra) e all’installazione del quadro elettrico con magnetotermici, salvavita e dispositivi di protezione. Il
+  lavoro si conclude con il montaggio di prese, interruttori e punti luce, seguito dai test di sicurezza e dal
+   rilascio della Dichiarazione di Conformità, che garantisce la piena regolarità e sicurezza dell’impianto.</p></strong>
+</div>
+</section>
+<div class="info-box">
+  <div class="logo-info">
+    <img src="logo.png" alt="logo" />
+  </div>
+
+  <div class="assistenza">
+    <i class="fa-solid fa-phone-volume"></i>
+    <div>
+      <h4>Numero assistenza clienti</h4>
+      <p>*********</p>
+    </div>
+  </div>
+
+  <div class="email">
+    <i class="fa-solid fa-envelope"></i>
+    <div>
+      <h4>Email aziendale</h4>
+      <p>tbh@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="sede-legale">
+    <i class="fa-solid fa-location-dot"></i>
+    <div>
+      <h4>Sede legale</h4>
+      <p>Tolfa (RM) Piazza Bettino Craxi 3 CAP 00059</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer principale -->
+<footer class="footer">
+  <div class="footer-section chi-siamo">
+    <h2>Chi siamo</h2>
+    <p>
+      TBH Srl è una realtà dinamica e innovativa, specializzata nello sviluppo
+      di soluzioni tecnologiche su misura per aziende e professionisti. Uniamo
+      competenze tecniche, visione strategica e creatività per offrire servizi
+      ad alto valore aggiunto nei settori del digital, dell’ingegneria e della
+      consulenza.
+    </p>
+  </div>
+
+  <div class="footer-section link-utili">
+    <h2>Link utili</h2>
+    <a href="chi-siamo.html">➜ Chi siamo</a>
+    <a href="servizi-introduzione.html">➜ I nostri servizi</a>
+    <a href="contatti.html">➜ Contatti</a>
+  </div>
+
+  <div class="footer-section link-rapidi">
+    <h2>Link rapidi</h2>
+    <a href="index.html">➜ Home</a>
+    <a href="team.html">➜ Team</a>
+    <a href="prenotazioni.html">➜ Prenotazioni</a>
+  </div>
+</footer>
+<button id="scrollTopBtn" title="Torna su">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+<script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > window.innerHeight * 0.3) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+<!-- Settima sezione -->
+<section class="settima-sezione">
+  <p>
+    | &copy; TBH Srl 2024 | P.IVA 17496751003 | Tutti i diritti riservati |
+    Sviluppato da CodeFactory |
+  </p>
+</section>

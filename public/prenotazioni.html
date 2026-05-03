@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - TBH Srl</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icone -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+
+</head>
+<body>
+  <main>
+
+    <!-- Navbar -->
+    <header class="navbar">
+      <img src="logo.png" alt="Logo TBH" class="logo-img">
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="introduzione-servizi.html">Servizi</a>
+        <a href="contatti.html">Contatti</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="prenotazioni.html">Prenotazioni</a>
+        <a href="team.html">Team</a>
+      </nav>
+    </header>
+<style>
+:root{
+  --bg:#041025;
+  --card:#0b1220;
+  --accent:#06b6d4;
+  --muted:#94a3b8;
+  --free:#0ea5a4;
+  --booked:#ef4444;
+  --text:#e6eef6;
+  font-family: 'Segoe UI', Inter, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text);}
+.wrap{max-width:1200px;margin:24px auto;padding:20px}
+header{display:flex;gap:12px;align-items:center;justify-content:space-between}
+header h1{font-size:1.4rem;margin:0}
+.controls{display:flex;gap:8px;align-items:center}
+.btn{background:var(--card);border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:8px;color:var(--text);cursor:pointer}
+.year-label{font-weight:700}
+
+/* layout grid: months */
+.months-grid{
+  margin-top:18px;
+  display:grid;
+  gap:16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.month-card{
+  background:var(--bg);
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.03);
+}
+.month-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+}
+.month-title{font-weight:700}
+.weekdays{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  text-align:center;
+  font-size:0.75rem;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+.days{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:6px;
+}
+.day{
+  min-height:44px;
+  padding:6px;
+  border-radius:8px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  flex-direction:column;
+  font-size:0.85rem;
+  cursor:pointer;
+  border:1px dashed transparent;
+}
+.day.out{opacity:0.28}
+.day .num{font-weight:600}
+.day.free:hover{outline:2px solid rgba(6,182,212,0.12)}
+.day.booked{background:linear-gradient(180deg, rgba(239,68,68,0.12), rgba(239,68,68,0.06));border-color:rgba(239,68,68,0.18)}
+.day.selected{box-shadow:0 6px 18px rgba(6,182,212,0.12);border-color:rgba(6,182,212,0.18)}
+.legend{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:0.85rem}
+.chip{display:inline-flex;gap:8px;align-items:center;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)}
+.dot{width:10px;height:10px;border-radius:50%}
+
+/* tooltip/modal */
+.modal{
+  position:fixed;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(3,7,18,0.5);
+  backdrop-filter:blur(2px);
+  visibility:hidden;opacity:0;
+  transition:opacity .18s, visibility .18s;
+  z-index:1000;
+}
+.modal.show{visibility:visible;opacity:1}
+.modal-card{
+  background:var(--card);
+  padding:14px;
+  border-radius:10px;
+  min-width:260px;
+  color:var(--text);
+  border:1px solid rgba(255,255,255,0.03);
+}
+.modal-card h3{margin:0 0 8px 0}
+.modal-row{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:10px}
+.input{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text);min-width:140px}
+.small{font-size:0.85rem;color:var(--muted)}
+
+@media(max-width:640px){
+  .day{min-height:48px}
+  header{flex-direction:column;align-items:flex-start;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Calendario Prenotazioni</h1>
+    <div class="controls">
+      <button class="btn" id="prevYear">⬅</button>
+      <span class="year-label" id="yearDisplay"></span>
+      <button class="btn" id="nextYear">➡</button>
+    </div>
+  </header>
+
+  <div class="months-grid" id="monthsGrid"></div>
+
+  <div class="legend">
+    <div class="chip"><div class="dot" style="background:var(--free)"></div> Libero</div>
+    <div class="chip"><div class="dot" style="background:var(--booked)"></div> Prenotato</div>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <h3>Prenotazione</h3>
+    <input type="text" id="nome" class="input" placeholder="Nome">
+    <input type="text" id="motivo" class="input" placeholder="Motivo">
+    <input type="time" id="ora" class="input">
+    <div class="modal-row">
+      <button class="btn" id="confirm">Conferma</button>
+      <button class="btn" id="delete">Elimina</button>
+      <button class="btn" id="closeModal">Chiudi</button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const mesiNomi = ["Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
+  const monthsGrid = document.getElementById("monthsGrid");
+  const yearDisplay = document.getElementById("yearDisplay");
+  const modal = document.getElementById("modal");
+  let selectedDay = null;
+  let annoCorrente = new Date().getFullYear();
+  let prenotazioni = [];
+  const utenteCorrente = "user123"; // id unico simulato
+
+  const tooltipBlocco = document.createElement("div");
+  tooltipBlocco.style.position = "absolute";
+  tooltipBlocco.style.padding = "6px 12px";
+  tooltipBlocco.style.background = "rgba(255,255,255,0.1)";
+  tooltipBlocco.style.borderRadius = "6px";
+  tooltipBlocco.style.pointerEvents = "none";
+  tooltipBlocco.style.color = "#fff";
+  tooltipBlocco.style.fontSize = "0.85rem";
+  tooltipBlocco.style.display = "none";
+  tooltipBlocco.style.zIndex = "2000";
+  document.body.appendChild(tooltipBlocco);
+
+  // 📥 Carica prenotazioni dal server
+  async function loadPrenotazioni(){
+    const res = await fetch("/prenotazioni");
+    prenotazioni = await res.json();
+    generaCalendari();
+  }
+
+  function generaCalendari(){
+    yearDisplay.textContent = annoCorrente;
+    monthsGrid.innerHTML = "";
+
+    for(let m=0;m<12;m++){
+      const monthCard = document.createElement("div");
+      monthCard.classList.add("month-card");
+
+      const monthHeader = document.createElement("div");
+      monthHeader.classList.add("month-header");
+      monthHeader.innerHTML = `<span class="month-title">${mesiNomi[m]}</span>`;
+      monthCard.appendChild(monthHeader);
+
+      const weekdays = document.createElement("div");
+      weekdays.classList.add("weekdays");
+      ["Lun","Mar","Mer","Gio","Ven","Sab","Dom"].forEach(d=>weekdays.innerHTML+=`<div>${d}</div>`);
+      monthCard.appendChild(weekdays);
+
+      const daysDiv = document.createElement("div");
+      daysDiv.classList.add("days");
+
+      const firstDay = (new Date(annoCorrente,m,1).getDay()+6)%7;
+      const lastDate = new Date(annoCorrente,m+1,0).getDate();
+
+      for(let i=0;i<firstDay;i++){
+        const emptyDay = document.createElement("div");
+        emptyDay.classList.add("day","out");
+        daysDiv.appendChild(emptyDay);
+      }
+
+      for(let d=1;d<=lastDate;d++){
+        const dayDiv = document.createElement("div");
+        dayDiv.classList.add("day","free");
+        dayDiv.dataset.anno = annoCorrente;
+        dayDiv.dataset.mese = m;
+        dayDiv.dataset.giorno = d;
+        dayDiv.innerHTML = `<div class="num">${d}</div>`;
+
+        const key = `${annoCorrente}-${m+1}-${d}`;
+        const p = prenotazioni.find(p=>p.data===key);
+
+        if(p){
+          dayDiv.classList.remove("free");
+          dayDiv.classList.add("booked");
+          dayDiv.title = `${p.nome}: ${p.motivo} alle ${p.ora}`;
+        }
+
+        dayDiv.onmouseenter = (e)=>{
+          if(p && p.userId !== utenteCorrente){
+            tooltipBlocco.style.display="block";
+            tooltipBlocco.textContent = "Giorno già prenotato";
+            tooltipBlocco.style.left = e.pageX + 10 + "px";
+            tooltipBlocco.style.top = e.pageY + 10 + "px";
+          }
+        };
+        dayDiv.onmousemove = (e)=>{
+          if(tooltipBlocco.style.display==="block"){
+            tooltipBlocco.style.left = e.pageX + 10 + "px";
+            tooltipBlocco.style.top = e.pageY + 10 + "px";
+          }
+        };
+        dayDiv.onmouseleave = ()=>{tooltipBlocco.style.display="none";};
+
+        dayDiv.onclick = ()=>{
+          if(p && p.userId!==utenteCorrente){
+            alert(`Giorno prenotato da un altro utente: ${p.nome}`);
+            return;
+          }
+          selectedDay = dayDiv;
+          document.getElementById("nome").value = p?.nome||"";
+          document.getElementById("motivo").value = p?.motivo||"";
+          document.getElementById("ora").value = p?.ora||"";
+          modal.classList.add("show");
+        };
+
+        daysDiv.appendChild(dayDiv);
+      }
+
+      monthCard.appendChild(daysDiv);
+      monthsGrid.appendChild(monthCard);
+    }
+  }
+
+  // conferma prenotazione
+  document.getElementById("confirm").onclick = async ()=>{
+    const nome = document.getElementById("nome").value;
+    const motivo = document.getElementById("motivo").value;
+    const ora = document.getElementById("ora").value;
+    if(!nome||!motivo||!ora){ alert("Compila tutti i campi"); return; }
+    const key = `${selectedDay.dataset.anno}-${parseInt(selectedDay.dataset.mese)+1}-${selectedDay.dataset.giorno}`;
+
+    // POST al server
+    const res = await fetch("/prenotazioni", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ userId:utenteCorrente, nome, motivo, data:key, ora })
+    });
+
+    if(res.status===403){
+      alert("Giorno già prenotato");
+    } else {
+      modal.classList.remove("show");
+      loadPrenotazioni();
+    }
+  };
+
+  document.getElementById("delete").onclick = async ()=>{
+    if(!selectedDay) return;
+    const key = `${selectedDay.dataset.anno}-${parseInt(selectedDay.dataset.mese)+1}-${selectedDay.dataset.giorno}`;
+    const p = prenotazioni.find(p=>p.data===key);
+    if(!p || p.userId!==utenteCorrente){ alert("Non puoi eliminare questa prenotazione"); return; }
+
+    await fetch(`/prenotazioni/${p.idPrenotazione}`, {
+      method:"DELETE",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({userId:utenteCorrente})
+    });
+    modal.classList.remove("show");
+    loadPrenotazioni();
+  };
+
+  document.getElementById("closeModal").onclick = ()=>modal.classList.remove("show");
+
+  document.getElementById("nextYear").onclick = ()=>{ annoCorrente++; generaCalendari(); };
+  document.getElementById("prevYear").onclick = ()=>{ annoCorrente--; generaCalendari(); };
+
+  loadPrenotazioni();
+
+});
+
+  
+</script>
+</body>
+</html>

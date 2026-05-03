@@ -1,0 +1,43 @@
+{
+  "candidature": [
+    {
+      "idCandidatura": "9f0e4245-562e-4c37-b747-45c533f37365",
+      "nome": "Francesco Esposito",
+      "email": "giovanni@gmail.com",
+      "telefono": "3256895",
+      "esperienze": "enzo",
+      "scegliere": "simpatia",
+      "posizione": "ricotta",
+      "linkedin": "https://www.linkedin.com/in/mario-rossi-123456789/",
+      "competenze": "patt",
+      "cv": "cv-1767291514307-145471489.pdf",
+      "data": "2026-01-01T18:18:34.309Z"
+    },
+    {
+      "idCandidatura": "bf8e362a-8769-4f07-aea3-2f9b50f015f7",
+      "nome": "gggggggg",
+      "email": "gg@gamil.com",
+      "telefono": "gg",
+      "esperienze": "ggg",
+      "scegliere": "gggg",
+      "posizione": "gggg",
+      "linkedin": "",
+      "competenze": "gggg",
+      "cv": "cv-1767291579994-952184976.pdf",
+      "data": "2026-01-01T18:19:39.995Z"
+    },
+    {
+      "idCandidatura": "045082d5-a7ac-4c5d-b10f-240354de707d",
+      "nome": "dddddddddd",
+      "email": "ddddddddddd@gmail.com",
+      "telefono": "ddddddddd",
+      "esperienze": "ddddddddddddd",
+      "scegliere": "dddddddd",
+      "posizione": "d",
+      "linkedin": "",
+      "competenze": "dddd",
+      "cv": "cv-1767291831687-829727456.pdf",
+      "data": "2026-01-01T18:23:51.690Z"
+    }
+  ]
+}

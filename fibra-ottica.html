@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibra ottica - TBH Srl</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icone -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+
+</head>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const descrizione = document.querySelector(".descrizione");
+
+  // Verifica se l'elemento esiste
+  if (!descrizione) return;
+
+  // Crea un osservatore per controllare quando entra nel viewport
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Aggiunge la classe che attiva il fade-in
+          descrizione.classList.add("visible");
+
+          // Una volta visibile, smette di osservarlo (per prestazioni)
+          observer.unobserve(descrizione);
+        }
+      });
+    },
+    {
+      threshold: 0.05, // attiva quando il 20% dell’elemento è visibile
+    }
+  );
+
+  observer.observe(descrizione);
+});
+</script>
+<body>
+  <main>
+
+    <!-- Navbar -->
+    <header class="navbar">
+      <img src="logo.png" alt="Logo TBH" class="logo-img">
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="introduzione-servizi.html">Servizi</a>
+        <a href="contatti.html">Contatti</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="prenotazioni.html">Prenotazioni</a>
+        <a href="team.html">Team</a>
+      </nav>
+    </header>
+    
+    <section class="prima-classe-fibra-ottica">
+      
+        <img src="ile-kosztuje-i-jak-wyglada-podlaczenie-swiatlowodu.jpeg" alt="img-della-fibra" class="prima-img-fibra">
+        
+        <div class="rettangolo">
+            
+            <div class="ovale">
+                <a href="fibra-ottica.html">Fibra ottica</a>
+            </div>
+            <div class="ovale">
+                <a href="ftt-cab.html">Ftt Cab</a>
+            </div>
+            <div class="ovale">
+                <a href="impianti-elettrici-civili.html">Impianti elettrici civili</a>
+            </div>
+            <div class="ovale">
+                <a href="impianti-elettrici-industriali-tbh.html">Impianti elettrici industriali</a>
+            </div>
+            
+        </div>
+        <div class="del-pulsante">
+        <a href="https://wa.me/3273338506" class="pulsante-chat" target="_blank"><span>Chatta su WhatsApp</span></a>
+        </div>
+       <div class="descrizione fade-in">
+        <div class="contenitore-principale">
+    <h1>Fibra Ottica: Velocità e Affidabilità per la Tua Connessione</h1>
+    <h3>Che cos'è la fibra ottica:</h3>
+    <strong><p>La fibra ottica è la tecnologia più avanzata per la trasmissione dei dati, che permette di navigare in Internet <br>
+         con velocità estremamente elevate, bassa latenza e connessioni stabili anche con più dispositivi insieme. <br>
+A differenza delle connessioni tradizionali in rame, la fibra utilizza fili sottilissimi di vetro o plastica per <br>
+trasportare i segnali sotto forma di luce, garantendo minime perdite di segnale e prestazioni ottimali anche su lunghe distanze. <br>   
+Scegliere la fibra ottica significa avere una connessione pronta per le esigenze di oggi e di domani: <br>
+ streaming in alta definizione, smart working, gaming online e applicazioni cloud senza interruzioni.</p></strong>
+
+<div class="rectangle-contatti">
+  <div class="variabile-contatti">
+    <div class="ovale-oggetto">
+      <i class="fa-solid fa-wifi"></i>
+      <p>Connessione ultraveloce e stabile per streaming e lavoro.</p>
+    </div>
+    <div class="ovale-oggetto">
+      <i class="fa-solid fa-shield-halved"></i>
+      <p>Sicurezza avanzata con protezione dati e crittografia integrata.</p>
+    </div>
+    <div class="ovale-oggetto">
+      <i class="fa-solid fa-plug"></i>
+      <p>Installazione semplice e compatibilità con tutti i dispositivi.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="seconda-descrizione">
+<h3>Perché scegliere noi: </h3>
+        
+<strong><p>Siamo specialisti nel settore della fibra ottica grazie a anni di esperienza e a un team altamente qualificato. Ci distinguiamo per:
+<ol>
+<li >Progettazione e installazione su misura: studiamo soluzioni adatte alle esigenze specifiche di aziende e privati.</li></ol>
+<ol>
+<li value="2" >Tecnologia all’avanguardia: utilizziamo materiali e apparati certificati per garantire performance elevate e durature.</li> </ol>
+
+<ol><li value="3" >Assistenza dedicata: supportiamo i nostri clienti in ogni fase, dall’attivazione al supporto post-installazione, con rapidità ed efficienza.</li></ol>
+
+<ol><li value="4" >Affidabilità comprovata: i nostri impianti sono progettati per garantire connettività stabile anche nelle situazioni più complesse.</li></ol>
+
+Scegliere noi significa avere velocità, sicurezza e tranquillità, perché la tua connessione è nelle mani di professionisti che fanno della qualità il loro standard.</p></strong>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<div class="vantaggi-fibra">
+  <div class="vantaggio9">
+    <i class="fas fa-bolt"></i>
+    <h3>Bassa latenza</h3>
+    <p>Ideale per gaming e videochiamate senza ritardi.</p>
+  </div>
+  <div class="vantaggio9">
+    <i class="fas fa-users"></i>
+    <h3>Multi-dispositivo</h3>
+    <p>Connessione stabile anche con più dispositivi connessi.</p>
+  </div>
+  <div class="vantaggio9">
+    <i class="fas fa-rocket"></i>
+    <h3>Copertura futura</h3>
+    <p>Pronta per velocità più alte e nuovi servizi digitali.</p>
+  </div>
+</div>
+
+
+
+<div class="separatore"></div>
+<h2 class="titolo-del-simulatore">Misura in pochi secondi la velocità della fibra ottica</h2>
+<div class="wrap card">
+<section class="left card">
+<div class="meta">
+<div>
+<div class="brand">TeleNet Demo</div>
+<div class="server">Server: Milano - Test di rete (simulato)</div>
+</div>
+<div style="margin-left:auto;text-align:right">
+<div class="hint">Connessione: Fibra Ottica (simulata)</div>
+</div>
+</div>
+
+
+<div class="big-number">
+<div class="value" id="mainValue">—</div>
+<div class="unit">Mbps</div>
+</div>
+
+
+<div class="stats">
+<div class="stat">
+<h4>Ping</h4>
+<p id="pingVal">— ms</p>
+</div>
+<div class="stat">
+<h4>Jitter</h4>
+<p id="jitterVal">— ms</p>
+</div>
+<div class="stat">
+<h4>Upload</h4>
+<p id="uploadVal" class="mbps">— Mbps</p>
+</div>
+</div>
+
+
+<div class="controls">
+<button class="btn" id="startBtn">Avvia Test</button>
+<button class="btn ghost" id="resetBtn">Reset</button>
+<div style="margin-left:auto" class="result-small" id="status">Pronto</div>
+</div>
+
+
+<div class="hint">Questo è un simulatore. I risultati non rappresentano misurazioni reali.</div>
+</section>
+
+
+<aside class="right card">
+<div class="meter">
+<div class="phase" data-phase="ping"><div class="dot" id="dot-ping"></div><div class="label">Ping</div><div class="bar"><i id="bar-ping"></i></div></div>
+<div class="phase" data-phase="download"><div class="dot" id="dot-download"></div><div class="label">Download</div><div class="bar"><i id="bar-download"></i></div></div>
+<div class="phase" data-phase="upload"><div class="dot" id="dot-upload"></div><div class="label">Upload</div><div class="bar"><i id="bar-upload"></i></div></div>
+</div>
+
+
+<div class="share">
+<div class="result-small">Condividi: <button class="btn ghost" id="shareBtn">Link</button></div>
+</div>
+
+
+<div class="hint">Grafici e barre visualizzano una simulazione con andamento realistico per una fibra.</div>
+</aside>
+</div>
+<div class="separatore"></div>
+<style>
+:root{
+--bg:#0f1724; --card:#0b1220; --accent:#00d4ff; --accent2:#6affc3; --muted:#9aa4b2;
+--glass: rgba(255,255,255,0.03);
+}
+*{box-sizing:border-box}
+
+
+
+.wrap {
+  width: 95vw;             
+  max-width: 1200px;       
+  padding: clamp(1.5vh, 2vw, 3vh); 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: clamp(1.5vh, 2vw, 2.5vh);  
+  align-items: center;
+  margin: 0 auto;           
+  box-sizing: border-box;
+
+  /* stato iniziale animazione */
+  opacity: 0;
+  transform: translateY(30px); /* parte dal basso */
+  transition: all 0.6s ease-out;
+}
+
+@media (max-width:1024px){.wrap{grid-template-columns:1fr;}}
+
+
+.card {
+  background: linear-gradient(180deg, #081025 0%, #061226 100%), transparent;
+  position: relative;
+  
+  padding: clamp(1.5vh, 2vw, 3vh); /* padding fluido: minimo 1.5vh, massimo 3vh */
+  border-radius: clamp(0.8rem, 1vw, 1.5rem); /* raggio adattivo */
+  box-shadow: 0 0.6vh 3vh rgba(2,6,23,0.6); /* ombra proporzionale all'altezza viewport */
+  backdrop-filter: blur(6px);
+  font-family: 'Segoe UI', sans-serif;
+  width: 100%;  /* la card occupa tutta la larghezza disponibile del contenitore */
+  max-width: 100%; /* evita overflow su schermi piccoli */
+  box-sizing: border-box;
+}
+@media (orientation: portrait) {
+  .card {
+    position: relative;
+    left: -2%;
+  }
+  .wrap {
+    position: relative;
+    left: -5%;
+  }
+  .value {
+    position: relative;
+    top: -4vh;
+    font-size: 100;
+  }
+  .unit {
+    position: relative;
+    left: -39%;
+  }
+}
+
+
+
+.left{padding:1rem}
+.meta{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.brand{font-weight:700;font-size:1.5vh;color:var(--accent)}
+.server{font-size:1.2vh;color:var(--muted)}
+
+
+.big-number{display:flex;align-items:baseline;gap:1vh;margin-top:2vh}
+.value{font-size:6vh;font-weight:700}
+.unit{font-size:2vh;color:var(--muted)}
+
+
+.stats{display:flex;gap:1vh;margin-top:2vh;flex-wrap:wrap}
+.stat{flex:1 1 30%;background:var(--glass);padding:1.5vh;border-radius:1vh;text-align:center}
+.stat h4{margin:0;font-size:1.2vh;color:var(--muted)}
+.stat p{margin:.5vh 0 0;font-weight:700;font-size:2vh}
+
+
+.controls{display:flex;gap:1vh;align-items:center;margin-top:2vh;flex-wrap:wrap}
+.btn{background:linear-gradient(90deg,var(--accent),var(--accent2));border:none;padding:1vh 2vh;border-radius:1vh;color:#021224;font-weight:700;cursor:pointer;box-shadow:0 0.6vh 1.8vh rgba(0,212,255,.08)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600}
+
+
+.right{padding:1rem}
+.meter{display:flex;flex-direction:column;gap:2vh}
+.phase{display:flex;align-items:center;gap:1vh;flex-wrap:wrap}
+.phase .dot{width:1.5vh;height:1.5vh;border-radius:50%;background:rgba(255,255,255,0.06)}
+.phase .dot.active{background:var(--accent)}
+.phase .label{flex:1;color:var(--muted);font-size:1.5vh}
+.bar{height:1.5vh;background:rgba(255,255,255,0.04);border-radius:999px;overflow:hidden;flex:1}
+.bar > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:inherit}
+
+
+.share{margin-top:2vh;display:flex;gap:1vh;align-items:center;flex-wrap:wrap}
+.result-small{background:rgba(255,255,255,0.02);padding:1vh;border-radius:0.8vh;font-size:1.2vh;color:var(--muted)}
+
+.stat p { margin: .5vh 0 0; font-weight: 700; font-size: 2vh; color: #ffffff; } /* aggiungi color bianco */
+.stat h4 { margin: 0; font-size: 1.2vh; color: #ffffff; }
+.value { font-size: 6vh; font-weight: 700; color: #ffffff; } /* aggiungi color bianco */
+.hint{margin-top:1vh;color:var(--muted);font-size:1vh}
+
+
+.pulse{animation:pulse 1.6s infinite ease-in-out}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.01)}100%{transform:scale(1)}}
+
+
+.vertical-center{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2vh}
+</style>
+    </section>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Variabili DOM
+  const barPing = document.getElementById('bar-ping');
+  const barDownload = document.getElementById('bar-download');
+  const barUpload = document.getElementById('bar-upload');
+  const dotPing = document.getElementById('dot-ping');
+  const dotDownload = document.getElementById('dot-download');
+  const dotUpload = document.getElementById('dot-upload');
+  const mainValue = document.getElementById('mainValue');
+  const pingVal = document.getElementById('pingVal');
+  const jitterVal = document.getElementById('jitterVal');
+  const uploadVal = document.getElementById('uploadVal');
+  const status = document.getElementById('status');
+  const startBtn = document.getElementById('startBtn');
+  const resetBtn = document.getElementById('resetBtn');
+
+  let running = false;
+  let timers = [];
+
+  const rand = (min,max) => Math.random()*(max-min)+min;
+
+  function clearIntervals(){ timers.forEach(id => clearInterval(id)); timers = []; }
+
+  function resetAll(){
+    running=false; clearIntervals();
+    mainValue.textContent='—';
+    pingVal.textContent='— ms';
+    jitterVal.textContent='— ms';
+    uploadVal.textContent='— Mbps';
+    [barPing,barDownload,barUpload].forEach(b => b.style.width='0%');
+    [dotPing,dotDownload,dotUpload].forEach(d => d.classList.remove('active'));
+    status.textContent='Pronto';
+  }
+
+  function simulate(){
+    if(running) return;
+    running=true;
+    status.textContent='Connessione...';
+    mainValue.textContent='—';
+    pingVal.textContent='— ms';
+    jitterVal.textContent='— ms';
+    uploadVal.textContent='— Mbps';
+    [barPing,barDownload,barUpload].forEach(b => b.style.width='0%');
+    [dotPing,dotDownload,dotUpload].forEach(d => d.classList.remove('active'));
+
+    const targetPing = Math.round(rand(3,12));
+    const targetJitter = Math.round(rand(0.5,3.5)*10)/10;
+    const targetDownload = Math.round(rand(300,2000));
+    const targetUpload = Math.round(rand(100,1000));
+
+    // Fase ping
+    dotPing.classList.add('active');
+    let pingProgress = 0;
+    timers.push(setInterval(()=>{
+      pingProgress += rand(8,18);
+      barPing.style.width = Math.min(pingProgress,100)+'%';
+      pingVal.textContent = Math.max(1, Math.round(targetPing*(pingProgress/100)*rand(0.9,1.1))) + ' ms';
+      jitterVal.textContent = Math.max(0.5, Math.round(targetJitter*(pingProgress/100)*10)/10) + ' ms';
+      if(pingProgress>=100){ clearIntervals(); dotPing.classList.remove('active'); status.textContent='Misurazione download'; phaseDownload(); }
+    },120));
+
+    function phaseDownload(){
+      dotDownload.classList.add('active');
+      let percent=0;
+      timers.push(setInterval(()=>{
+        percent += rand(2,14);
+        barDownload.style.width = Math.min(percent,100)+'%';
+        mainValue.textContent = Math.round(targetDownload*(0.2+0.9*Math.min(1,percent/100))*rand(0.9,1.12));
+        if(percent>=100){ clearIntervals(); dotDownload.classList.remove('active'); status.textContent='Misurazione upload'; phaseUpload(); }
+      },90));
+    }
+
+    function phaseUpload(){
+      dotUpload.classList.add('active');
+      let percent=0;
+      timers.push(setInterval(()=>{
+        percent += rand(3,10);
+        barUpload.style.width = Math.min(percent,100)+'%';
+        uploadVal.textContent = Math.round(targetUpload*(0.15+0.95*Math.min(1,percent/100))*rand(0.9,1.08)) + ' Mbps';
+        if(percent>=100){ clearIntervals(); dotUpload.classList.remove('active'); finalize(); }
+      },110));
+    }
+
+    function finalize(){
+      status.textContent='Calcolo finale...';
+      let displayed = parseInt(mainValue.textContent) || 0;
+      const steps=18;
+      const step=(targetDownload-displayed)/steps;
+      let i=0;
+      const t=setInterval(()=>{
+        i++; displayed=Math.round(displayed+step); mainValue.textContent=displayed;
+        if(i>=steps){ clearInterval(t);
+          mainValue.textContent=targetDownload;
+          pingVal.textContent=targetPing + ' ms';
+          jitterVal.textContent=targetJitter + ' ms';
+          uploadVal.textContent=targetUpload + ' Mbps';
+          status.textContent='Risultato disponibile';
+          running=false;
+        }
+      },120);
+    }
+  }
+
+  startBtn.addEventListener('click', simulate);
+  resetBtn.addEventListener('click', resetAll);
+})
+
+
+
+
+// Seleziona l'elemento
+const fibra = document.querySelector('.fibra-colorata');
+
+// Funzione per controllare se l'elemento è visibile
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top < window.innerHeight && rect.bottom > 0
+  );
+}
+
+// Funzione per aggiungere classe quando visibile
+function checkScroll() {
+  if (isInViewport(fibra)) {
+    fibra.classList.add('visible');
+    window.removeEventListener('scroll', checkScroll); // opzionale: rimuove l'evento dopo la prima apparizione
+  }
+}
+
+// Controlla all'inizio e ad ogni scroll
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('load', checkScroll);
+
+const titolo = document.querySelector('.titolo-del-simulatore');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target); // animazione solo una volta
+    }
+  });
+}, { threshold: 0.1 });
+
+observer.observe(titolo);
+
+
+const wrap = document.querySelector('.wrap');
+
+const observerWrap = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = 'translateY(0)';
+      observerWrap.unobserve(entry.target); // animazione una sola volta
+    }
+  });
+}, { threshold: 0.1 });
+
+observerWrap.observe(wrap);
+
+    </script>
+    <div class="info-box">
+  <div class="logo-info">
+    <img src="logo.png" alt="logo" />
+  </div>
+
+  <div class="assistenza">
+    <i class="fa-solid fa-phone-volume"></i>
+    <div>
+      <h4>Numero assistenza clienti</h4>
+      <p>*********</p>
+    </div>
+  </div>
+
+  <div class="email">
+    <i class="fa-solid fa-envelope"></i>
+    <div>
+      <h4>Email aziendale</h4>
+      <p>tbh@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="sede-legale">
+    <i class="fa-solid fa-location-dot"></i>
+    <div>
+      <h4>Sede legale</h4>
+      <p>Tolfa (RM) Piazza Bettino Craxi 3 CAP 00059</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer principale -->
+<footer class="footer">
+  <div class="footer-section chi-siamo">
+    <h2>Chi siamo</h2>
+    <p>
+      TBH Srl è una realtà dinamica e innovativa, specializzata nello sviluppo
+      di soluzioni tecnologiche su misura per aziende e professionisti. Uniamo
+      competenze tecniche, visione strategica e creatività per offrire servizi
+      ad alto valore aggiunto nei settori del digital, dell’ingegneria e della
+      consulenza.
+    </p>
+  </div>
+
+  <div class="footer-section link-utili">
+    <h2>Link utili</h2>
+    <a href="chi-siamo.html">➜ Chi siamo</a>
+    <a href="servizi-introduzione.html">➜ I nostri servizi</a>
+    <a href="contatti.html">➜ Contatti</a>
+  </div>
+
+  <div class="footer-section link-rapidi">
+    <h2>Link rapidi</h2>
+    <a href="index.html">➜ Home</a>
+    <a href="team.html">➜ Team</a>
+    <a href="prenotazioni.html">➜ Prenotazioni</a>
+  </div>
+</footer>
+
+<!-- Settima sezione -->
+<section class="settima-sezione">
+  <p>
+    | &copy; TBH Srl 2024 | P.IVA 17496751003 | Tutti i diritti riservati |
+    Sviluppato da CodeFactory |
+  </p>
+</section>
+ <button id="scrollTopBtn" title="Torna su">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+ <script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > window.innerHeight * 0.3) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Seleziona tutti gli elementi da animare
+const elements = document.querySelectorAll('.del-pulsante');
+
+function checkVisibility() {
+  const triggerBottom = window.innerHeight * 0.9; // quando l'elemento entra al 90% della viewport
+  elements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < triggerBottom) {
+      el.classList.add('visible');
+    }
+  });
+}
+
+// Evento scroll + evento load per animare subito gli elementi già visibili
+window.addEventListener('scroll', checkVisibility);
+window.addEventListener('load', checkVisibility);
+
+
+// Seleziona l'elemento
+const descrizione = document.querySelector(".seconda-descrizione");
+if (descrizione) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          descrizione.classList.add("visible");
+          observer.unobserve(descrizione);
+        }
+      });
+    },
+    { threshold: 0.05 } // attiva quando l'elemento entra nella viewport
+  );
+
+  observer.observe(descrizione);
+
+  // Fallback su mobile, se già visibile
+  const top = descrizione.getBoundingClientRect().top;
+  if (top < window.innerHeight) {
+    descrizione.classList.add("visible");
+  }
+}
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const elementi = document.querySelectorAll(".vantaggio9");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visibile");
+          observer.unobserve(entry.target); // anima una sola volta
+        }
+      });
+    },
+    {
+      threshold: 0.2 // entra quando è visibile al 20%
+    }
+  );
+
+  elementi.forEach(el => observer.observe(el));
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const contatto = document.querySelector(".rectangle-contatti");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visibile");
+          observer.unobserve(entry.target); // animazione una sola volta
+        }
+      });
+    },
+    {
+      threshold: 0.2 // entra quando il 20% è visibile
+    }
+  );
+
+  observer.observe(contatto);
+});
+  </script>
+
+  </main>
+</body>
+</html>

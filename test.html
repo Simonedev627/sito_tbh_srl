@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Test bottone</title>
+<style>
+body { height: 200vh; padding: 40px; background: #eee; }
+
+.btn-bot {
+  position: relative;
+  display: inline-block;
+  padding: 15px 50px;
+  font-size: 18px;
+  color: #fff;
+  background: grey;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.btn-bot.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.btn-bot span {
+  position: relative;
+  z-index: 2;
+  transition: color 0.8s ease;
+}
+
+.btn-bot::before,
+.btn-bot::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background: cyan;
+  z-index: 1;
+  transform: scaleX(0);
+  transition: transform 0.8s ease;
+}
+.btn-bot::before { left: 0; transform-origin: right; }
+.btn-bot::after  { right: 0; transform-origin: left; }
+
+.btn-bot:hover::before,
+.btn-bot:hover::after { transform: scaleX(1); }
+.btn-bot:hover span { color: black; }
+</style>
+</head>
+<body>
+
+<div style="height:600px"></div>
+<button class="btn-bot"><span>Vai al bot</span></button>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.querySelector('.btn-bot');
+
+  if (btn) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          btn.classList.add('show');
+          observer.unobserve(btn);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(btn);
+  }
+});
+</script>
+
+</body>
+</html>

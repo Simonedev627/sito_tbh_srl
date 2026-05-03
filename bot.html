@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icone -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+    <title>Bot - TBH srl  </title>
+</head>
+
+<body>
+     <main>
+
+    <!-- Navbar -->
+    <header class="navbar">
+      <img src="logo.png" alt="Logo TBH" class="logo-img">
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="introduzione-servizi.html">Servizi</a>
+        <a href="contatti.html">Contatti</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="prenotazioni.html">Prenotazioni</a>
+        <a href="team.html">Team</a>
+      </nav>
+    </header>
+    </main>
+    <section class="prima-sezione-bot">
+  <div class="bot-container">
+  <img src="cervello-ai.png" alt="cervello-ai" class="bot-image">
+  <div class="overlay"></div>
+  <h1 class="bot-title">TBH Ai</h1>
+</div>
+
+
+
+
+    <div class="bot-description">
+        <p>
+           Ciao! Sono TBH Ai, il tuo assistente virtuale disponibile 24/7 per aiutarti con domande, supporto tecnico e assistenza sui nostri servizi.
+        </p>
+    </div>
+
+    <div class="bot-wrapper">
+    <div class="chat-container">
+    <div id="chat-box"></div>
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="Scrivi il tuo messaggio..." required>
+        <button id="send-btn" >Invia</button>
+    </div>
+</div>
+<div class="dubbio">
+    <h2>Non trovi quello che cerchi?</h2>
+    <p>Contatta il nostro supporto clienti per assistenza personalizzata.</p>
+    <a href="contatti.html" class="btn-contacts"><span>Contatti</span></a>
+</div>
+    </div>
+
+
+<script>
+const chatBox = document.getElementById('chat-box');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+
+function addMessage(sender, text, isTyping=false) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('message', sender);
+
+    if(isTyping){
+        const typingDots = document.createElement('div');
+        typingDots.classList.add('typing');
+        typingDots.innerHTML = '<div></div><div></div><div></div>';
+        msgDiv.appendChild(typingDots);
+    } else {
+        msgDiv.textContent = text;
+    }
+
+    chatBox.appendChild(msgDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    return msgDiv;
+}
+
+function botResponse(message) {
+    message = message.toLowerCase();
+    if(message.includes("ciao")) return "Ciao! Come posso aiutarti oggi?";
+    else if (message.includes("aiuto")) return "Certo! Dimmi pure quale problema hai.";
+    else if (message.includes("che servizi offrite?")) return "Offriamo soluzioni tecnologiche professionali di telecomunicazioni";
+    else if (message.includes("come vi contatto?")) return "Puoi contattarci tramite la pagina 'Contatti' del nostro sito web.";
+    else if(message.includes("tipo?")) return "Ad esempio la fibra ottica";
+    else if (message.includes("chi siete?")) return "Siamo TBH Srl, un'azienda specializzata in soluzioni tecnologiche su misura per aziende e professionisti.";
+    else if (message.includes("chi siete")) return "Siamo TBH Srl, un'azienda specializzata in soluzioni tecnologiche su misura per aziende e professionisti.";
+    else if (message.includes("quanto tempo occorre per l'installazione?")) return "L'installazione di solito richiede da 1 a 3 giorni lavorativi, a seconda della complessità del progetto.";
+    else if(message.includes("che cos'è la fibra ottica?")) return "La fibra ottica è una tecnologia di trasmissione dati che utilizza filamenti di vetro o plastica per trasmettere segnali luminosi ad alta velocità su lunghe distanze.";
+    else if(message.includes("come stai")) return "Sto bene, grazie! E tu?";
+    return "Mi dispiace, non ho capito. Puoi riformulare?";
+}
+
+function sendMessage() {
+    let message = userInput.value.trim();
+    if(!message) return;
+
+    // Controllo per clear/cls
+    if(message.toLowerCase() === 'cls' || message.toLowerCase() === 'clear'){
+        chatBox.innerHTML = '';
+        userInput.value = '';
+        userInput.focus();
+        return;
+    }
+
+    // Messaggio utente
+    addMessage('user', message);
+    userInput.value = "";
+    userInput.focus();
+
+    // Messaggio bot "sta scrivendo"
+    const typingMsg = addMessage('bot', '', true);
+
+    // Dopo 1.2 secondi sostituisci con risposta reale
+    setTimeout(() => {
+        typingMsg.remove();
+        addMessage('bot', botResponse(message));
+    }, 1200);
+}
+
+// Eventi
+sendBtn.addEventListener('click', sendMessage);
+
+userInput.addEventListener('keypress', (e) => {
+    if(e.key === "Enter") sendMessage();
+});
+
+// === MESSAGGIO INIZIALE DEL BOT ===
+window.addEventListener('DOMContentLoaded', () => {
+    // Mostra subito messaggio bot con effetto "typing"
+    const typingMsg = addMessage('bot', '', true);
+    setTimeout(() => {
+        typingMsg.remove();
+        addMessage('bot', 'Scrivere cls o clear per pulire la chat');
+    }, 1200);
+});
+
+</script>
+    
+    </section>
+<div class="info-box">
+  <div class="logo-info">
+    <img src="logo.png" alt="logo" />
+  </div>
+
+  <div class="assistenza">
+    <i class="fa-solid fa-phone-volume"></i>
+    <div>
+      <h4>Numero assistenza clienti</h4>
+      <p>*********</p>
+    </div>
+  </div>
+
+  <div class="email">
+    <i class="fa-solid fa-envelope"></i>
+    <div>
+      <h4>Email aziendale</h4>
+      <p>tbh@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="sede-legale">
+    <i class="fa-solid fa-location-dot"></i>
+    <div>
+      <h4>Sede legale</h4>
+      <p>Tolfa (RM) Piazza Bettino Craxi 3 CAP 00059</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer principale -->
+<footer class="footer">
+  <div class="footer-section chi-siamo">
+    <h2>Chi siamo</h2>
+    <p>
+      TBH Srl è una realtà dinamica e innovativa, specializzata nello sviluppo
+      di soluzioni tecnologiche su misura per aziende e professionisti. Uniamo
+      competenze tecniche, visione strategica e creatività per offrire servizi
+      ad alto valore aggiunto nei settori del digital, dell’ingegneria e della
+      consulenza.
+    </p>
+  </div>
+
+  <div class="footer-section link-utili">
+    <h2>Link utili</h2>
+    <a href="chi-siamo.html">➜ Chi siamo</a>
+    <a href="servizi-introduzione.html">➜ I nostri servizi</a>
+    <a href="contatti.html">➜ Contatti</a>
+  </div>
+
+  <div class="footer-section link-rapidi">
+    <h2>Link rapidi</h2>
+    <a href="index.html">➜ Home</a>
+    <a href="team.html">➜ Team</a>
+    <a href="prenotazioni.html">➜ Prenotazioni</a>
+  </div>
+</footer>
+
+<!-- Settima sezione -->
+<section class="settima-sezione">
+  <p>
+    | &copy; TBH Srl 2024 | P.IVA 17496751003 | Tutti i diritti riservati |
+    Sviluppato da CodeFactory |
+  </p>
+</section>
+  <button id="scrollTopBtn" title="Torna su">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+ <script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > window.innerHeight * 0.3) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
