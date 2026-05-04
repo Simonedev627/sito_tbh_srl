@@ -182,17 +182,27 @@ app.delete("/prenotazioni/:id", async (req, res) => {
 
     // 📧 EMAIL CON RESEND
     try {
-      await resend.emails.send({
-        from: "onboarding@resend.dev",
-        to: process.env.EMAIL,
-        subject: `❌ Prenotazione eliminata: ${removed.nome}`,
-        text: `
-Nome: ${removed.nome}
-Motivo: ${removed.motivo}
-Data: ${removed.data}
-Ora: ${removed.ora}
-        `
-      });
+await resend.emails.send({
+  from: "TBH S.r.l <onboarding@resend.dev>",
+  to: process.env.EMAIL,
+
+  subject: `❌ Prenotazione cancellata - ${removed.nome}`,
+
+  html: `
+    <div style="font-family: Arial, sans-serif; padding: 15px;">
+      <h2 style="color: #d32f2f;">❌ Prenotazione eliminata</h2>
+
+      <p><b>Nome:</b> ${removed.nome}</p>
+      <p><b>Motivo:</b> ${removed.motivo}</p>
+      <p><b>Data:</b> ${removed.data}</p>
+      <p><b>Ora:</b> ${removed.ora}</p>
+      <p><b>ID Utente:</b> ${removed.userId}</p>
+
+      <hr>
+      <p style="color: gray;">Sistema prenotazioni TBH S.r.l</p>
+    </div>
+  `
+});
 
       console.log("📧 Email eliminazione inviata");
     } catch (error) {
