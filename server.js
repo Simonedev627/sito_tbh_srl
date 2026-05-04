@@ -316,6 +316,46 @@ await resend.emails.send({
   }
 });
 
+app.post("/contatti", async (req, res) => {
+  try {
+    const { nome, email, messaggio } = req.body;
+
+    if (!nome || !email || !messaggio) {
+      return res.status(400).json({ error: "Campi mancanti" });
+    }
+
+    await resend.emails.send({
+      from: "TBH S.r.l <onboarding@resend.dev>",
+      to: process.env.EMAIL,
+      subject: `📩 Nuovo messaggio contatti - ${nome}`,
+
+      html: `
+        <div style="font-family: Arial; padding: 15px;">
+          <h2>📩 Nuovo messaggio dal sito</h2>
+
+          <p><b>Nome:</b> ${nome}</p>
+          <p><b>Email:</b> ${email}</p>
+
+          <hr>
+
+          <p><b>Messaggio:</b></p>
+          <p>${messaggio}</p>
+
+          <hr>
+          <p style="color: gray;">Modulo contatti TBH S.r.l</p>
+        </div>
+      `
+    });
+
+    console.log("📧 Email contatto inviata");
+
+    res.json({ success: true });
+
+  } catch (error) {
+    console.error("❌ Errore contatti:", error);
+    res.status(500).json({ error: "Errore server" });
+  }
+});
 // ---------------- START SERVER ----------------
 const port = process.env.PORT || 3000;
 

@@ -44,7 +44,7 @@
     <p>
       Compila il modulo qui sotto per contattarci o prenotare un appuntamento
     </p>
-    <form action="/send" method="post">
+    <form id="contattiForm">
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" required>
 
@@ -91,5 +91,30 @@
     border: 0;
   }
 </style>
+<script>
+  document.getElementById("contattiForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
+  const nome = document.getElementById("nome").value;
+  const email = document.getElementById("email").value;
+  const messaggio = document.getElementById("messaggio").value;
+
+  const res = await fetch("/contatti", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ nome, email, messaggio })
+  });
+
+  const data = await res.json();
+
+  if (data.success) {
+    alert("Messaggio inviato con successo!");
+    e.target.reset();
+  } else {
+    alert("Errore invio messaggio");
+  }
+});
+</script>
     </section>
