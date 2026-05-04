@@ -327,6 +327,7 @@ app.post("/contatti", async (req, res) => {
     await resend.emails.send({
       from: "TBH S.r.l <onboarding@resend.dev>",
       to: process.env.EMAIL,
+      reply_to: email,
       subject: `📩 Nuovo messaggio contatti - ${nome}`,
 
       html: `
