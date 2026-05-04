@@ -209,7 +209,7 @@ app.post("/candidature", upload.single("cv"), async (req, res) => {
       posizione,
       linkedin,
       competenze,
-      disponibilità
+      disponibilita
     } = req.body;
 
     if (!nome || !email) {
@@ -233,7 +233,7 @@ app.post("/candidature", upload.single("cv"), async (req, res) => {
       posizione,
       linkedin,
       competenze,
-      disponibilità,
+      disponibilita,
       cv: req.file ? req.file.filename : null,
       data: new Date().toISOString()
     };
@@ -245,26 +245,30 @@ app.post("/candidature", upload.single("cv"), async (req, res) => {
 
     // 📧 EMAIL CON RESEND
     try {
-      await resend.emails.send({
-        from: "onboarding@resend.dev",
-        to: process.env.EMAIL,
-        subject: `📄 Nuova candidatura: ${nome}`,
-        text: `
+const fileBuffer = req.file
+  ? fs.readFileSync(path.join(UPLOADS_DIR, req.file.filename))
+  : null;
+
+await resend.emails.send({
+  from: "onboarding@resend.dev",
+  to: process.env.EMAIL,
+  subject: `📄 Nuova candidatura: ${nome}`,
+  text: `
 Nome: ${nome}
 Email: ${email}
 Telefono: ${telefono || "-"}
 Posizione: ${posizione || "-"}
 Competenze: ${competenze || "-"}
-        `,
-        attachments: req.file
-          ? [
-              {
-                filename: req.file.originalname,
-                path: path.join(UPLOADS_DIR, req.file.filename)
-              }
-            ]
-          : []
-      });
+  `,
+  attachments: req.file
+    ? [
+        {
+          filename: req.file.originalname,
+          content: fileBuffer.toString("base64")
+        }
+      ]
+    : []
+});
 
       console.log("📧 Email candidatura inviata");
     } catch (error) {
