@@ -215,10 +215,10 @@ document.getElementById("lavora-form").addEventListener("submit", async (e) => {
   const form = e.target;
   const formData = new FormData(form);
 
-  const res = await fetch("http://localhost:3000/candidature", {
-    method: "POST",
-    body: formData
-  });
+fetch("https://sito-tbh-srl.onrender.com/candidature", {
+  method: "POST",
+  body: formData
+});
 
   const data = await res.json();
   if (data.success) {
