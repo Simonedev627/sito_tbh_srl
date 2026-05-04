@@ -39,7 +39,7 @@
 
 /* LOGO responsive dentro il contenitore */
 .logo-img {
-  height: 70%;        /* si adatta all’altezza della navbar */
+  height: 90%;        /* si adatta all’altezza della navbar */
   max-height: 80px;   /* evita che diventi enorme */
   min-height: 40px;   /* evita che diventi minuscolo */
 
