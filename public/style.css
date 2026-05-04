@@ -23,16 +23,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
 
-  padding: 2vh 5vw;
-  border-radius: 1rem;
-  width: 100%;
+  padding: 0 5vw;     /* togli padding verticale */
+  height: 18vh;       /* altezza fissa */
   box-sizing: border-box;
 
-  min-height: 18vh;   /* <-- invece di height */
-  height: auto;       /* <-- importante */
+  overflow: hidden;   /* IMPORTANTISSIMO: evita overflow visivo */
 
+  border-radius: 1rem;
+  width: 100%;
   border: 0.25rem solid #00f0ff;
   box-shadow: 0 0 1rem #00f0ff, 0 0 2rem #00f0ff, 0 0 4rem #00f0ff;
   animation: electricGlow 1s infinite alternate;
