@@ -334,7 +334,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-  
+const form = document.getElementById("formCandidatura");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  const res = await fetch("/candidature", {
+    method: "POST",
+    body: formData
+  });
+
+  const data = await res.json();
+
+  if (data.success) {
+    console.log("✅ Inviato con successo");
+
+    // 🔥 RESET FORM
+    form.reset();
+  }
+});
 </script>
 </body>
 </html>

@@ -216,11 +216,11 @@ app.post("/candidature", upload.single("cv"), async (req, res) => {
       return res.status(400).json({ error: "Nome e email obbligatori" });
     }
 
-    const filePath = path.join(__dirname, "candidature.json");
+    const CANDIDATURE_FILE = path.join(__dirname, "candidature.json");
 
     let db = { candidature: [] };
-    if (fs.existsSync(filePath)) {
-      db = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    if (fs.existsSync(CANDIDATURE_FILE)) {
+      db = JSON.parse(fs.readFileSync(CANDIDATURE_FILE, "utf-8"));
     }
 
     const candidatura = {
@@ -239,28 +239,46 @@ app.post("/candidature", upload.single("cv"), async (req, res) => {
     };
 
     db.candidature.push(candidatura);
-    fs.writeFileSync(filePath, JSON.stringify(db, null, 2));
+    fs.writeFileSync(CANDIDATURE_FILE, JSON.stringify(db, null, 2));
 
-    console.log("📄 Candidatura:", candidatura);
+    console.log("📄 Nuova candidatura:", candidatura);
 
-    const mailOptions = {
-      from: process.env.EMAIL,
-      to: process.env.EMAIL,
-      subject: `Nuova candidatura: ${nome}`,
-      text: `Email: ${email}\nPosizione: ${posizione}`
-    };
-
+    // 📧 EMAIL CON RESEND
     try {
-      const info = await transporter.sendMail(mailOptions);
-      console.log("📧 Email candidatura inviata:", info.response);
+      await resend.emails.send({
+        from: "onboarding@resend.dev",
+        to: process.env.EMAIL,
+        subject: `📄 Nuova candidatura: ${nome}`,
+        text: `
+Nome: ${nome}
+Email: ${email}
+Telefono: ${telefono || "-"}
+Posizione: ${posizione || "-"}
+Competenze: ${competenze || "-"}
+        `,
+        attachments: req.file
+          ? [
+              {
+                filename: req.file.originalname,
+                path: path.join(UPLOADS_DIR, req.file.filename)
+              }
+            ]
+          : []
+      });
+
+      console.log("📧 Email candidatura inviata");
     } catch (error) {
       console.error("❌ Errore email candidatura:", error);
     }
 
+    // 🔥 LOG SUCCESSO
+    console.log("✅ Candidatura inviata con successo");
+
+    // 🔥 RISPOSTA AL CLIENT
     res.json({ success: true });
 
   } catch (err) {
-    console.error(err);
+    console.error("Errore POST candidature:", err);
     res.status(500).json({ error: "Errore server" });
   }
 });
