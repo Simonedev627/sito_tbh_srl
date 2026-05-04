@@ -41,7 +41,7 @@
 .logo-img {
   height: 30vh;
   width: auto;
-
+  transform: translateY(-2vh);
   max-height: 35vh;
   min-height: 14vh;
 }
