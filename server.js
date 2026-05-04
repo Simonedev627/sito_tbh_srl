@@ -151,24 +151,48 @@ app.put("/prenotazioni/:id", (req, res) => {
 });
 
 // DELETE prenotazione
-app.delete("/prenotazioni/:id", (req, res) => {
+app.delete("/prenotazioni/:id", async (req, res) => {
   try {
     const { userId } = req.body;
     const db = readDB();
 
-    const index = db.prenotazioni.findIndex(p => p.idPrenotazione === req.params.id);
+    const index = db.prenotazioni.findIndex(
+      p => p.idPrenotazione === req.params.id
+    );
+
     if (index === -1) return res.sendStatus(404);
     if (db.prenotazioni[index].userId !== userId) return res.sendStatus(403);
 
     const removed = db.prenotazioni.splice(index, 1)[0];
     writeDB(db);
 
-    console.log("❌ Eliminata:", removed);
+    console.log(
+      `❌ Prenotazione eliminata: ${removed.nome}, giorno: ${removed.data}`
+    );
+
+    // 📧 EMAIL CON RESEND
+    try {
+      await resend.emails.send({
+        from: "onboarding@resend.dev",
+        to: process.env.EMAIL,
+        subject: `❌ Prenotazione eliminata: ${removed.nome}`,
+        text: `
+Nome: ${removed.nome}
+Motivo: ${removed.motivo}
+Data: ${removed.data}
+Ora: ${removed.ora}
+        `
+      });
+
+      console.log("📧 Email eliminazione inviata");
+    } catch (error) {
+      console.error("❌ Errore email eliminazione:", error);
+    }
 
     res.sendStatus(204);
 
   } catch (err) {
-    console.error(err);
+    console.error("Errore DELETE prenotazioni:", err);
     res.status(500).json({ error: "Errore server" });
   }
 });
