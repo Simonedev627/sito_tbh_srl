@@ -212,18 +212,21 @@ document.querySelectorAll('#lavora-form textarea').forEach(textarea => {
 // Submit form Lavora con noi
 document.getElementById("lavora-form").addEventListener("submit", async (e) => {
   e.preventDefault();
+
   const form = e.target;
   const formData = new FormData(form);
 
-fetch("https://sito-tbh-srl.onrender.com/candidature", {
-  method: "POST",
-  body: formData
-});
+  const res = await fetch("https://sito-tbh-srl.onrender.com/candidature", {
+    method: "POST",
+    body: formData
+  });
 
   const data = await res.json();
+
   if (data.success) {
     alert("Candidatura inviata con successo!");
     form.reset();
+
     fileName.textContent = "";
     removeFile.style.display = "none";
   } else {
