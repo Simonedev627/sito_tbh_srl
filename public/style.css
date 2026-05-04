@@ -40,11 +40,11 @@
 
 /* LOGO responsive dentro il contenitore */
 .logo-img {
-  height: 140px;   /* valore base più grande */
+  height: 180px;   /* più grande di prima */
   width: auto;
 
-  max-height: 18vh; /* resta responsivo rispetto alla navbar */
-  min-height: 80px;
+  max-height: 22vh; /* più spazio su schermi grandi */
+  min-height: 90px;
 
   z-index: 2;
 }
