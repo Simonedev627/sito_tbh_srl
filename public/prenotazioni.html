@@ -183,7 +183,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let selectedDay = null;
   let annoCorrente = new Date().getFullYear();
   let prenotazioni = [];
-  const utenteCorrente = "user123"; // id unico simulato
+  let utenteCorrente = localStorage.getItem("userId");
+
+if (!utenteCorrente) {
+  utenteCorrente = crypto.randomUUID();
+  localStorage.setItem("userId", utenteCorrente);
+}
 
   const tooltipBlocco = document.createElement("div");
   tooltipBlocco.style.position = "absolute";
