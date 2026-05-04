@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
         emptyDay.classList.add("day","out");
         daysDiv.appendChild(emptyDay);
       }
-
+      
       for(let d=1;d<=lastDate;d++){
         const dayDiv = document.createElement("div");
         dayDiv.classList.add("day","free");
@@ -252,12 +252,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         dayDiv.onmouseenter = (e)=>{
-          if(p && p.userId !== utenteCorrente){
-            tooltipBlocco.style.display="block";
-            tooltipBlocco.textContent = "Giorno già prenotato";
-            tooltipBlocco.style.left = e.pageX + 10 + "px";
-            tooltipBlocco.style.top = e.pageY + 10 + "px";
-          }
+// 🔒 BLOCCO PRENOTAZIONI NON PROPRIE
+if(p && p.userId !== utenteCorrente){
+  dayDiv.style.cursor = "not-allowed";
+  dayDiv.style.opacity = "0.6";
+  dayDiv.style.pointerEvents = "auto"; // serve per tooltip
+}
         };
         dayDiv.onmousemove = (e)=>{
           if(tooltipBlocco.style.display==="block"){
@@ -267,11 +267,10 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         dayDiv.onmouseleave = ()=>{tooltipBlocco.style.display="none";};
 
-        dayDiv.onclick = ()=>{
-          if(p && p.userId!==utenteCorrente){
-            alert(`Giorno prenotato da un altro utente: ${p.nome}`);
-            return;
-          }
+dayDiv.onclick = ()=>{
+  if(p && p.userId !== utenteCorrente){
+    return; // 🔥 blocco silenzioso (UX migliore)
+  }
           selectedDay = dayDiv;
           document.getElementById("nome").value = p?.nome||"";
           document.getElementById("motivo").value = p?.motivo||"";
