@@ -250,11 +250,18 @@ if (!utenteCorrente) {
         const key = `${annoCorrente}-${m+1}-${d}`;
         const p = prenotazioni.find(p=>p.data===key);
 
-        if(p){
-          dayDiv.classList.remove("free");
-          dayDiv.classList.add("booked");
-          dayDiv.title = `${p.nome}: ${p.motivo} alle ${p.ora}`;
-        }
+if(p){
+  dayDiv.classList.remove("free");
+  dayDiv.classList.add("booked");
+
+  if(p.userId === utenteCorrente){
+    // 👤 TUOI DATI (ok mostrarli)
+    dayDiv.title = `${p.nome}: ${p.motivo} alle ${p.ora}`;
+  } else {
+    // 🔒 ALTRI UTENTI (privacy)
+    dayDiv.title = "Giorno già prenotato";
+  }
+}
 
         dayDiv.onmouseenter = (e)=>{
 // 🔒 BLOCCO PRENOTAZIONI NON PROPRIE
