@@ -250,16 +250,25 @@ const fileBuffer = req.file
   : null;
 
 await resend.emails.send({
-  from: "onboarding@resend.dev",
+  from: "TBH S.r.l <onboarding@resend.dev>",
   to: process.env.EMAIL,
-  subject: `📄 Nuova candidatura: ${nome}`,
-  text: `
-Nome: ${nome}
-Email: ${email}
-Telefono: ${telefono || "-"}
-Posizione: ${posizione || "-"}
-Competenze: ${competenze || "-"}
+  subject: `📄 Nuova candidatura ricevuta - ${nome}`,
+
+  html: `
+    <div style="font-family: Arial, sans-serif; padding: 15px;">
+      <h2>📄 Nuova candidatura</h2>
+
+      <p><b>Nome:</b> ${nome}</p>
+      <p><b>Email:</b> ${email}</p>
+      <p><b>Telefono:</b> ${telefono || "-"}</p>
+      <p><b>Posizione:</b> ${posizione || "-"}</p>
+      <p><b>Competenze:</b> ${competenze || "-"}</p>
+
+      <hr>
+      <p style="color: gray;">Invio automatico dal sito TBH S.r.l</p>
+    </div>
   `,
+
   attachments: req.file
     ? [
         {
