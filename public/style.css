@@ -39,13 +39,9 @@
 
 /* LOGO responsive dentro il contenitore */
 .logo-img {
-  height: 180px;   /* più grande di prima */
+  height: 100%;
+  max-height: 18vh;
   width: auto;
-
-  max-height: 22vh; /* più spazio su schermi grandi */
-  min-height: 90px;
-
-  z-index: 2;
 }
 /* Contenitore link */
 .nav-links {
@@ -56,7 +52,7 @@
   gap: 2vw;
   width: 100%;
 
-  transform: translateY(-5vh); /* alza i link */
+  transform: translateY(-2vh); /* alza i link */
 }
 
 .nav-links a {
