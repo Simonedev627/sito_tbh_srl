@@ -79,7 +79,7 @@ app.post("/prenotazioni", async (req, res) => {
     if (!userId || !nome || !motivo || !data || !ora) {
       return res.status(400).json({ error: "Campi mancanti" });
     }
-
+    
     const db = readDB();
 
     const exists = db.prenotazioni.find(p => p.data === data);
@@ -103,17 +103,27 @@ app.post("/prenotazioni", async (req, res) => {
 
     // 📧 EMAIL CON RESEND
     try {
-      await resend.emails.send({
-        from: "onboarding@resend.dev",
-        to: process.env.EMAIL,
-        subject: `Nuova prenotazione: ${nome} - ${data}`,
-        text: `
-Nome: ${nome}
-Motivo: ${motivo}
-Data: ${data}
-Ora: ${ora}
-        `
-      });
+await resend.emails.send({
+  from: "TBH S.r.l <onboarding@resend.dev>",
+  to: process.env.EMAIL,
+
+  subject: `📅 Nuova prenotazione - ${nome}`,
+
+  html: `
+    <div style="font-family: Arial, sans-serif; padding: 15px;">
+      <h2>📅 Nuova prenotazione ricevuta</h2>
+
+      <p><b>Nome:</b> ${nome}</p>
+      <p><b>Motivo:</b> ${motivo}</p>
+      <p><b>Data:</b> ${data}</p>
+      <p><b>Ora:</b> ${ora}</p>
+      <p><b>ID Utente:</b> ${userId}</p>
+
+      <hr>
+      <p style="color: gray;">Sistema prenotazioni TBH S.r.l</p>
+    </div>
+  `
+});
 
       console.log("📧 Email inviata (Resend)");
     } catch (error) {
