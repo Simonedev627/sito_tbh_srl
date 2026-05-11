@@ -39,9 +39,9 @@
 
 /* LOGO responsive dentro il contenitore */
 .logo-img {
-  height: 30vh;
+  height: 50vh;
   width: auto;
-  transform: translateY(3vh);
+  transform: translateY(2vh);
   max-height: 35vh;
   min-height: 14vh;
 }
